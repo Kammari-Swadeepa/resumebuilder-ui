@@ -1,20 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import demo1 from "../../assests/img/demos/demo-1.png";
 import test1 from "../../assests/img/test-img/1.jpg"
+import { useSearchParams } from 'react-router-dom';
 
 
 function EditTemplate() {
     useEffect(()=>{
         window.scroll(0,0)
     },[])
+
+    const [isLoading,setIsLoading]=useState(true)
+    setTimeout(()=>{
+        setIsLoading(false)
+    },200)
     return (
         <>
 
-            {/* <div id="preloader">
+            {isLoading &&<div id="preloader">
                 <div class="preload-content">
                     <div id="dream-load"></div>
                 </div>
-            </div> */}
+            </div>}
 
             <section class="blog-area">
                 <div class="container-fluid">
