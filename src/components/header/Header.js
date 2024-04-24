@@ -12,13 +12,15 @@ function Header() {
 
   const LoginFnc = async () => {
     setLoginModal(true)
-
+    setSignupModal(false)
   }
   const SignupFnc = async () => {
     setSignupModal(true)
+    setLoginModal(false)
   }
   const closeLogin=async()=>{
     setLoginModal(false)
+
   }
   return (
     <>
