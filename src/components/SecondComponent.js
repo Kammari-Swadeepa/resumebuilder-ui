@@ -2,6 +2,7 @@ import React from 'react';
 import d1 from "../assests/img/icons/d1.png"
 import d2 from "../assests/img/icons/d2.png"
 import d3 from "../assests/img/icons/d3.png"
+import { Link } from 'react-router-dom';
 
 function SecondComponent() {
   return (
@@ -52,7 +53,8 @@ function SecondComponent() {
                         <h4>Why Choose Our Platform?</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum risus, non suscipit arcu. Quisque aliquam posuere tortor, sit amet convallis nunc scelerisque in.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eius molestiae facere, natus reprehenderit eaque eum, autem ipsam. Magni, error. Tempora odit laborum iure inventore possimus laboriosam qui nam. Fugit!</p>
-                        <a class="btn dream-btn mt-30" href="templates.html">lets build your cv</a>
+                        {/* <a class="btn dream-btn mt-30" href="templates.html">lets build your cv</a> */}
+                        <Link class="btn dream-btn mt-30" to={'/templates'}>lets build your cv</Link>
                     </div>
                 </div>
             </div>

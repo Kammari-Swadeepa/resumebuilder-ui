@@ -554,6 +554,8 @@ ol {
     font-size: 16px;
     max-width: 600px;
     margin: 0 auto;
+    color: #878484;
+
 }
 
 #scrollUp {
@@ -789,7 +791,7 @@ ol {
     padding: 0;
 }
 
-.classynav ul li a {
+.classynav ul li a  {
     text-transform: uppercase;
 }
 
@@ -2109,7 +2111,9 @@ p.artficial:before{
     font-size: 17px;
 }
 .service_single_content p{
-    margin-bottom: 0
+    margin-bottom: 0;
+    color: #878484;
+
 }
 .bold{
     font-weight: 600 !important
@@ -3342,9 +3346,10 @@ p.artficial:before{
     height: 45px;
     border: none;
     background-color: transparent;
-    color: #fff;
+    color: #575454;
     border-radius: 0;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(96, 93, 93, 0.2);
+    
 }
 
 .group input:focus,
@@ -3352,10 +3357,11 @@ p.artficial:before{
     outline: none !important;
     box-shadow: none !important;
     background-color: transparent !important;
+    
 }
 
 .group label {
-    color: #fff;
+    color: #585757;
     font-style: italic;
     font-size: 12px;
     font-weight: normal;
@@ -3381,7 +3387,7 @@ p.artficial:before{
     width: 0;
     bottom: 0;
     position: absolute;
-    background-color: #fff;
+    background-color: #666464;
     -webkit-transition: 0.5s ease all;
     transition: 0.5s ease all;
 }
@@ -3406,7 +3412,7 @@ p.artficial:before{
 .group textarea:valid ~ label {
     top: -17px;
     font-size: 12px;
-    color: #fff;
+    color: #565454;
 }
 
 .group input:focus ~ .bar:before,
@@ -3414,12 +3420,13 @@ p.artficial:before{
 .group input:focus ~ .bar:after,
 .group textarea:focus ~ .bar:after {
     width: 50%;
-    background-color: #fff;
+    background-color: #585454;
 }
 
 input:required,
 textarea:required {
     box-shadow: none !important;
+    
 }
 
 /* ##### Footer Area ##### */
@@ -4508,4 +4515,17 @@ label{
     /*********/
     .ali-bg{
         background-color: aliceblue !important
+    }
+
+    .header-link{
+        text-transform: uppercase;
+        /* font-size: 80%; */
+        font-weight: 600 !important;
+        margin-right: 20px;
+        
+    }
+
+    .header-area{
+        background-color: #ccd7e8;
+
     }

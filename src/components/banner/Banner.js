@@ -1,7 +1,7 @@
 import React from 'react'
 
-import banner2 from "../assests/img/core-img/banner2.png"
-import dollarimg from "../assests/img/svg/img-dollar.svg"
+import banner2 from "../../assests/img/core-img/banner2.png"
+import dollarimg from "../../assests/img/svg/img-dollar.svg"
 
 function Banner() {
     return (
