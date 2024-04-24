@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import "./assests/css/style.css";
 import "./assests/css/responsive.css"
 // ../src/assests/img/core-img/favicon.ico
-import "./assests/img/core-img/favicon.ico"
-
+import "./assests/img/core-img/favicon.ico";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
