@@ -9,7 +9,7 @@ import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import TemplatePreview from './components/templates/TemplatePreview';
 import EditTemplate from './components/templates/EditTemplate';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   return (
@@ -22,8 +22,6 @@ function App() {
     <Route path={`${"/templates"}`} Component={Templates}/>
     <Route path={`${"/contact"}`} Component={Contactus}/>
     <Route path={`${'/pricing'}`} Component={Pricing}/>
-    <Route path={`${'/login'}`} Component={Login}/>
-    <Route path={`${'/register'}`} Component={Signup}/>
     <Route path={`${'/templatepreview'}`} Component={TemplatePreview}/>
     <Route path={`${'/edittemplate'}`} Component={EditTemplate}/>
 
@@ -32,6 +30,7 @@ function App() {
     </Routes>
     </Router>
 
+    <ToastContainer />
 
    </>
   );
