@@ -53,7 +53,7 @@ const AddEduction=({updateprop,closemodal})=>{
         e.preventDefault();
         
         if (education == '' || course == '' || marks== ''
-        || state == '' || district == '' || college == '' || startyear == '' || endyear == '') {
+        || college == '' || startyear == '' || endyear == '') {
 
             toast.info(
                 'All fields are mandatory',
@@ -67,6 +67,8 @@ const AddEduction=({updateprop,closemodal})=>{
             var tntId= JSON.parse(localStorage.getItem('tID'))
 
                 const sessiondetails =  localStorage.getItem(`userdata${tntId}`);
+
+                console.log("sessiondetails",sessiondetails);
                 if (sessiondetails!=null){
                     const userdata = JSON.parse(sessiondetails);
                     let reqdata={
@@ -75,11 +77,11 @@ const AddEduction=({updateprop,closemodal})=>{
                     ...formfields 
                     }
 
-                    // console.log("formfields",reqdata)
+                    console.log("formfields",reqdata)
                     if (!formfields.id) {
-                    //    console.log("idd==",formfields.id);
                         //save
                         const Response = await PostApi(reqdata,"USEREDUCATION");
+                        console.log("Response",Response.data);
                         if(Response.data.id){
                             toast.info('data saved succesfully',{
                                 position: "top-center",
@@ -146,12 +148,12 @@ const AddEduction=({updateprop,closemodal})=>{
                                    
                                          </p>
                                         
-                                        <p className="form-control">
+                                        {/* <p className="form-control">
                                             <input type="text" placeholder="state"  name="state"  value={state} onChange={handleChange} />
                                         </p>
                                         <p className="form-control">
                                             <input type="text" placeholder="District" name="district" value={district}  onChange={handleChange} />
-                                        </p>
+                                        </p> */}
                                         <p className="form-control">
                                             <input type="text" placeholder="Start year" name="startyear" value={startyear} onChange={handleChange} />
                                         </p>

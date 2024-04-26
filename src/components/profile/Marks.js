@@ -1,10 +1,12 @@
-import {  Container, Modal } from "react-bootstrap";
+import { Container, Modal } from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import { PostApi } from '../../services/commonServices';
 
 import { toast } from "react-toastify";
 import AddMarks from "./AddMarks";
 import { Styles } from "./education";
+import { RxCross1 } from "react-icons/rx";
+
 
 
 
@@ -17,7 +19,7 @@ const Marks = () => {
     getMarks()
   }, [])
   const getMarks = async () => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+    var tntId = JSON.parse(localStorage.getItem('tID'))
 
     const sessiondetails = localStorage.getItem(`userdata${tntId}`);
     const userdata = JSON.parse(sessiondetails);
@@ -67,7 +69,7 @@ const Marks = () => {
     getMarks()
   }
   const deleteItem = async (item) => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+    var tntId = JSON.parse(localStorage.getItem('tID'))
 
     const sessiondetails = localStorage.getItem(`userdata${tntId}`);
     const userdata = JSON.parse(sessiondetails);
@@ -96,35 +98,35 @@ const Marks = () => {
   return (
     <>
       <Styles>
-                <Container className="main-div"> 
-                <h3 className="tab-title text-center">Marks</h3>
+        <Container className="main-div">
+          <h3 className="tab-title text-center">Marks</h3>
 
-          {data!=''?<table class="table-mark w-75" >
+          {data != '' ? <table class="table-mark w-75" >
             <thead className="thead-dark">
               <tr>
-              <th scope="col">Group</th>
-              <th scope="col">Branch</th>
-              <th scope="col">Semister</th>
-              <th scope="col">Marks</th>
-              <th scope="col">delete</th>
+                <th scope="col">Group</th>
+                <th scope="col">Branch</th>
+                <th scope="col">Semister</th>
+                <th scope="col">Marks</th>
+                <th scope="col">delete</th>
               </tr>
             </thead>
             <tbody>
-            {data.map((item) => {
-              return <tr>
+              {data.map((item) => {
+                return <tr>
                   <td>{item.groupname}</td>
                   <td>{item.branchname}</td>
                   <td>{item.semistername}</td>
                   <td>{item.marks}</td>
                   <td><p className="refer-icons" onClick={() => deleteItem(item)}><i className="fa-solid fa-trash fa-lg"></i></p></td>
-                  </tr>                                                             
+                </tr>
 
-            })
-            }
-             </tbody>
-          </table>:
+              })
+              }
+            </tbody>
+          </table> :
 
-          <p className="message">{noData}</p>}
+            <p className="message">{noData}</p>}
 
           <br />
           <button className="btn btn-dark" onClick={addModal}>Add Marks</button>
@@ -135,9 +137,11 @@ const Marks = () => {
         <div className="" role="document">
           <div className="">
             <form >
-              <div className="modal-header">
+              <div className="modal-header  border-none" style={{ position: "relative" }}>
+                <h5 style={{ marginLeft: "15px" }}>Marks</h5>
+                <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={closemodal} />
 
-                <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button>
+                {/* <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button> */}
               </div>
               <div className="modal-body">
                 <AddMarks updateprop={updateData} />

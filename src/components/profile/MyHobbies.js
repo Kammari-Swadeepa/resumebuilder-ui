@@ -6,6 +6,8 @@ import { PostApi } from '../../services/commonServices';
 
 import {  toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { RxCross1 } from "react-icons/rx";
+
 
 import AddHobbies from "./AddHobbies";
 
@@ -227,9 +229,11 @@ const MyHobbies = () => {
                 <div className="" role="document">
                     <div className="">
                         <form >
-                            <div className="modal-header">
+                        <div className="modal-header  border-none" style={{ position: "relative" }}>
+                                <h5 style={{ marginLeft: "15px" }}>Hobbies</h5>
+                                <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={closemodal} />
 
-                                <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button>
+                                {/* <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button> */}
                             </div>
                             <div className="modal-body">
                                 {/* <AddEduction updateprop={updateData} /> */}

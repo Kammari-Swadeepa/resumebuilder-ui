@@ -649,6 +649,12 @@ export const Styles = styled.div`
                  .course-item:hover {
                      cursor: pointer;
                  }
+
+                 .card-body{
+                    p{
+                        color: #878484;
+                    }
+                 }
                 
 
 
