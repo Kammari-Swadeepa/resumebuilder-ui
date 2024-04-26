@@ -310,8 +310,8 @@ function Signup(props) {
     <div class="col-12 col-sm-5 text-left ">
                     <button type="submit" class="btn dream-btn" onClick={verifysms}>Verify OTP</button>
                 </div> }
-
-{showotp && ismobileverified && <div class="col-12 col-sm-5 text-left "> <button class="btn dream-btn" onClick={register}>Continue </button> </div>}
+{/* 
+{showotp && ismobileverified && <div class="col-12 col-sm-5 text-left "> <button class="btn dream-btn" onClick={register}>Continue </button> </div>} */}
 
 {showotp && !ismobileverified &&<div class="col-12 col-sm-5  ">
  <label onClick={sendsms}  style={{ textDecorationLine: 'underline' }}>Resend OTP</label> </div>}

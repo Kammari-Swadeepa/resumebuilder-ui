@@ -342,7 +342,7 @@ function EditTemplate() {
 
 
                         <div class="col-12 col-md-7">
-                            <div class="cv-download">
+                            {/* <div class="cv-download">
                                 <div class="row align-items-center">
 
                                     <div class="col-lg-6 col-md-12">
@@ -355,7 +355,7 @@ function EditTemplate() {
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div class="container">
 
                                 <form method="post" action="#">
