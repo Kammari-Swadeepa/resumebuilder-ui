@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import { Styles } from "./styles/tabBox.js";
 import AddMarks from './profile/AddMarks.js';
@@ -16,15 +16,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import GenerateResume from './profile/GenerateResume.js';
 import MyPurchases from './profile/MyPurchases.js';
 import { FaArrowRight } from "react-icons/fa";
+import Header from './header/Header.js';
 
-class TabBox extends Component {
 
-    render() {
+function TabBox () {
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[])
         return (
             <Styles>
-
+<Header  />
                 {/* Tab Box Area */}
-                <section className="tab-section">
+                <section className="tab-section" style={{marginTop:"60px"}}>
                     <Container>
                         <Tab.Container defaultActiveKey="MyDetails">
                             <Row>
@@ -99,7 +102,7 @@ class TabBox extends Component {
 
                                         <Tab.Pane eventKey="MySkills">
 
-                                            <MySkills></MySkills>
+                                            <MySkills/>
 
                                         
                                 
@@ -133,6 +136,6 @@ class TabBox extends Component {
             </Styles>
         )
     }
-}
+
 
 export default TabBox

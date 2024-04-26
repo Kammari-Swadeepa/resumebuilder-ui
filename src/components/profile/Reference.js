@@ -84,7 +84,8 @@ const Reference = () => {
             <Container className="main-div">
                 <h3 className="tab-title text-center">References</h3>
 
-                {!noData && <table className="table w-75">
+                {!noData && <div className="d-flex justify-content-center">
+                    <table className="table w-75">
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">Sl.no</th>
@@ -101,7 +102,7 @@ const Reference = () => {
                                     <td>{ind + 1}</td>
                                     <td>{item.name}</td>
                                     <td>{item.mobilenumber}</td>
-                                    <td> <p className="refer-icons" onClick={() => deleteItem(item)}><i className="fa-solid fa-trash refer-trash "></i></p></td>
+                                    <td className="refer-icons" onClick={() => deleteItem(item)}>  <i className="fa-solid fa-trash refer-trash "></i></td>
 
 
 
@@ -114,13 +115,18 @@ const Reference = () => {
 
 
                     </tbody>
-                </table>}
+                </table>
+             
+                    </div>}
+              <div className="text-center">
+              <button className="btn btn-dark" onClick={referenceModal}>Add References</button>
+              </div>
                 {noData && <p className="message">{noData}</p>}
 
                 <br />
 
 
-                <button className="btn btn-dark" onClick={referenceModal}>Add References</button>
+               
 
 
 

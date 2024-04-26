@@ -24,7 +24,7 @@ function HomeTemplate() {
                                 <div class="preview-btn-wrapper text-center">
                                     {/* <a href="template-preview.html" class="preview-demo">See template <i class="fa fa-long-arrow-right"></i></a> */}
                                     <Link class="preview-demo" to={"/templatepreview"}>See template <i class="fa fa-long-arrow-right"></i></Link>
-                                    <Link class="preview-demo v2" to={"/edittemplate"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
+                                    <Link class="preview-demo v2" to={"/tabbox"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
                                     {/* <a href="template-edit.html" class="preview-demo v2">Use template <i class="fa fa-long-arrow-right"></i></a> */}
                                 </div>
                             </div>
@@ -35,7 +35,7 @@ function HomeTemplate() {
                                 <a href="template-preview.html"><img src={demo2} alt="demo" class="img-responsive" /></a>
                                 <div class="preview-btn-wrapper text-center">
                                     <Link class="preview-demo" to={"/templatepreview"}>See template <i class="fa fa-long-arrow-right"></i></Link>
-                                    <Link class="preview-demo v2" to={"/edittemplate"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
+                                    <Link class="preview-demo v2" to={"/tabbox"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@ function HomeTemplate() {
                                 <a href="template-preview.html"><img src={demo3} alt="demo" class="img-responsive" /></a>
                                 <div class="preview-btn-wrapper text-center">
                                     <Link class="preview-demo" to={"/templatepreview"}>See template <i class="fa fa-long-arrow-right"></i></Link>
-                                    <Link class="preview-demo v2" to={"/edittemplate"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
+                                    <Link class="preview-demo v2" to={"/tabbox"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
                                 </div>
                             </div>
                         </div>

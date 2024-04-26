@@ -102,7 +102,8 @@ const MyCertifications = () => {
 
                     <h3 className="tab-title text-center">Certification</h3>
 
-                    {!noData && <table className="table w-75">
+                    {!noData && <div className="d-flex justify-content-center">
+                        <table className="table w-100">
                         <thead className="thead-dark">
                             <tr>
                                 <th scope="col">Sl.no</th>
@@ -128,13 +129,16 @@ const MyCertifications = () => {
                             }
 
                         </tbody>
-                    </table>}
+                    </table>
+                        </div>}
 
 
                     {noData && <p className="message">{noData}</p>}
 
                     <br />
+                    <div className="text-center">
                     <button className="btn btn-dark" onClick={openModal}>Add Certifications</button>
+                    </div>
 
                 </Container>
             </Styles>
