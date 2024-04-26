@@ -116,9 +116,8 @@ const MyProjects = () => {
                                     </Col>
                                     <Col md='2' className="py-2" style={{ display: "flex", justifyContent: "center", maxHeight: "60px" }}>
                                         <br />
-                                        <p className="icons" onClick={() => openModal(item)}><i class="fa-solid fa-pencil"></i></p>
-                                        <p className="icons" onClick={() => deleteItem(item)}><i class="fa-solid fa-trash"></i></p>
-
+                                        <span className="icons" onClick={() => openModal(item)}><i class="fa-solid fa-pencil"></i></span>
+                                        <span className="icons" onClick={() => deleteItem(item)}><i class="fa-solid fa-trash"></i></span>
 
                                     </Col>
 
