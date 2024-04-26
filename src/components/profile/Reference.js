@@ -3,20 +3,22 @@ import { Styles } from "./education";
 import { Col, Container, Modal, Row } from "react-bootstrap";
 import AddReferences from "./AddReferences";
 import { PostApi } from '../../services/commonServices';
+import { RxCross1 } from "react-icons/rx";
+
 
 import { toast } from "react-toastify";
 
 const Reference = () => {
     const [modal, setModal] = useState(false)
     const [data, setData] = useState([])
-    const [noData,setNoData]=useState('')
+    const [noData, setNoData] = useState('')
 
     useEffect(() => {
         getReferences()
 
     }, [])
     const getReferences = async () => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const sessiondetails = localStorage.getItem(`userdata${tntId}`);
         const userdata = JSON.parse(sessiondetails);
@@ -31,13 +33,13 @@ const Reference = () => {
             const response = await PostApi(reqparam, 'USERREFERENCES');
             // console.log("reference data", response.data);
             setData(response.data)
-            
-            if(response.data==''){
+
+            if (response.data == '') {
                 // console.log("no data");
                 setNoData('enter your references')
 
             }
-            else{
+            else {
                 setNoData('')
             }
         }
@@ -53,7 +55,7 @@ const Reference = () => {
         getReferences();
     }
     const deleteItem = async (item) => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const sessiondetails = localStorage.getItem(`userdata${tntId}`);
         const userdata = JSON.parse(sessiondetails);
@@ -82,7 +84,7 @@ const Reference = () => {
             <Container className="main-div">
                 <h3 className="tab-title text-center">References</h3>
 
-              {!noData && <table className="table w-75">
+                {!noData && <table className="table w-75">
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">Sl.no</th>
@@ -109,11 +111,11 @@ const Reference = () => {
 
                             })
                         }
-                        
+
 
                     </tbody>
-                </table>}  
-               {noData && <p className="message">{noData}</p>} 
+                </table>}
+                {noData && <p className="message">{noData}</p>}
 
                 <br />
 
@@ -129,9 +131,11 @@ const Reference = () => {
         </Styles>
         <Modal size="l" show={modal}>
             <form >
-                <div className="modal-header">
+                <div className="modal-header  border-none" style={{ position: "relative" }}>
+                    <h5 style={{ marginLeft: "15px" }}>References</h5>
+                    <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={closemodal} />
 
-                    <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button>
+                    {/* <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button> */}
                 </div>
                 <div className="modal-body">
                     <AddReferences closemodal={closemodal} />

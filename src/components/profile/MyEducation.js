@@ -3,6 +3,7 @@ import { Styles } from "./education";
 import React, { useEffect, useRef, useState } from 'react';
 import AddEduction from "./AddEducation";
 import { PostApi } from '../../services/commonServices';
+import { RxCross1 } from "react-icons/rx";
 
 import { ToastContainer, toast } from "react-toastify";
 
@@ -110,7 +111,6 @@ const MyEducation = () => {
                                             <h5 className="card-title" >Education:{item.education}-{item.course}({item.marks}%/CGPA)</h5>
                                             <p className="card-text">College:{item.college}</p>
                                             <p>Year:{item.startyear}-{item.endyear}</p>
-                                            <p>{item.district},{item.state}</p>
 
                                         </div>
 
@@ -156,9 +156,11 @@ const MyEducation = () => {
                 <div className="" role="document">
                     <div className="">
                         <form >
-                            <div className="modal-header">
+                            <div className="modal-header  border-none" style={{position:"relative"}}>
+                                <h5 style={{marginLeft:"15px"}}>Education</h5>
+                                <RxCross1 style={{fontSize:"26px", position:"absolute", right:"10px"}}  onClick={closemodal} />
 
-                                <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button>
+                                {/* <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button> */}
                             </div>
                             <div className="modal-body">
                                 <AddEduction updateprop={updateData} closemodal={closemodal} />

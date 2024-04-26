@@ -138,7 +138,6 @@ function AddMarks() {
         }
     }
 
-    // console.log("Btect Data",btechData);
     return (
         <Styles>
             <Container className="form-area">
@@ -148,7 +147,7 @@ function AddMarks() {
                             <form onSubmit={submition} className="form">
 
                                 <div className="check-btn">
-                                    <select onChange={handleChange} className="form-control" name='groupid' value={groupid}>
+                                    <select onChange={handleChange} name='groupid' value={groupid}>
                                         <option value=''>select-Year</option>
                                         {year.map((item) => {
                                             return (
@@ -158,7 +157,7 @@ function AddMarks() {
                                     </select>
                                 </div><br></br>
                                 <div className="check-btn">
-                                    <select onChange={handleChange} className="form-control" name='branchid' value={branchid}>
+                                    <select onChange={handleChange}  name='branchid' value={branchid}>
                                         <option value=''>select-branches</option>
                                         {branches.map((item) => {
                                             return (
@@ -169,7 +168,7 @@ function AddMarks() {
                                 </div><br></br>
 
                                 <div className="check-btn">
-                                    <select onChange={handleChange} className="form-control" name='semisterid' value={semisterid}>
+                                    <select onChange={handleChange}  name='semisterid' value={semisterid}>
                                         <option value=''>select-Semister</option>
                                         {semister.map((item) => {
                                             return (

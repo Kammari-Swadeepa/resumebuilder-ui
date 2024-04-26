@@ -5,12 +5,14 @@ import { PostApi } from '../../services/commonServices';
 
 import { toast } from "react-toastify";
 import { Styles } from "./education";
+import { RxCross1 } from "react-icons/rx";
+
 const MyCertifications = () => {
     const [modal, setModal] = useState(false);
     const [data, setData] = useState([])
     const [noData, setNoData] = useState('');
-    const [imageModal,setImageModal]=useState(false)
-    const [image,setImage]=useState('')
+    const [imageModal, setImageModal] = useState(false)
+    const [image, setImage] = useState('')
 
     useEffect(() => {
         getCertificationData();
@@ -19,7 +21,7 @@ const MyCertifications = () => {
 
 
     const getCertificationData = async () => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const sessiondetails = localStorage.getItem(`userdata${tntId}`);
         const userdata = JSON.parse(sessiondetails);
@@ -43,7 +45,7 @@ const MyCertifications = () => {
             }
             else {
                 setNoData('')
-              
+
             }
         }
 
@@ -59,7 +61,7 @@ const MyCertifications = () => {
         getCertificationData();
     }
     const deleteItem = async (item) => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const sessiondetails = localStorage.getItem(`userdata${tntId}`);
         const userdata = JSON.parse(sessiondetails);
@@ -83,13 +85,13 @@ const MyCertifications = () => {
         }
 
     }
-    const viewCertificate=async(item)=>{
-        
+    const viewCertificate = async (item) => {
+
         setImageModal(true);
         // console.log("certificate",item.image);
         setImage(item.image)
     }
-    const closeimagemodal=async()=>{
+    const closeimagemodal = async () => {
         setImageModal(false)
     }
     return (
@@ -100,7 +102,7 @@ const MyCertifications = () => {
 
                     <h3 className="tab-title text-center">Certification</h3>
 
-                  {!noData && <table className="table w-75">
+                    {!noData && <table className="table w-75">
                         <thead className="thead-dark">
                             <tr>
                                 <th scope="col">Sl.no</th>
@@ -118,7 +120,7 @@ const MyCertifications = () => {
                                         <td>{ind + 1}</td>
                                         <td>{item.name}</td>
                                         <td>{item.year}</td>
-                                        <td ><label style={{textDecorationLine:"underline",cursor:"pointer"}} onClick={()=>viewCertificate(item)}>view certificate</label></td>
+                                        <td ><label style={{ textDecorationLine: "underline", cursor: "pointer" }} onClick={() => viewCertificate(item)}>view certificate</label></td>
                                         <td> <p className="refer-icons" onClick={() => deleteItem(item)}><i className="fa-solid fa-trash refer-trash "></i></p></td>
                                     </tr>
                                 })
@@ -126,9 +128,9 @@ const MyCertifications = () => {
 
                         </tbody>
                     </table>}
-                    
 
-                   {noData && <p className="message">{noData}</p> } 
+
+                    {noData && <p className="message">{noData}</p>}
 
                     <br />
                     <button className="btn btn-dark" onClick={openModal}>Add Certifications</button>
@@ -137,29 +139,33 @@ const MyCertifications = () => {
             </Styles>
 
 
-            <Modal  size="l" show={modal}>
+            <Modal size="l" show={modal}>
                 <form >
-                    <div className="modal-header">
+                    <div className="modal-header  border-none" style={{ position: "relative" }}>
+                        <h5 style={{ marginLeft: "15px" }}>Certifications</h5>
+                        <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={closemodal} />
 
-                        <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button>
+                        {/* <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button> */}
                     </div>
                     <div className="modal-body">
-                        <AddCertification closemodal={closemodal}/>
+                        <AddCertification closemodal={closemodal} />
 
                     </div>
                 </form>
             </Modal>
 
             <Modal size='lg' show={imageModal}>
-            <form >
-                    <div className="modal-header">
+                <form >
+                    <div className="modal-header  border-none" style={{ position: "relative" }}>
+                        <h5 style={{ marginLeft: "15px" }}>Certificate</h5>
+                        <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={closeimagemodal} />
 
-                        <button type="button" className="btn-close" onClick={closeimagemodal} data-dismiss="modal"></button>
+                        {/* <button type="button" className="btn-close" onClick={closeimagemodal} data-dismiss="modal"></button> */}
                     </div>
                     <div className="modal-body text-center">
-                      
-                        <img style={{ "height": "400px" ,'width':"750px"}}  src={image} />
-                       
+
+                        <img style={{ "height": "400px", 'width': "750px" }} src={image} />
+
 
                     </div>
                 </form>
