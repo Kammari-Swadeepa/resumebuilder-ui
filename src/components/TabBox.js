@@ -31,41 +31,41 @@ class TabBox extends Component {
                                 <Col lg="3" md="4">
                                     <Nav className="flex-column">
                                         <Nav.Item>
-                                            <Nav.Link  eventKey="MyDetails"><FaArrowRight /> <span style={{fontSize:"20px",marginLeft:"4px"}}>My Details</span></Nav.Link>
+                                            <Nav.Link  eventKey="MyDetails"><FaArrowRight /> <span style={{fontSize:"16px",marginLeft:"4px"}}>My Details</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="education"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Education</span></Nav.Link>
+                                            <Nav.Link eventKey="education"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Education</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="Marks"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Marks</span></Nav.Link>
+                                            <Nav.Link eventKey="Marks"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Marks</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="About-Me"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>About Me</span></Nav.Link>
+                                            <Nav.Link eventKey="About-Me"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>About Me</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="MySkills"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Skills</span></Nav.Link>
+                                            <Nav.Link eventKey="MySkills"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Skills</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="projects"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Projects</span></Nav.Link>
+                                            <Nav.Link eventKey="projects"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Projects</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="certifications"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Certifications</span></Nav.Link>
+                                            <Nav.Link eventKey="certifications"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Certifications</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="MyHobbies"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}> Hobbies</span></Nav.Link>
+                                            <Nav.Link eventKey="MyHobbies"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}> Hobbies</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="references"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>References</span></Nav.Link>
+                                            <Nav.Link eventKey="references"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>References</span></Nav.Link>
                                         </Nav.Item>
                                         {/* <Nav.Item>
                                             <Nav.Link eventKey="mypurchases"><FaArrowRight />My Purchases</Nav.Link>
                                         </Nav.Item> */}
                                         <Nav.Item>
-                                            <Nav.Link eventKey="resume"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Generate Resume</span></Nav.Link>
+                                            <Nav.Link eventKey="resume"><FaArrowRight /><span style={{fontSize:"18px",marginLeft:"4px"}}>Generate Resume</span></Nav.Link>
                                         </Nav.Item>
 
                                     </Nav>

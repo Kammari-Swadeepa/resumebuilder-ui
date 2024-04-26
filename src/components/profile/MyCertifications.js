@@ -120,8 +120,8 @@ const MyCertifications = () => {
                                         <td>{ind + 1}</td>
                                         <td>{item.name}</td>
                                         <td>{item.year}</td>
-                                        <td ><label style={{ textDecorationLine: "underline", cursor: "pointer" }} onClick={() => viewCertificate(item)}>view certificate</label></td>
-                                        <td> <p className="refer-icons" onClick={() => deleteItem(item)}><i className="fa-solid fa-trash refer-trash "></i></p></td>
+                                        <td ><span style={{ textDecorationLine: "underline", cursor: "pointer" }} onClick={() => viewCertificate(item)}>view certificate</span></td>
+                                        <td> <p className="icons" onClick={() => deleteItem(item)}><i className="fa-solid fa-trash  text-danger"></i></p></td>
                                     </tr>
                                 })
                             }
