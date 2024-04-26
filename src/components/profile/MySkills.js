@@ -164,7 +164,7 @@ const MySkills = () => {
                                 return <tr key={index}>
                                     <td>{index + 1}</td>
                                     <td>{item.name}</td>
-                                    <td> <p className="cancelIcon" style={{ paddingBottom: "10px" }} onClick={() => deleteSkill(item)}><i className="fa-solid fa-rectangle-xmark fa-lg"></i></p></td>
+                                    <td> <span className="cancelIcon" style={{ paddingBottom: "10px" }} onClick={() => deleteSkill(item)}><i className="fa-solid fa-rectangle-xmark fa-lg"></i></span></td>
                                 </tr>
 
 
