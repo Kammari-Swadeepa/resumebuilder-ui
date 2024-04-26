@@ -1,0 +1,8 @@
+.resume-box{
+    width:50%
+}
+@media only screen and (max-width: 768px)  {
+    .resume-box{
+        width:100%
+    }
+}
