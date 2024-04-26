@@ -10,6 +10,7 @@ import Signup from './components/signup/Signup';
 import TemplatePreview from './components/templates/TemplatePreview';
 import EditTemplate from './components/templates/EditTemplate';
 import { ToastContainer, toast } from 'react-toastify';
+import TabBox from './components/TabBox';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
     <Route path={`${'/pricing'}`} Component={Pricing}/>
     <Route path={`${'/templatepreview'}`} Component={TemplatePreview}/>
     <Route path={`${'/edittemplate'}`} Component={EditTemplate}/>
+    <Route path={`${'/Tabbox'}`} Component={TabBox}/>
+
 
 
 

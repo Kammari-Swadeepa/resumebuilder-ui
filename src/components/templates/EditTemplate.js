@@ -52,7 +52,7 @@ function EditTemplate() {
         // console.log("userdata in Mydetails", userdata);
 
         if (userdata != null) {
-            // console.log(userdata);
+            console.log("userdataaaa==",userdata.user);
             setData(userdata.user);
             if (userdata?.user?.name) {
                 setName(userdata?.user?.name);
@@ -223,17 +223,20 @@ function EditTemplate() {
             // image: base64Img
         }
 
+        console.log("req",req);
+
         const updateprofilepic = {
             userid: data.id,
             image: base64Img,
             ptype: 'PROFILEPIC',
         }
 
-        console.log("req afterwards:", req);
-        // var saveuserinfo = {}
+        console.log("req afterwards:", updateprofilepic);
 
         const saveuserinfo = await PostApi(req, 'SAVEUSERINFO');
         const profilepicResp = await PostApi(updateprofilepic, 'SAVESKILLS');
+        console.log("saveuserinfo",saveuserinfo.data);
+
 
         if (!profilepicResp.data.id) {
             toast.error("Failed to  upload pic", {
@@ -243,7 +246,6 @@ function EditTemplate() {
         }
 
 
-        // console.log("save user infor", saveuserinfo);
 
         if (saveuserinfo.message == "Request failed with status code 400") {
             toast.error("error with the details filled please check again", {
@@ -259,18 +261,12 @@ function EditTemplate() {
         }
 
 
-        //     return
-        // }
-        console.log(saveuserinfo.data?.id,profilepicResp.data?.id);
+        
         
         if (saveuserinfo.data?.id && profilepicResp.data?.id) {
 
-            // Toast.show({
-            //     type: 'error',
-            //     text1: 'Data updated successfully,please relogin again ',
-            //     position: 'top'
-            // });
-            toast.success('Data updated successfully,please relogin again', {
+           
+            toast.success('Data updated successfully', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -281,40 +277,26 @@ function EditTemplate() {
                 theme: "light",
             });
 
-            // const reqparams = {
-            //     mobileno: mobilenumber
-            // }
-
-            // const clearsessionrespone = await PostApi(reqparams, 'LOGOUT');
-            // console.log("clearsessionrespone",clearsessionrespone,mobilenumber);
-            // var tntId=JSON.parse(localStorage.getItem('tID'))
-
-            // localStorage.removeItem(`userdata${tntId}`)
-            // setOpenLoginModal(true)
-
+          
 
         } else {
-            // Toast.show({
-            //     type: 'error',
-            //     text1: saveuserinfo.data.message,
-            //     position: 'top'
-            // });
 
-            toast.error(saveuserinfo.data.message, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            console.log("saveuserinfo.data",saveuserinfo.data);
+          
+
+            // toast.error(saveuserinfo.message, {
+            //     position: "top-right",
+            //     autoClose: 5000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "light",
+            // });
         }
 
-        // const userdata = JSON.parse(localStorage.getItem('userdata'))
-        // console.log("userdata:", userdata);
-        // // navigation.navigate('login');
+   
 
     }
     return (
@@ -457,7 +439,7 @@ function EditTemplate() {
                                                     <button className="btn btn-primary" style={{marginTop:"5px",position:"absolute",right:"10px"}}>Save</button>
                                                     </div> */}
 
-                                                    <button className="btn btn-primary" style={{ marginTop: "5px" }}>Save</button>
+                                                    <button className="btn btn-primary" style={{ marginTop: "5px" }}onClick={saveform}>Save</button>
 
 
 
