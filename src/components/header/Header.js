@@ -18,6 +18,8 @@ function Header() {
   const [user, setUser] = useState(null);
   const [userMobile, setUserMobile] = useState("")
   const [isChangePassword,setIsChangePassword]=useState(false)
+  // const [signUpFromLogin,setSignUpFromLogin] =useState(false);
+  // const [loginFromSignUp, setLoginFromSignUp] = useState(false)
   useEffect(()=>{
     var tntId = JSON.parse(localStorage.getItem('tID'))
 
@@ -129,7 +131,7 @@ function Header() {
               </div>
               <div className="modal-body">
                 <Suspense>
-                <Login/>
+                <Login login={setLoginModal} signup={setSignupModal}/>
                 </Suspense>
                 
               </div>
@@ -151,7 +153,7 @@ function Header() {
               </div>
               <div className="modal-body">
                 <Suspense>
-                  <Signup/>
+                  <Signup login={setLoginModal} signup={setSignupModal}/>
                   
                 </Suspense>
                 

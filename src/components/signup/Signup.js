@@ -240,6 +240,10 @@ function Signup(props) {
     
     
       }
+      const handleSignInFromSignUp=()=>{
+        props.signup(false)
+        props.login(true)
+      }
   return (
     <>
      <div id="signup-popup" >
@@ -301,7 +305,7 @@ function Signup(props) {
                     <button type="submit" class="btn dream-btn" onClick={sendsms}>Sign Up</button>
                 </div>}
                 <div class="col-12 col-sm-7 text-left">
-                    <p class="mb-0 mt-10">Don't have an account? <Link to="/" >Sign In</Link></p>
+                    <p class="mb-0 mt-10" style={{color:"black",cursor:"pointer"}}> have an account? <span className='fs-6 text-primary' onClick={handleSignInFromSignUp}>Sign In</span></p>
                 </div>
            
 
@@ -310,8 +314,7 @@ function Signup(props) {
     <div class="col-12 col-sm-5 text-left ">
                     <button type="submit" class="btn dream-btn" onClick={verifysms}>Verify OTP</button>
                 </div> }
-{/* 
-{showotp && ismobileverified && <div class="col-12 col-sm-5 text-left "> <button class="btn dream-btn" onClick={register}>Continue </button> </div>} */}
+
 
 {showotp && !ismobileverified &&<div class="col-12 col-sm-5  ">
  <label onClick={sendsms}  style={{ textDecorationLine: 'underline' }}>Resend OTP</label> </div>}

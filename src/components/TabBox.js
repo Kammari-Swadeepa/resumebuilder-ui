@@ -15,7 +15,7 @@ import MySkills from './profile/MySkills.js';
 import 'react-toastify/dist/ReactToastify.css';
 import GenerateResume from './profile/GenerateResume.js';
 import MyPurchases from './profile/MyPurchases.js';
-
+import { FaArrowRight } from "react-icons/fa";
 
 class TabBox extends Component {
 
@@ -31,41 +31,41 @@ class TabBox extends Component {
                                 <Col lg="3" md="4">
                                     <Nav className="flex-column">
                                         <Nav.Item>
-                                            <Nav.Link eventKey="MyDetails"><i className="las la-arrow-right"></i> My Details</Nav.Link>
+                                            <Nav.Link  eventKey="MyDetails"><FaArrowRight /> <span style={{fontSize:"20px",marginLeft:"4px"}}>My Details</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="education"><i className="las la-arrow-right"></i>Education</Nav.Link>
+                                            <Nav.Link eventKey="education"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Education</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="Marks"><i className="las la-arrow-right"></i>Marks</Nav.Link>
+                                            <Nav.Link eventKey="Marks"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Marks</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="About-Me"><i className="las la-arrow-right"></i>About Me</Nav.Link>
+                                            <Nav.Link eventKey="About-Me"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>About Me</span></Nav.Link>
                                         </Nav.Item>
 
                                         <Nav.Item>
-                                            <Nav.Link eventKey="MySkills"><i className="las la-arrow-right"></i>Skills</Nav.Link>
+                                            <Nav.Link eventKey="MySkills"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Skills</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="projects"><i className="las la-arrow-right"></i>Projects</Nav.Link>
+                                            <Nav.Link eventKey="projects"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Projects</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="certifications"><i className="las la-arrow-right"></i>Certifications</Nav.Link>
+                                            <Nav.Link eventKey="certifications"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Certifications</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="MyHobbies"><i className="las la-arrow-right"></i>Hobbies</Nav.Link>
+                                            <Nav.Link eventKey="MyHobbies"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}> Hobbies</span></Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="references"><i className="las la-arrow-right"></i>References</Nav.Link>
+                                            <Nav.Link eventKey="references"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>References</span></Nav.Link>
                                         </Nav.Item>
+                                        {/* <Nav.Item>
+                                            <Nav.Link eventKey="mypurchases"><FaArrowRight />My Purchases</Nav.Link>
+                                        </Nav.Item> */}
                                         <Nav.Item>
-                                            <Nav.Link eventKey="mypurchases"><i className="las la-arrow-right"></i>My Purchases</Nav.Link>
-                                        </Nav.Item>
-                                        <Nav.Item>
-                                            <Nav.Link eventKey="resume"><i className="las la-arrow-right"></i>Generate Resume</Nav.Link>
+                                            <Nav.Link eventKey="resume"><FaArrowRight /><span style={{fontSize:"20px",marginLeft:"4px"}}>Generate Resume</span></Nav.Link>
                                         </Nav.Item>
 
                                     </Nav>
@@ -115,9 +115,9 @@ class TabBox extends Component {
                                             <MyCertifications />
 
                                         </Tab.Pane>
-                                        <Tab.Pane eventKey='mypurchases'>
+                                        {/* <Tab.Pane eventKey='mypurchases'>
                                             <MyPurchases/>
-                                        </Tab.Pane>
+                                        </Tab.Pane> */}
 
                                         <Tab.Pane eventKey='resume'>
                                             <GenerateResume/>

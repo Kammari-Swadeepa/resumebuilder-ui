@@ -142,6 +142,10 @@ const saveToken=async(userdata)=>{
       }
     }
   }
+  const handleSignUpInloGIn =()=>{
+    props.signup(true)
+    props.login(false)
+  }
   return (
     <>
     <div>
@@ -171,10 +175,10 @@ const saveToken=async(userdata)=>{
                 </div>
                 
                 <div class="col-12 col-sm-7 text-left">
-                    <p class="mb-0 mt-10">Don't have an account? <a href="" >Sign up</a></p>
+                    <p style={{color:"black"}}>Don't have an account? <span className='fs-6 text-primary' style={{cursor:"pointer"}} onClick={handleSignUpInloGIn} >Sign up</span></p>
                 </div>
                 <div className=" col-12 text-right fw-bold fs-6 text-primary">
-                                       <label onClick={forgotpassword} className="forgot-password">Forgot Password</label> 
+                                       <label onClick={forgotpassword} className="forgot-password" style={{cursor:"pointer"}}> Forgot Password</label> 
                                         </div>
             </div>
         </form>
