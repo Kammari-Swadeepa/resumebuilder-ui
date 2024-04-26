@@ -146,8 +146,9 @@ const MyEducation = () => {
                     <p className="message">{noData}</p>
 
                     <br />
-                    <button className="btn btn-dark" onClick={addModal}>Add Education</button>
-                </Container>
+<div className="text-center">
+<button className="btn btn-dark" onClick={addModal}>Add Education</button>
+    </div>                </Container>
                 
                 
 

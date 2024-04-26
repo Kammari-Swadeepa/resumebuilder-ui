@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import { Styles } from "./styles/tabBox.js";
 import AddMarks from './profile/AddMarks.js';
@@ -16,15 +16,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import GenerateResume from './profile/GenerateResume.js';
 import MyPurchases from './profile/MyPurchases.js';
 import { FaArrowRight } from "react-icons/fa";
+import Header from './header/Header.js';
 
-class TabBox extends Component {
 
-    render() {
+function TabBox () {
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[])
         return (
             <Styles>
-
+<Header  />
                 {/* Tab Box Area */}
-                <section className="tab-section">
+                <section className="tab-section" style={{marginTop:"60px"}}>
                     <Container>
                         <Tab.Container defaultActiveKey="MyDetails">
                             <Row>
@@ -38,9 +41,9 @@ class TabBox extends Component {
                                             <Nav.Link eventKey="education"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Education</span></Nav.Link>
                                         </Nav.Item>
 
-                                        <Nav.Item>
+                                        {/* <Nav.Item>
                                             <Nav.Link eventKey="Marks"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Marks</span></Nav.Link>
-                                        </Nav.Item>
+                                        </Nav.Item> */}
 
                                         <Nav.Item>
                                             <Nav.Link eventKey="About-Me"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>About Me</span></Nav.Link>
@@ -65,7 +68,7 @@ class TabBox extends Component {
                                             <Nav.Link eventKey="mypurchases"><FaArrowRight />My Purchases</Nav.Link>
                                         </Nav.Item> */}
                                         <Nav.Item>
-                                            <Nav.Link eventKey="resume"><FaArrowRight /><span style={{fontSize:"18px",marginLeft:"4px"}}>Generate Resume</span></Nav.Link>
+                                            <Nav.Link eventKey="resume"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Generate Resume</span></Nav.Link>
                                         </Nav.Item>
 
                                     </Nav>
@@ -99,7 +102,7 @@ class TabBox extends Component {
 
                                         <Tab.Pane eventKey="MySkills">
 
-                                            <MySkills></MySkills>
+                                            <MySkills/>
 
                                         
                                 
@@ -133,6 +136,6 @@ class TabBox extends Component {
             </Styles>
         )
     }
-}
+
 
 export default TabBox

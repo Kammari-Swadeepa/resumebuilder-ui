@@ -155,7 +155,8 @@ const MyHobbies = () => {
                 <Container className="main-div">
                 <h3 className="tab-title text-center">Hobbies</h3>
 
-                    <table className="table w-75">
+                   <div className="d-flex justify-content-center">
+                   <table className="table w-75">
                    {!noData && <thead className="thead-dark">
                         <tr>
                             <th scope="col">Sl.no</th>
@@ -168,7 +169,7 @@ const MyHobbies = () => {
                         {data?.map((item,index)=>{return <tr key={index}>
                             <td>{index+1}</td>
                             <td>{item.name}</td>
-                            <td> <p className="cancelIcon" style={{paddingBottom:"10px"}} onClick={() => deleteHobby(item)}><i className="fa-solid fa-rectangle-xmark fa-lg"></i></p></td>
+                            <td> <span className="cancelIcon"  onClick={() => deleteHobby(item)}><i className="fa-solid fa-rectangle-xmark fa-lg"></i></span></td>
                         </tr>
 
 
@@ -180,6 +181,7 @@ const MyHobbies = () => {
 
                     </tbody>
                 </table>
+                   </div>
                     
                     {/* {data?.map((item) => {
                         return <div>
@@ -219,7 +221,9 @@ const MyHobbies = () => {
                   {noData &&  <p className="message">{noData}</p> }
 
                     <br />
-                    <button className="btn btn-dark" onClick={addModal}>Add Hobbies</button>
+                  <div className="text-center">
+                  <button className="btn btn-dark" onClick={addModal}>Add Hobbies</button>
+                  </div>
                 </Container>
                 
                 

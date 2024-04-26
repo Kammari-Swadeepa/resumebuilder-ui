@@ -150,7 +150,8 @@ const MySkills = () => {
                     <h3 className="tab-title text-center">Skills</h3>
 
                     {/* {console.log("SkillsMasterData afetr filter",skillsMasterData)}  */}
-                    {!noData && <table className="table w-75">
+                    {!noData && <div className="d-flex justify-content-center">
+                        <table className="table w-75">
                         <thead className="thead-dark">
                             <tr>
                                 <th scope="col">Sl.no</th>
@@ -164,7 +165,7 @@ const MySkills = () => {
                                 return <tr key={index}>
                                     <td>{index + 1}</td>
                                     <td>{item.name}</td>
-                                    <td> <p className="cancelIcon" style={{ paddingBottom: "10px" }} onClick={() => deleteSkill(item)}><i className="fa-solid fa-rectangle-xmark fa-lg"></i></p></td>
+                                    <td> <span className="cancelIcon" style={{ paddingBottom: "10px" }} onClick={() => deleteSkill(item)}><i className="fa-solid fa-rectangle-xmark fa-lg"></i></span></td>
                                 </tr>
 
 
@@ -175,7 +176,8 @@ const MySkills = () => {
 
 
                         </tbody>
-                    </table>}
+                    </table>
+                        </div>}
 
                     {/* {data?.map((item) => {
                         return <div>
@@ -215,7 +217,9 @@ const MySkills = () => {
                     {noData && <p className="message">{noData}</p>}
 
                     <br />
-                    <button className="btn btn-dark" onClick={addModal}>Add Skills</button>
+                   <div className="text-center">
+                   <button className="btn btn-dark" onClick={addModal}>Add Skills</button>
+                    </div>
                 </Container>
 
 

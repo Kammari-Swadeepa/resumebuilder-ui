@@ -148,7 +148,10 @@ const MyProjects = () => {
 
 
 
-                    <button className="btn btn-dark" onClick={openProjectModal}>Add Projects</button>
+<div className="text-center">
+<button className="btn btn-dark" onClick={openProjectModal}>Add Projects</button>
+    
+    </div>    
                 </Container>
 
 
