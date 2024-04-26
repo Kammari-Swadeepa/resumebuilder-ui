@@ -147,10 +147,10 @@ const MyProjects = () => {
 
 
 
-<div className="text-center">
-<button className="btn btn-dark" onClick={openProjectModal}>Add Projects</button>
-    
-    </div>    
+                    <div className="text-center">
+                        <button className="btn btn-dark" onClick={openProjectModal}>Add Projects</button>
+
+                    </div>
                 </Container>
 
 

@@ -64,8 +64,8 @@ function Header() {
   }
   return (
     <>
-    {console.log(user, "check user info")}
-      <div class="header-area">
+    {/* {console.log(user, "check user info")} */}
+      <div class="header-area" style={{zIndex:"-999"}}>
         <div class="classy-nav-container dark breakpoint-off">
           <div class="container">
 

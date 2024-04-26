@@ -764,10 +764,10 @@ ol {
 /* ##### 2.0 Header Area CSS ##### */
 
 .header-area {
-    position: fixed;
-    z-index: 5000;
-    top: 0;
-    left: 0;
+    /* position: fixed; */
+    /* z-index: 5000; */
+    /* top: 0; */
+    /* left: 0; */
     width: 100%;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
