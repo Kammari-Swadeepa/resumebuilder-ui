@@ -18,7 +18,7 @@ import MyPurchases from './profile/MyPurchases.js';
 import { FaArrowRight } from "react-icons/fa";
 import Header from './header/Header.js';
 
-
+ 
 function TabBox () {
     useEffect(()=>{
         window.scroll(0,0)
