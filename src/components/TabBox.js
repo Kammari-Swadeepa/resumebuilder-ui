@@ -27,7 +27,7 @@ function TabBox () {
             <Styles>
 <Header  />
                 {/* Tab Box Area */}
-                <section className="tab-section" style={{marginTop:"60px"}}>
+                <section className="tab-section">
                     <Container>
                         <Tab.Container defaultActiveKey="MyDetails">
                             <Row>

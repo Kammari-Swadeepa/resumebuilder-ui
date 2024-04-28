@@ -3,14 +3,14 @@ import axios from 'axios';
 // import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 // let apiurl = "http://43.204.36.226";
-let apiurl = "http://localhost:8080";
+// let apiurl = "http://localhost:8080";
 // const tenantid = "bb54fcfc";
 // var tntId=JSON.parse(localStorage.getItem('tID')) 
-var tenantid = 'bb54fcfc';
-// let apiurl = "https://asseshub.com";
+var tenantid = '526daf25';
+let apiurl = "https://asseshub.com";
 // var tenantidData='';
 
-      localStorage.setItem("tID",JSON.stringify("bb54fcfc"));
+      localStorage.setItem("tID",JSON.stringify("526daf25"));
      
 
 

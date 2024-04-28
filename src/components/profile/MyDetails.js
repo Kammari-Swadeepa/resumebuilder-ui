@@ -5,10 +5,10 @@ import { PostApi } from '../../services/commonServices';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import LoginModal from '../LoginModal';
 import { Styles } from './mydetailsyle'
 import FileBase64 from 'react-file-base64';
 import { useLocation } from 'react-router-dom';
+import Login from '../login/Login';
 
 function MyDetails() {
     const [data, setData] = useState({});
@@ -439,6 +439,7 @@ function MyDetails() {
                 </Container>
                 {/* <ToastContainer /> */}
                 {/* {openLoginModal && <LoginModal onClose={openModal} login={login}></LoginModal>} */}
+                {openLoginModal && <Login onClose={openModal} login={login} /> }
 
             </section>
         </Styles>

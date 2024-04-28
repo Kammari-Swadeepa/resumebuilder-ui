@@ -13,14 +13,14 @@ const MyEducation = () => {
     const [postModal, setPostModal] = useState(false)
     const [data, setData] = useState([]);
     const [updateData, setUpdateData] = useState({})
-    const [noData,setNoData]=useState('')
+    const [noData, setNoData] = useState('')
     useEffect(() => {
         getEducation()
     }, [])
 
 
     const getEducation = async () => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const sessiondetails = localStorage.getItem(`userdata${tntId}`);
         const userdata = JSON.parse(sessiondetails);
@@ -37,16 +37,16 @@ const MyEducation = () => {
 
             // console.log("get education", response.data);
 
-            if(response.data==''){
+            if (response.data == '') {
                 // console.log("no data");
                 setNoData('Data Not Found')
 
             }
-            else{
+            else {
                 setNoData('')
             }
         }
-        
+
 
 
 
@@ -70,7 +70,7 @@ const MyEducation = () => {
         getEducation()
     }
     const deleteItem = async (item) => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const sessiondetails = localStorage.getItem(`userdata${tntId}`);
         const userdata = JSON.parse(sessiondetails);
@@ -78,7 +78,7 @@ const MyEducation = () => {
         if (sessiondetails != null) {
             const reqparam = {
                 ...item,
-                query: { userid: userdata.id},
+                query: { userid: userdata.id },
                 ptype: 'USEREDUCATION'
             }
 
@@ -99,10 +99,10 @@ const MyEducation = () => {
     return (
         <>
             <Styles>
-                <Container className="main-div"> 
-                <h3 className="tab-title text-center">Education</h3>
+                <Container className="main-div">
+                    <h3 className="tab-title text-center">Education</h3>
 
-                    {data.map((item,ind) => {
+                    {data.map((item, ind) => {
                         return <div key={ind}>
                             <div className="card" >
                                 <Row>
@@ -132,7 +132,7 @@ const MyEducation = () => {
 
 
                             </div>
-                            <br/>
+                            <br />
 
 
 
@@ -146,20 +146,20 @@ const MyEducation = () => {
                     <p className="message">{noData}</p>
 
                     <br />
-<div className="text-center">
-<button className="btn btn-dark" onClick={addModal}>Add Education</button>
-    </div>                </Container>
-                
-                
+                    <div className="text-center">
+                        <button className="btn btn-dark" onClick={addModal}>Add Education</button>
+                    </div>                </Container>
+
+
 
             </Styles>
             <Modal size="l" show={postModal} >
                 <div className="" role="document">
                     <div className="">
                         <form >
-                            <div className="modal-header  border-none" style={{position:"relative"}}>
-                                <h5 style={{marginLeft:"15px"}}>Education</h5>
-                                <RxCross1 style={{fontSize:"26px", position:"absolute", right:"10px"}}  onClick={closemodal} />
+                            <div className="modal-header  border-none" style={{ position: "relative" }}>
+                                <h5 style={{ marginLeft: "15px" }}>Education</h5>
+                                <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={closemodal} />
 
                                 {/* <button type="button" className="btn-close" onClick={closemodal} data-dismiss="modal"></button> */}
                             </div>
