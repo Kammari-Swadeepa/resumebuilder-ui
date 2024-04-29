@@ -1,5 +1,5 @@
-import React, { Component, useEffect } from 'react';
-import { Container, Row, Col, Tab, Nav } from 'react-bootstrap';
+import React, { Component, useEffect,useState } from 'react';
+import { Container, Row, Col, Tab, Nav,Modal } from 'react-bootstrap';
 import { Styles } from "./styles/tabBox.js";
 import AddMarks from './profile/AddMarks.js';
 import MyDetails from './profile/MyDetails.js';
@@ -17,12 +17,18 @@ import GenerateResume from './profile/GenerateResume.js';
 import MyPurchases from './profile/MyPurchases.js';
 import { FaArrowRight } from "react-icons/fa";
 import Header from './header/Header.js';
-
+import Button from 'react-bootstrap/Button';
+// import Modal from 'react-bootstrap/Modal';
+import Format1 from './preview-templates/Format1.js';
  
 function TabBox () {
     useEffect(()=>{
         window.scroll(0,0)
     },[])
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
         return (
             <Styles>
 <Header  />
@@ -72,6 +78,9 @@ function TabBox () {
                                         </Nav.Item>
 
                                     </Nav>
+                                    <div className='d-flex justify-content-center p-3 bg-info text-light font-bold' style={{cursor:"pointer"}} onClick={handleShow}>
+                                        <div> Preview Resume</div>
+                                    </div>
                                 </Col>
                                 <Col lg="9" md="8">
                                     <Tab.Content>
@@ -132,6 +141,15 @@ function TabBox () {
                     </Container>
                 </section>
                 {/* <ToastContainer /> */}
+                <Modal show={show} onHide={handleClose} animation={false} size='lg'>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <Format1 />
+        </Modal.Body>
+      
+      </Modal>
 
             </Styles>
         )

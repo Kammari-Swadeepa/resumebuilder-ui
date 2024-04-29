@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 // import { Styles } from "./education";
-import Summary from './Summary';
 import { Container, Modal } from 'react-bootstrap';
 import { FaAnglesRight } from "react-icons/fa6";
-import { PostApi } from '../../services/commonServices';
 import { RxCross1 } from "react-icons/rx";
+import { PostApi } from '../../services/commonServices';
+import Summary from './Summary';
 
 
 
@@ -34,7 +34,7 @@ function AddAboutMe() {
         query: { id: userdata.user.id }
       }
       const resDat = await PostApi(reqparam, 'USERPROJECTS');
-      //  console.log("resDat===",resDat);
+       console.log("resDat===",resDat);
       if (resDat.data != null) {
         setSummaryData(resDat.data.about);
       }

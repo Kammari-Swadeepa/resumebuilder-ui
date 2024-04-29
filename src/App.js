@@ -11,7 +11,7 @@ import TemplatePreview from './components/templates/TemplatePreview';
 import EditTemplate from './components/templates/EditTemplate';
 import { ToastContainer, toast } from 'react-toastify';
 import TabBox from './components/TabBox';
-
+import Format1 from './components/preview-templates/Format1';
 function App() {
   return (
    <>
@@ -26,7 +26,7 @@ function App() {
     <Route path={`${'/templatepreview'}`} Component={TemplatePreview}/>
     <Route path={`${'/edittemplate'}`} Component={EditTemplate}/>
     <Route path={`${'/Tabbox'}`} Component={TabBox}/>
-
+<Route path={`${'/format1'}`} Component={Format1} />
 
 
 
