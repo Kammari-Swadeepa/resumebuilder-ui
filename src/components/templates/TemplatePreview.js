@@ -2,14 +2,19 @@ import React, { useEffect } from 'react'
 import Header from '../header/Header';
 import demo1 from "../../assests/img/demos/demo-1.png"
 import Footer from '../footer/Footer';
+import { useLocation } from 'react-router-dom';
 
 function TemplatePreview() {
+    const location = useLocation();
+
     useEffect(()=>{
         window.scroll(0,0)
+        // console.log("location",location);
     },[])
   return (
     <>
     <Header/>
+    {console.log("location",location)}
 
     <div class="breadcumb-area clearfix dzsparallaxer auto-init" data-options='{direction: "normal"}'>
         <div class="divimage dzsparallaxer--target"  style={{width:"101%",height:"130%"}}></div>
@@ -47,7 +52,7 @@ function TemplatePreview() {
                 <div class="col-12 col-md-4">
                     <div class="sidebar-area">
                         <div class="temp-summary">
-                            <p>Lorem ipsum dolor sit amet, elit, sed do eiusmod
+                            <p className='text-dark'>Lorem ipsum dolor sit amet, elit, sed do eiusmod
                             tempor incidi dunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
                             <a class="btn dream-btn width-100" href="template-edit.html">Try This Template</a>
