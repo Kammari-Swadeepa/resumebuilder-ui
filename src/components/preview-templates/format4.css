@@ -1,0 +1,20 @@
+.left-container-f4 img{
+    border-radius: 50%;
+    width: 100%;
+}
+ ul span{
+    display: inline-block;
+   width: 8px;
+   height: 8px;
+   border-radius: 50%;
+   background-color: black;
+   font-weight: bold;
+   margin-top: 1px;
+}
+.right-container-f4{
+    padding-left: 20px;
+}
+.profile{
+    font-size: 17px;
+    font-weight: bold;
+}

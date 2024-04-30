@@ -1,25 +1,24 @@
-import React, { Component, useEffect,useState } from 'react';
-import { Container, Row, Col, Tab, Nav,Modal } from 'react-bootstrap';
-import { Styles } from "./styles/tabBox.js";
-import AddMarks from './profile/AddMarks.js';
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Modal, Nav, Row, Tab } from 'react-bootstrap';
+import { FaArrowRight } from "react-icons/fa";
+import 'react-toastify/dist/ReactToastify.css';
+import Header from './header/Header.js';
+import AddAboutMe from './profile/AddAboutMe.js';
+import GenerateResume from './profile/GenerateResume.js';
+import Marks from './profile/Marks.js';
+import MyCertifications from './profile/MyCertifications.js';
 import MyDetails from './profile/MyDetails.js';
 import MyEducation from './profile/MyEducation.js';
-import MyProjects from './profile/MyProjects.js';
-import Marks from './profile/Marks.js';
-import AddAboutMe from './profile/AddAboutMe.js';
-import Reference from './profile/Reference.js';
-import { ToastContainer } from 'react-toastify';
-import MyCertifications from './profile/MyCertifications.js';
 import MyHobbies from './profile/MyHobbies.js';
+import MyProjects from './profile/MyProjects.js';
 import MySkills from './profile/MySkills.js';
-import 'react-toastify/dist/ReactToastify.css';
-import GenerateResume from './profile/GenerateResume.js';
-import MyPurchases from './profile/MyPurchases.js';
-import { FaArrowRight } from "react-icons/fa";
-import Header from './header/Header.js';
-import Button from 'react-bootstrap/Button';
+import Reference from './profile/Reference.js';
+import { Styles } from "./styles/tabBox.js";
 // import Modal from 'react-bootstrap/Modal';
+import Format4 from './preview-templates/Format4.js';
 import Format1 from './preview-templates/Format1.js';
+import Format2 from './preview-templates/Format2.js';
+import Format3 from './preview-templates/Format3.js';
  
 function TabBox () {
     useEffect(()=>{
@@ -30,7 +29,8 @@ function TabBox () {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
         return (
-            <Styles>
+            <>
+               <Styles>
 <Header  />
                 {/* Tab Box Area */}
                 <section className="tab-section">
@@ -141,17 +141,23 @@ function TabBox () {
                     </Container>
                 </section>
                 {/* <ToastContainer /> */}
-                <Modal show={show} onHide={handleClose} animation={false} size='lg'>
+           
+
+            </Styles>
+            <Modal show={show} onHide={handleClose} animation={false} size='lg'>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <Format1 />
+            {/* <Format1 />
+            <Format2 />*/}
+            <Format3 /> 
+            {/* <Format4 /> */}
         </Modal.Body>
       
       </Modal>
-
-            </Styles>
+            </>
+         
         )
     }
 

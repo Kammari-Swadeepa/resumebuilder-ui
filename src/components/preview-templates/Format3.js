@@ -5,8 +5,10 @@ import { PostApi } from '../../services/commonServices';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useLocation } from 'react-router-dom';
-import "./format1.css";
-function Format1() {
+import "./format3.css";
+
+
+function Format3() {
     const [data, setData] = useState({});
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -35,11 +37,10 @@ function Format1() {
     const [education, setEducation] = useState([]);
     const [skills, setSkills] = useState([])
     const [userprojects, setUserProjects] = useState([])
-    const [userHobbies,setUserHobbies] = useState([]);
-    const [references, setReferences] =useState([])
+    const [userHobbies, setUserHobbies] = useState([]);
+    const [references, setReferences] = useState([])
+    const [userdata, setUserData] = useState({})
     const history = useLocation()
-
-
 
     useEffect(() => {
         loaddata();
@@ -53,6 +54,7 @@ function Format1() {
         // console.log("userdata in Mydetails", userdata);
 
         if (userdata != null) {
+            setUserData(userdata)
             // console.log(userdata);
             const reqparam5 = {
                 pageno: '-1',
@@ -67,7 +69,7 @@ function Format1() {
                 query: { userid: userdata.id },
                 ptype: 'USERHOBBIES'
             }
-            
+
 
             const responseHobbies = await PostApi(reqparam4, 'USERHOBBIES');
 
@@ -82,7 +84,7 @@ function Format1() {
                 ptype: 'USERPROJECTS'
             }
 
-            const responseprojects = await PostApi(reqparam3 , 'USERPROJECTS');
+            const responseprojects = await PostApi(reqparam3, 'USERPROJECTS');
             setUserProjects((responseprojects.data))
 
 
@@ -226,111 +228,108 @@ function Format1() {
 
     }
     return (
-        <div className='d-flex justify-content-center row'>
-            <div className='col-12'>
-                <div className='header-container-f1 p-3 '>
-                    <h2 className='text-dark'> {name}</h2>
-                    <img src={`data:image/jpeg;base64,${base64Img}`} width="100" height="100" />
+        <div style={{ backgroundColor: " rgba(72,61,139,0.2)", padding: "5px" }}>
+            <div className='row header-container bg-light' >
+                <div className='col-6'>
+                    <h3 className='text-primary mt-2'>{name}</h3>
+                    <p className='text-dark ' style={{ marginTop: "-8px" }}>{title}</p>
                 </div>
-                <div className='user-info'>
-                    <div><b>Phone: </b> {mobilenumber}</div>
-                    <div><b>Email: </b> {email}</div>
-                    <div><b>Designation: </b> {title}</div>
+                <div className='col-6 text-right'>
+                    <p className='text-dark mt-3'>{email}</p>
+                    <p className='text-dark ' style={{ marginTop: "-8px" }}>{mobilenumber}</p>
                 </div>
-                <div className='description-container'>
-                    <div>
-                        {/* {console.log(summaryData,"summaryData")} */}
-                        Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
-                    </div>
-                </div>
-                <div className='education row mt-3'>
-                    <div className='left col-3'>
-                        <h5 className='text-right'>Education</h5>
-                    </div>
-                    <div className='right col-9'>
-                        {console.log(education, "check education")}
-                        {education.map(ele => {
+            </div>
+            <div className='row header-container bg-light p-2' style={{ textIndent: "30px", fontSize: "15px" }}>
+                Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+            </div>
+            <div className='container-h5'>
+                <h5 style={{ marginBottom: "-8px" }}>Education</h5>
+                <div className='header-container1  bg-light' >
+                    {
+                        education.map(ele => {
                             return (
-                                <div style={{ marginLeft: "15px" }}>
-                                    <h6>{ele.education} {ele.startyear} - {ele.endyear}  </h6>
-                                    <div><b> College</b>: {ele.college}</div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-                <div className='education row'>
-                    <div className='left col-3 pt-3'>
-                        <h5 className='text-right'>Skills</h5>
-                    </div>
-                    <div className='right col-9 pt-3'>
-                        <ul style={{ marginLeft: "15px" }}>
-                            {skills.map(ele => {
-                                return (
-
-                                    <li>{ele.name}</li>
-
-                                )
-                            })}
-                        </ul>
-                    </div>
-                </div>
-                <div className='education row'>
-                    <div className='left col-3 pt-3'>
-                        <h5 className='text-right'>Projects</h5>
-                    </div>
-                    <div className='right col-9 pt-3'>
-                        <ul style={{ marginLeft: "15px" }}>
-                            {console.log(userprojects, "check user projects")}
-                            {userprojects.map(ele=>{
-                                return(
-                                    <div className='mb-3'>
-                                        <div style={{fontSize:"16px", fontWeight:"bold"}}>{ele.name} - {ele.duration}</div>
-                                        <ul >
-                                            <li style={{fontSize:"14px"}}>
-                                                {ele.description}
-                                            </li>
-                                        </ul>
+                                <>
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}>{ele.education}</p>
+                                        <p style={{color:"orange"}}>{ele.startyear} - {ele.endyear}</p>
                                     </div>
-                                )
-                            })}
-                        </ul>
-                    </div>
-                </div>
-                <div className='education row'>
-                    <div className='left col-3 pt-3'>
-                        <h5 className='text-right'>Hobbies</h5>
-                    </div>
-                    <div className='right col-9 pt-3'>
-                        <ul style={{ marginLeft: "15px" }}>
-                       
-                            {userHobbies.map(ele=>{
-                                return(
-                                   <li>{ele.name}</li>
-                                )
-                            })}
-                        </ul>
-                    </div>
-                </div>
-                <div className='education row'>
-                    <div className='left col-3 pt-3'>
-                        <h5 className='text-right'>References</h5>
-                    </div>
-                    <div className='right col-9 pt-3'>
-                        <ul style={{ marginLeft: "15px" }}>
-                            {references.map(ele=>{
-                                return(
-                                   <li><b>{ele.name}</b>{` ( ${ele.mobilenumber} )`}</li>
-                                )
-                            })}
-                        </ul>
-                    </div>
-                </div>
+                                    <p style={{color:"black",marginBottom:"-13px"}} className='p-2'>{ele.college}</p>
+                                </>
+                            )
+                        })
+                    }
 
+                </div>
+            </div>
+            <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>Skills</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                    {
+                        skills.map(ele => {
+                            return (
+                               <li style={{margin:"3px 15px"}}>{ele.name}</li>
+                            )
+                        })
+                    }
+                    </ul>
+                   
 
+                </div>
+            </div>
+            <div className='container-h5'>
+                <h5 style={{ marginBottom: "-8px" }}>Projects</h5>
+                <div className='header-container1  bg-light' >
+                    {
+                        userprojects.map(ele => {
+                            return (
+                                <>
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}><b>{ele.name}</b></p>
+                                        <p style={{color:"orange"}}>{`( ${ele.duration} )`}</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px",textIndent:"30px"}} className='p-2'>{ele.description}</p>
+                                </>
+                            )
+                        })
+                    }
+
+                </div>
+            </div>
+            <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>Hobbies</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                    {
+                        userHobbies.map(ele => {
+                            return (
+                               <li style={{margin:"3px 15px"}}>{ele.name}</li>
+                            )
+                        })
+                    }
+                    </ul>
+                   
+
+                </div>
+            </div>
+            <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>References</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                    {
+                        references.map(ele => {
+                            return (
+                               <li style={{margin:"3px 15px"}}><b>{ele.name}</b> - {ele.mobilenumber} </li>
+                            )
+                        })
+                    }
+                    </ul>
+                   
+
+                </div>
             </div>
         </div>
     )
 }
 
-export default Format1
+export default Format3
