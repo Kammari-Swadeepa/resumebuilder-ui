@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./assests/css/style.css";
+import "./assests/css/owl.carousel.min.css";
 import "./assests/css/responsive.css"
 // ../src/assests/img/core-img/favicon.ico
 import "./assests/img/core-img/favicon.ico";

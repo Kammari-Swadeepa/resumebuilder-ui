@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import demo1 from "../../assests/img/demos/demo-1.png"
 import demo2 from "../../assests/img/demos/demo-2.png"
 import demo3 from "../../assests/img/demos/demo-3.png"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { PostApi } from '../../services/commonServices'
 import { toast } from 'react-toastify'
 
@@ -12,6 +12,7 @@ function HomeTemplate() {
     useEffect(() => {
         getResumeDataFunc()
     }, [])
+
     const getResumeDataFunc = async () => {
         const reqPrams = {
             pageno: '-1',
@@ -75,6 +76,18 @@ function HomeTemplate() {
             }
         }
     }
+    const navigate = useNavigate()
+
+    const SeeTemplate = (ele) => {
+
+        navigate('/templatepreview', { state: ele });
+    };
+
+    const EditTemplate = () => {
+
+        navigate('/tabbox')
+
+    }
 
 
 
@@ -96,9 +109,15 @@ function HomeTemplate() {
                                     {ind < 3 ? <div class="demo-item">
                                         <img src={ele.image} alt="demo" class="img-responsive" />
                                         <div class="preview-btn-wrapper text-center">
+                                            <button class="preview-demo" onClick={() => SeeTemplate(ele)}>
+                                                See template<i class="fa fa-long-arrow-right"></i>
 
-                                            <Link class="preview-demo" to={{pathname:"/templatepreview",state:ele}}>See template <i class="fa fa-long-arrow-right"></i></Link>
-                                            <Link class="preview-demo v2" to={"/tabbox"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
+                                            </button>
+                                            <button class="preview-demo v2" onClick={EditTemplate}>Use template  <i class="fa fa-long-arrow-right"></i></button>
+
+                                            {/* <Link class="preview-demo" to={{pathname:"/templatepreview",state:ele}} 
+                                            >See template </Link> */}
+                                            {/* <Link class="preview-demo v2" to={"/tabbox"}>Use template  <i class="fa fa-long-arrow-right"></i></Link> */}
 
                                         </div>
                                     </div> : ""}

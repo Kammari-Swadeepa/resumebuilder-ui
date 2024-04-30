@@ -55,8 +55,8 @@ function GenerateResume() {
                 userid: userdata.id
             }
 
-            // const reqRespnse = await PostApi(ReqData, action);
-            const reqRespnse = await PostApi(ReqData, "GENERATERESUME5");
+            const reqRespnse = await PostApi(ReqData, action);
+            // const reqRespnse = await PostApi(ReqData, "GENERATERESUME5");
             if (reqRespnse.status === 'success') {
                 setModal(true)
                 toast.success("Resume has been generated and mailed to your email id", {

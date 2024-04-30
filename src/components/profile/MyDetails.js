@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 // import { Styles } from '../../pages/account/styles/account'
-import { Container, Row, Col, Toast } from 'react-bootstrap';
+import { Container, Row, Col, Toast, Modal } from 'react-bootstrap';
 import { PostApi } from '../../services/commonServices';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Styles } from './mydetailsyle'
 import FileBase64 from 'react-file-base64';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Login from '../login/Login';
+import { RxCross1 } from "react-icons/rx";
+
 
 function MyDetails() {
     const [data, setData] = useState({});
@@ -25,6 +27,8 @@ function MyDetails() {
     const [imageshow, setImageShow] = useState(null);
     const [filefields, setFileFields] = useState(null);
     const [base64Img, setBase64Img] = useState("");
+    const [loginModal, setLoginModal] = useState(false)
+    const [signupModal, setSignupModal] = useState(false)
 
 
 
@@ -36,6 +40,7 @@ function MyDetails() {
     const [pl3, setPl3] = useState("Select Semister");
     const [openLoginModal, setOpenLoginModal] = useState(false);
     const history = useLocation()
+    const navigate = useNavigate();
 
 
 
@@ -165,7 +170,8 @@ function MyDetails() {
   
 
     const openModal = () => {
-        history.push(`${"/"}`)
+        // history.push("/")
+        navigate('/')
         // setOpenLoginModal(false)
     }
     const login = () => {
@@ -439,9 +445,31 @@ function MyDetails() {
                 </Container>
                 {/* <ToastContainer /> */}
                 {/* {openLoginModal && <LoginModal onClose={openModal} login={login}></LoginModal>} */}
-                {openLoginModal && <Login onClose={openModal} login={login} /> }
+                {/* {openLoginModal && <Login onClose={openModal} login={login} /> } */}
 
             </section>
+
+            <Modal className="modal fade" size="md" show={openLoginModal} onHide={setOpenLoginModal} style={{ marginTop: "70px" }}>
+        <div className="" role="document">
+          <div className="">
+            <form >
+              <div className="modal-header border-none" style={{ position: "relative" }} >
+                <h4>Login Form</h4>
+                <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={openModal} />
+                
+              </div>
+              <div className="modal-body">
+                <Suspense>
+                  <Login/>
+                </Suspense>
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </Modal>
         </Styles>
     )
 }

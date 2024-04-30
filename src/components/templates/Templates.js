@@ -6,7 +6,7 @@ import demo2 from "../../assests/img/demos/demo-2.png"
 import demo3 from "../../assests/img/demos/demo-3.png"
 import Features from '../Features'
 import Footer from '../footer/Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { PostApi } from '../../services/commonServices'
 import { toast } from 'react-toastify'
 
@@ -30,6 +30,20 @@ function Templates() {
         setResumeFormatData(reqRespnse?.data)
 
     }
+
+    const navigate = useNavigate()
+
+    const SeeTemplate = (ele) => {
+
+        navigate('/templatepreview', { state: ele });
+    };
+
+    const EditTemplate = () => {
+
+        navigate('/tabbox')
+
+    }
+
 
     const createResume = async (resumeType) => {
         let action = '';
@@ -126,8 +140,10 @@ function Templates() {
                                         <img src={ele.image} alt="demo" class="img-responsive" />
                                         <div class="preview-btn-wrapper text-center">
 
-                                        <Link class="preview-demo" to={{pathname:"/templatepreview",state:ele}}>See template <i class="fa fa-long-arrow-right"></i></Link>
-                                            <Link class="preview-demo v2" to={"/tabbox"}>Use template  <i class="fa fa-long-arrow-right"></i></Link>
+                                            <button class="preview-demo" onClick={() => SeeTemplate(ele)}>
+                                                See template<i class="fa fa-long-arrow-right"></i>
+                                            </button>
+                                            <button class="preview-demo v2" onClick={EditTemplate}>Use template  <i class="fa fa-long-arrow-right"></i></button>
 
                                         </div>
                                     </div>

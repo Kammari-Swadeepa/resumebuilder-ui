@@ -24,9 +24,9 @@ function Testimonials() {
         <div class="cotainer-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-xs-10 offset-xs-1">
-                    <div class="client_slides owl-carousel">
+                    <div class="client_slides row">
 
-                        <div class="single-testimonial text-center">
+                        <div class="single-testimonial text-center col-12 col-sm-6 col-lg-3">
                             <div class="icon_wrapper">
                                 <i class="fa fa-quote-right"></i>
                             </div>
@@ -45,7 +45,7 @@ function Testimonials() {
                             </div>
                         </div>
 
-                        <div class="single-testimonial text-center">
+                        <div class="single-testimonial text-center col-12 col-sm-6 col-lg-3">
                             <div class="icon_wrapper">
                                 <i class="fa fa-quote-right"></i>
                             </div>
@@ -64,7 +64,7 @@ function Testimonials() {
                             </div>
                         </div>
 
-                        <div class="single-testimonial text-center">
+                        <div class="single-testimonial text-center col-12 col-sm-6 col-lg-3">
                             <div class="icon_wrapper">
                                 <i class="fa fa-quote-right"></i>
                             </div>

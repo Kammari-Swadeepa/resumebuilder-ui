@@ -11,10 +11,11 @@ function TemplatePreview() {
         window.scroll(0,0)
         // console.log("location",location);
     },[])
+
   return (
     <>
     <Header/>
-    {console.log("location",location)}
+   
 
     <div class="breadcumb-area clearfix dzsparallaxer auto-init" data-options='{direction: "normal"}'>
         <div class="divimage dzsparallaxer--target"  style={{width:"101%",height:"130%"}}></div>
@@ -25,8 +26,8 @@ function TemplatePreview() {
                         <nav aria-label="breadcrumb" class="breadcumb--con text-center">
                             <h2 class="w-text title wow fadeInUp" data-wow-delay="0.2s">Template Preview</h2>
                             <ol class="breadcrumb justify-content-center wow fadeInUp" data-wow-delay="0.4s">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Template Preview</a></li>
+                                <li class="breadcrumb-item">Home</li>
+                                <li class="breadcrumb-item">Template Preview</li>
                                 <li class="breadcrumb-item active" aria-current="page">Template Preview</li>
                             </ol>
                         </nav>
@@ -43,7 +44,7 @@ function TemplatePreview() {
                 <div class="col-12 col-md-8">
                     <div >
                         <div class="blog_thumbnail">
-                            <img src={demo1} class="temp-img" alt=""/>
+                            <img src={location?.state?.image} class="temp-img" alt=""/>
                         </div>
                     </div>
 
@@ -59,7 +60,7 @@ function TemplatePreview() {
                         </div>   
                         
 
-                        <div class="subscribe-widget mt-50">
+                        {/* <div class="subscribe-widget mt-50">
                             <div class="widget-title">
                                 <h5>subscribe</h5>
                             </div>
@@ -69,7 +70,7 @@ function TemplatePreview() {
                                     <button type="submit dream-btn" class="btn">subscribe</button>
                                 </form>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
