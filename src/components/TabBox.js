@@ -15,10 +15,10 @@ import MySkills from './profile/MySkills.js';
 import Reference from './profile/Reference.js';
 import { Styles } from "./styles/tabBox.js";
 // import Modal from 'react-bootstrap/Modal';
-import Format4 from './preview-templates/Format4.js';
-import Format1 from './preview-templates/Format1.js';
-import Format2 from './preview-templates/Format2.js';
+import Format5 from './preview-templates/Format5.js';
+import Format6 from './preview-templates/Format6.js';
 import Format3 from './preview-templates/Format3.js';
+import Format2 from './preview-templates/Format2.js';
  
 function TabBox () {
     useEffect(()=>{
@@ -149,10 +149,12 @@ function TabBox () {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            {/* <Format1 />
-            <Format2 />*/}
-            <Format3 /> 
+            {/* <Format1 />*/}
+            {/* <Format2 /> */}
+            {/* <Format3 />  */}
             {/* <Format4 /> */}
+            {/* <Format5 /> */}
+            <Format6 />
         </Modal.Body>
       
       </Modal>
