@@ -229,7 +229,7 @@ function Format4() {
   return (
     <div className='row'>
         <div className='col-4 left-container-f4 bg-primary pb-3'>
-        <img className='mt-3' src={`data:image/jpeg;base64,${base64Img}`} style={{width:'80%',position:"relative", left:"20px"}} />
+        <img className='mt-3' src={`data:image/jpeg;base64,${base64Img}`} style={{width:'200px',height:'200px',position:"relative", left:"7px"}} />
         <p className='text-light mt-1 text-center p-0'>{name.toUpperCase()}</p>
         <p className=' text-center' style={{marginTop:"-15px", fontSize:"14px",color:" rgba(220,220,220,0.9"}}>{title}</p>
         <ul style={{borderBottom:"2px solid white",paddingBottom:"15px"}}>
