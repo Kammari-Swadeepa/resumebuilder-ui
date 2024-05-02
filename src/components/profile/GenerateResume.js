@@ -127,7 +127,7 @@ function GenerateResume() {
 
             {modal && (<Modal show={modal}>
                 <Modal.Body>
-                    <p>Resume has been generated and mailed to your email id</p>
+                    <p className='text-dark'>Resume has been generated and mailed to your email id</p>
                 </Modal.Body>
 
                 <Modal.Footer>
