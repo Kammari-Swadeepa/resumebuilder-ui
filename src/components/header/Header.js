@@ -11,6 +11,7 @@ import { PostApi } from '../../services/commonServices.js';
 import ChangePassword from '../change-password/ChangePassword.js';
 import Login from '../login/Login';
 import Signup from '../signup/Signup';
+import "./header.css";
 
 function Header() {
 
@@ -19,6 +20,7 @@ function Header() {
   const [user, setUser] = useState(null);
   const [userMobile, setUserMobile] = useState("")
   const [isChangePassword, setIsChangePassword] = useState(false)
+  const [istToggle,setIsToggle]=useState(false)
   // const [signUpFromLogin,setSignUpFromLogin] =useState(false);
   // const [loginFromSignUp, setLoginFromSignUp] = useState(false)
   useEffect(() => {
@@ -63,9 +65,51 @@ function Header() {
   const handleChangePassword = () => {
     setIsChangePassword(true)
   }
+  const openNavBar =()=>{
+    setIsToggle(true)
+  }
+  const closeNavBar =()=>{
+    setIsToggle(false)
+  }
   return (
     <>
       {/* {console.log(user, "check user info")} */}
+  
+      <div className={istToggle?"navbar-mobile-view":"navbar-mobile-hide"}>
+      <div style={{position:"relative"}}>
+        <RxCross1 style={{position:"absolute", right:"10px", top:"10px",fontSize:"24px",color:"white"}} onClick={()=>closeNavBar()}/>
+      </div >
+                    <div className='all-links'>
+                    <div className='links-container'>
+                    <Link to={'/'}  >Home</Link>
+                    </div>
+                  <div className='links-container'>
+                  <Link to={'/aboutus'} >About Us</Link>
+                  </div>
+                    <div className='links-container'>
+                    <Link to={'/pricing'} >Pricing</Link>
+                    </div>
+                   <div className='links-container'>
+                   <Link to={'/templates'} >Templates</Link>
+                   </div>
+                   <div className='links-container'>
+                   <Link to={'/contact'} >Contact</Link>
+                   </div>
+                   {user ? <Dropdown drop="down-centered" >
+
+                    <Dropdown.Toggle variant="muted" id="dropdown-basic" style={{ border: "none", backgroundColor: "transparent", outline: "none" }}>
+                      <span style={{color:"white"}} >More</span>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu style={{ width: '230px' }}>
+
+                      <Dropdown.Item onClick={changePassword} style={{ fontSize: "16px", padding: "10px" }}><BsShieldLock style={{ fontSize: "21px", margin: "0px 10px" }} /><span style={{ position: 'relative', bottom: "4px" }} onClick={handleChangePassword}>Change Password</span></Dropdown.Item>
+                      <Dropdown.Item onClick={LoginOutFunc} style={{ fontSize: "16px", padding: "10px" }}><PiSignOutBold style={{ fontSize: "21px", margin: "0px 10px" }} /><span style={{ position: 'relative', bottom: "4px" }}>Sign Out</span></Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown> : <><a onClick={LoginFnc} class="open-popup-link btn login-btn mr-im">Sign In</a>
+                    <a onClick={SignupFnc} class="open-signup-link btn login-btn">Sign Up </a></>}
+
+                    </div>
+                  </div>
       <div class="header-area" style={{ zIndex: "-999" }}>
         <div class="classy-nav-container dark breakpoint-off">
           <div class="container">
@@ -75,16 +119,17 @@ function Header() {
               {/* <a class="nav-brand" href="index-2.html"><img src={logo} alt="logo" /> CV Builder.</a> */}
               <Link class="nav-brand" to={"/"}><img src={logo} alt="logo" /> CV Builder.</Link>
 
-              <div class="classy-navbar-toggler">
-                <span class="navbarToggler"><span></span><span></span><span></span></span>
-              </div>
+            {istToggle?"":<div class="classy-navbar-toggler" >
+                <span class="navbarToggler" onClick={()=>openNavBar()}><span></span><span></span><span></span></span>
+              </div>}  
 
               <div class="classy-menu">
 
                 <div class="classycloseIcon">
                   <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                 </div>
-
+                
+                
                 <div class="classynav">
                   <ul id="nav">
                     <Link to={'/'} className='header-link'>Home</Link>

@@ -228,13 +228,14 @@ function Format6() {
         setSelected(userdata?.user?.academicyear);
 
     }
+    
   return (
-    <div className='p-2' style={{ backgroundColor: "black" }}>
+    <div className='p-2' style={{ backgroundColor: "black",boxShadow:"0px 0px 7px gray" }}>
     <div className='d-flex justify-content-center'  style={{ backgroundColor: "black", borderBottom:"2px solid white" }}>
         
         <div className=' mt-2 text-center'>
             <h3 className='text-primary text-danger'>{name}</h3>
-            <h6 className='text-light'>{title}</h6>
+            <h6 className='text-light'>{title ? title : "Your Designation"}</h6>
             <h6 className='text-light' style={{ marginRight: "10px" }}>{email}</h6>
             <div className='text-light' style={{ marginRight: "10px" }}>+91 {mobilenumber}</div>
         </div>
@@ -248,7 +249,7 @@ function Format6() {
     </div>
     <div>
         <h5 className='mt-3'><span className='text-light' style={{ textDecoration: "underline" }}>PROJECTS</span></h5>
-        {userprojects.map(ele => {
+        {userprojects.length>0? userprojects.map(ele => {
             return (
                 <div className='mt-2'>
                     <div className='text-light' style={{ fontSize: "15px", fontWeight: "bold" }}>{ele.name} - {`( ${ele.duration} )`}</div>
@@ -257,12 +258,25 @@ function Format6() {
                     </ul>
                 </div>
             )
-        })}
+        }) :<>
+        <div className='mt-2'>
+                    <div className='text-light' style={{ fontSize: "15px", fontWeight: "bold" }}>Example Project 1 - {`( 3 months )`}</div>
+                    <ul className='text-light' style={{ listStyleType: "circle", marginLeft: "20px" }}>
+                        <li className='text-light' style={{ fontSize: "14px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    </ul>
+                </div>
+                <div className='mt-2'>
+                    <div className='text-light' style={{ fontSize: "15px", fontWeight: "bold" }}>Example Project 2 - {`( 6 months )`}</div>
+                    <ul className='text-light' style={{ listStyleType: "circle", marginLeft: "20px" }}>
+                        <li className='text-light' style={{ fontSize: "14px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    </ul>
+                </div>
+        </>
+        }
     </div>
     <div>
         <h5 className='mt-3'><span className='text-light' style={{ textDecoration: "underline" }}>EDUCATION</span></h5>
-        {console.log(education, "education")}
-        {education.map(ele => {
+        {education.length>0? education.map(ele => {
             return (
                 <div style={{marginLeft:"20px"}}>
                     <div className='text-light' style={{fontSize:"16px",fontWeight:"bold"}}>{ele.startyear} - {ele.endyear}</div>
@@ -271,17 +285,28 @@ function Format6() {
 
 
             )
-        })}
+        }):<>
+        <div style={{marginLeft:"20px"}}>
+                    <div className='text-light' style={{fontSize:"16px",fontWeight:"bold"}}>20xx - 20xx</div>
+                    <div className='text-light' >xyz-university  - abc - college</div>
+                </div>
+        </>
+        }
     </div>
     <div >
         <h5 className='mt-3'><span className='text-light' style={{ textDecoration: "underline" }}>SKILLS</span></h5>
        
         <ul style={{marginLeft:"20px"}}>
-        {skills.map(ele => {
+        {skills.length>0?skills.map(ele => {
             return (
                 <li className='text-light'>{ele.name}</li>
             )
-        })}
+        }):<>
+         <li className='text-light'>skill l</li>
+         <li className='text-light'>skill 2</li>
+         <li className='text-light'>skill 3</li>
+        </>
+        }
         </ul>
        
     </div>
@@ -290,7 +315,7 @@ function Format6() {
         <h5 className='mt-3'><span style={{ textDecoration: "underline" }} className='text-light'>DETAILS</span></h5>
         <div style={{marginLeft:"20px"}}>
         <span style={{fontWeight:"bold"}} className='text-light'>Address:</span>
-        <div className='text-light' >{userdata?.user?.address}</div>
+        <div className='text-light' >{userdata?.user?.address ? userdata?.user?.address: ""}</div>
         <span style={{fontWeight:"bold"}} className='text-light'>Phone:</span>
         <div className='text-light' >{mobilenumber}</div>
         <span className='text-light' style={{fontWeight:"bold"}}>Email:</span>
@@ -298,7 +323,7 @@ function Format6() {
 
         </div>
     </div>
-    <div>
+   {references.length >0 ?  <div>
      
      <h5 className='mt-3'><span style={{ textDecoration: "underline" }} className='text-light'>REFERENCES</span></h5>
      <div style={{marginLeft:"20px"}}>
@@ -312,17 +337,23 @@ function Format6() {
     
 
      </div>
- </div>
+ </div>: ""}
  <div>
      
      <h5 className='mt-3'><span style={{ textDecoration: "underline" }} className='text-light'>HOBBIES</span></h5>
      <div style={{marginLeft:"20px"}}>
     <ul>
-    {userHobbies.map(ele=>{
+    {userHobbies>0? userHobbies.map(ele=>{
         return(
             <li className='text-light'>{ele.name}</li>
         )
-    })}
+    }):
+    <>
+    <li className='text-light'>Hobbie 1</li>
+    <li className='text-light'>Hobbie 2</li>
+    <li className='text-light'>Hobbie 3</li>
+    </>
+    }
     </ul>
     
 

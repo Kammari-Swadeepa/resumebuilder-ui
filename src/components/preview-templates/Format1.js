@@ -226,19 +226,19 @@ function Format1() {
 
     }
     return (
-        <div className='d-flex justify-content-center row'>
-            <div className='col-12'>
+        <div className='d-flex justify-content-center row' style={{boxShadow:"0px 0px 7px gray"}}>
+            <div className='col-11'>
                 <div className='header-container-f1 p-3 '>
                     <h2 className='text-dark'> {name}</h2>
-                    <img src={`data:image/jpeg;base64,${base64Img}`} width="100" height="100" />
+                    {base64Img ? <img src={`data:image/jpeg;base64,${base64Img}`} width="100" height="100" />: <img src="https://tse1.mm.bing.net/th?id=OIP.lsaqXiF1qoA0lNGxssv4dQHaFy&pid=Api&P=0&h=180" width="100" height="100" />}
                 </div>
                 <div className='user-info'>
                     <div><b>Phone: </b> {mobilenumber}</div>
                     <div><b>Email: </b> {email}</div>
-                    <div><b>Designation: </b> {title}</div>
+                    <div><b>Designation: </b> {title ? title : "Your Designation"}</div>
                 </div>
                 <div className='description-container'>
-                    <div>
+                    <div style={{color:"gray"}}>
                         {/* {console.log(summaryData,"summaryData")} */}
                         Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
                     </div>
@@ -249,14 +249,23 @@ function Format1() {
                     </div>
                     <div className='right col-9'>
                         {console.log(education, "check education")}
-                        {education.map(ele => {
+                        {education.length>0 ? education.map(ele => {
                             return (
                                 <div style={{ marginLeft: "15px" }}>
                                     <h6>{ele.education} {ele.startyear} - {ele.endyear}  </h6>
                                     <div><b> College</b>: {ele.college}</div>
                                 </div>
                             )
-                        })}
+                        }):<>
+                        <div style={{ marginLeft: "15px" }}>
+                                    <h6>XYZ XXXX - XXXX </h6>
+                                    <div><b> College</b>: xyz</div>
+                                </div>
+                                <div style={{ marginLeft: "15px" }}>
+                                    <h6>XYZ XXXX - XXXX </h6>
+                                    <div><b> College</b>: xyz</div>
+                                </div>
+                        </>}
                     </div>
                 </div>
                 <div className='education row'>
@@ -265,13 +274,13 @@ function Format1() {
                     </div>
                     <div className='right col-9 pt-3'>
                         <ul style={{ marginLeft: "15px" }}>
-                            {skills.map(ele => {
+                            {skills.length>0 ? skills.map(ele => {
                                 return (
 
-                                    <li>{ele.name}</li>
+                                    <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
 
                                 )
-                            })}
+                            }): <><li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Skill 1</li> <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Skill 2</li></> }
                         </ul>
                     </div>
                 </div>
@@ -282,7 +291,7 @@ function Format1() {
                     <div className='right col-9 pt-3'>
                         <ul style={{ marginLeft: "15px" }}>
                             {console.log(userprojects, "check user projects")}
-                            {userprojects.map(ele=>{
+                            {userprojects.length>0 ? userprojects.map(ele=>{
                                 return(
                                     <div className='mb-3'>
                                         <div style={{fontSize:"16px", fontWeight:"bold"}}>{ele.name} - {ele.duration}</div>
@@ -293,7 +302,24 @@ function Format1() {
                                         </ul>
                                     </div>
                                 )
-                            })}
+                            }):<>
+                            <div className='mb-3'>
+                                        <div style={{fontSize:"16px", fontWeight:"bold"}}>Example Project 1 - 3months</div>
+                                        <ul >
+                                            <li style={{fontSize:"14px"}}>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className='mb-3'>
+                                        <div style={{fontSize:"16px", fontWeight:"bold"}}>Example Project 2 - 6 months</div>
+                                        <ul >
+                                            <li style={{fontSize:"14px"}}>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </> }
                         </ul>
                     </div>
                 </div>
@@ -304,15 +330,20 @@ function Format1() {
                     <div className='right col-9 pt-3'>
                         <ul style={{ marginLeft: "15px" }}>
                        
-                            {userHobbies.map(ele=>{
+                            {userHobbies.length>0 ? userHobbies.map(ele=>{
                                 return(
-                                   <li>{ele.name}</li>
+                                   <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
                                 )
-                            })}
+                            }): <>
+                            <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 1</li>
+                            <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 2</li>
+                            <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 3</li>
+                            </>}
                         </ul>
                     </div>
                 </div>
-                <div className='education row'>
+
+                {references.length>0 ? <div className='education row'>
                     <div className='left col-3 pt-3'>
                         <h5 className='text-right'>References</h5>
                     </div>
@@ -320,12 +351,13 @@ function Format1() {
                         <ul style={{ marginLeft: "15px" }}>
                             {references.map(ele=>{
                                 return(
-                                   <li><b>{ele.name}</b>{` ( ${ele.mobilenumber} )`}</li>
+                                   <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span><b>{ele.name}</b>{` ( ${ele.mobilenumber} )`}</li>
                                 )
                             })}
                         </ul>
                     </div>
-                </div>
+                </div>: " "}
+                
 
 
             </div>

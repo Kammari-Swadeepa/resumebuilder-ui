@@ -231,22 +231,24 @@ function Format2() {
     }
     return (
 
-        <div>
-            <div className='row' style={{ backgroundColor: "rgb(245,245,245)" }}>
+        <div style={{boxShadow:"0px 0px 7px gray"}}>
+            <div className='row m-0 p-0' style={{ backgroundColor: "rgb(245,245,245)" }}>
                 <div className='col-2 bg-light'>
-                    <img src={`data:image/jpeg;base64,${base64Img}`} />
+                    {base64Img ? <img src={`data:image/jpeg;base64,${base64Img}`} />: <img src="https://tse1.mm.bing.net/th?id=OIP.lsaqXiF1qoA0lNGxssv4dQHaFy&pid=Api&P=0&h=180" />}
+                    
 
                 </div>
                 <div className='col-5 mt-2'>
                     <h3 className='text-primary'>{name}</h3>
-                    <span>{title}</span>
+                    <span>{title ? title: "Your Designation"}</span>
                 </div>
                 <div className='col-5 text-right mt-3' >
                     <div className='text-dark' style={{ marginRight: "10px" }}>{email}</div>
                     <div className='text-dark' style={{ marginRight: "10px" }}>+91 {mobilenumber}</div>
                 </div>
             </div>
-            <div>
+            <div style={{paddingLeft:"10px"}}>
+            <div >
                 <h5 className='mt-3'><span style={{ textDecoration: "underline" }}>PROFILE</span></h5>
                 <div style={{ fontSize: "14px" }}>
                     Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
@@ -254,7 +256,7 @@ function Format2() {
             </div>
             <div>
                 <h5 className='mt-3'><span style={{ textDecoration: "underline" }}>PROJECTS</span></h5>
-                {userprojects.map(ele => {
+                {userprojects.length>0? userprojects.map(ele => {
                     return (
                         <div className='mt-2'>
                             <div style={{ fontSize: "15px", fontWeight: "bold" }}>{ele.name} - {`( ${ele.duration} )`}</div>
@@ -263,12 +265,25 @@ function Format2() {
                             </ul>
                         </div>
                     )
-                })}
+                }):<>
+                <div className='mt-2'>
+                            <div style={{ fontSize: "15px", fontWeight: "bold" }}>Example Project 1 -{`( 3 months )`}</div>
+                            <ul style={{ listStyleType: "circle", marginLeft: "20px" }}>
+                                <li style={{ fontSize: "14px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                            </ul>
+                        </div>
+                        <div className='mt-2'>
+                            <div style={{ fontSize: "15px", fontWeight: "bold" }}>Example Project 2 - {`( 6 months )`}</div>
+                            <ul style={{ listStyleType: "circle", marginLeft: "20px" }}>
+                                <li style={{ fontSize: "14px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                            </ul>
+                        </div>
+                </>}
             </div>
             <div>
                 <h5 className='mt-3'><span style={{ textDecoration: "underline" }}>EDUCATION</span></h5>
                 {console.log(education, "education")}
-                {education.map(ele => {
+                {education.length >0? education.map(ele => {
                     return (
                         <div style={{marginLeft:"20px"}}>
                             <div style={{fontSize:"16px",fontWeight:"bold"}}>{ele.startyear} - {ele.endyear}</div>
@@ -277,17 +292,29 @@ function Format2() {
 
 
                     )
-                })}
+                }):<>
+                 <div style={{marginLeft:"20px"}}>
+                            <div style={{fontSize:"16px",fontWeight:"bold"}}>20xx - 20xx</div>
+                            <div >xyz-university - xyz-college</div>
+                        </div>
+                        <div style={{marginLeft:"20px"}}>
+                            <div style={{fontSize:"16px",fontWeight:"bold"}}>20xx - 20xx</div>
+                            <div >xyz-university - xyz-college</div>
+                        </div>
+                </>}
             </div>
             <div >
                 <h5 className='mt-3'><span style={{ textDecoration: "underline" }}>SKILLS</span></h5>
                 {console.log(skills, "skills")}
                 <ul style={{marginLeft:"20px"}}>
-                {skills.map(ele => {
+                {skills.length>0 ? skills.map(ele => {
                     return (
-                        <li>{ele.name}</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
                     )
-                })}
+                }): <>
+                <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 1</li>
+                <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill2</li>
+                </>}
                 </ul>
                
             </div>
@@ -296,7 +323,7 @@ function Format2() {
                 <h5 className='mt-3'><span style={{ textDecoration: "underline" }}>DETAILS</span></h5>
                 <div style={{marginLeft:"20px"}}>
                 <span style={{fontWeight:"bold"}}>Address:</span>
-                <div >{userdata?.user?.address}</div>
+                <div >{userdata?.user?.address ? userdata?.user?.address: "xxxx/yyyy/zzzz" }</div>
                 <span style={{fontWeight:"bold"}}>Phone:</span>
                 <div >{mobilenumber}</div>
                 <span style={{fontWeight:"bold"}}>Email:</span>
@@ -304,13 +331,13 @@ function Format2() {
 
                 </div>
             </div>
-            <div>
+           {references.length >0 ?  <div>
              
              <h5 className='mt-3'><span style={{ textDecoration: "underline" }}>REFERENCES</span></h5>
              <div style={{marginLeft:"20px"}}>
             {references.map(ele=>{
                 return(
-                    <> <span style={{fontWeight:"bold"}}>{ele.name}</span>
+                    <><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span> <span style={{fontWeight:"bold"}}>{ele.name}</span>
                     <div >{ele.mobilenumber}</div>
                     </>
                 )
@@ -318,24 +345,27 @@ function Format2() {
             
 
              </div>
-         </div>
+         </div>: ""}
          <div>
              
              <h5 className='mt-3'><span style={{ textDecoration: "underline" }}>HOBBIES</span></h5>
              <div style={{marginLeft:"20px"}}>
             <ul>
-            {userHobbies.map(ele=>{
+            {userHobbies.length >0 ? userHobbies.map(ele=>{
                 return(
-                    <li>{ele.name}</li>
+                    <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
                 )
-            })}
+            }): <>
+              <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 1</li>
+              <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 2</li>
+            </>}
             </ul>
             
 
              </div>
          </div>
         </div>
-
+        </div>
 
     )
 }

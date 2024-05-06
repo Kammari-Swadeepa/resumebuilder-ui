@@ -6,7 +6,13 @@ export const Styles = styled.div`
     .tab-section {
         
         padding   : 70px 0 65px;
+        .resume-mobile-view{
+            display:block;
+            @media(max-width: 767px) {
+                display:none;
+            }
 
+        }
         .nav {
             background-color: #ffffff;
             border-radius : 5px;

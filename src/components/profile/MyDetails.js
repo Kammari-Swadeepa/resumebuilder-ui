@@ -1,15 +1,16 @@
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { Suspense, useEffect, useState } from 'react';
 // import { Styles } from '../../pages/account/styles/account'
-import { Container, Row, Col, Toast, Modal } from 'react-bootstrap';
+import { Col, Container, Modal, Row } from 'react-bootstrap';
 import { PostApi } from '../../services/commonServices';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Styles } from './mydetailsyle'
 import FileBase64 from 'react-file-base64';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Login from '../login/Login';
 import { RxCross1 } from "react-icons/rx";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Login from '../login/Login';
+import Signup from '../signup/Signup';
+import { Styles } from './mydetailsyle';
 
 
 function MyDetails() {
@@ -27,9 +28,9 @@ function MyDetails() {
     const [imageshow, setImageShow] = useState(null);
     const [filefields, setFileFields] = useState(null);
     const [base64Img, setBase64Img] = useState("");
+  
     const [loginModal, setLoginModal] = useState(false)
     const [signupModal, setSignupModal] = useState(false)
-
 
 
     const [selected, setSelected] = useState(undefined);
@@ -50,7 +51,7 @@ function MyDetails() {
     }, []);
 
     const loaddata = async () => {
-    var tntId= JSON.parse(localStorage.getItem('tID'))
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const userdata = JSON.parse(localStorage.getItem(`userdata${tntId}`))
         // console.log("userdata in Mydetails", userdata);
@@ -167,7 +168,7 @@ function MyDetails() {
 
     }
 
-  
+
 
     const openModal = () => {
         // history.push("/")
@@ -274,8 +275,8 @@ function MyDetails() {
 
         //     return
         // }
-        console.log(saveuserinfo.data?.id,profilepicResp.data?.id);
-        
+        console.log(saveuserinfo.data?.id, profilepicResp.data?.id);
+
         if (saveuserinfo.data?.id && profilepicResp.data?.id) {
 
             // Toast.show({
@@ -299,10 +300,13 @@ function MyDetails() {
             }
 
             const clearsessionrespone = await PostApi(reqparams, 'LOGOUT');
-            console.log("clearsessionrespone",clearsessionrespone,mobilenumber);
-            var tntId=JSON.parse(localStorage.getItem('tID'))
+            console.log("clearsessionrespone", clearsessionrespone, mobilenumber);
+            var tntId = JSON.parse(localStorage.getItem('tID'))
 
             localStorage.removeItem(`userdata${tntId}`)
+            navigate('/')
+            // window.location.reload();
+            // navigate('/')
             setOpenLoginModal(true)
 
             // history.push(`${process.env.PUBLIC_URL + "/home-two"}`)
@@ -314,7 +318,7 @@ function MyDetails() {
             //     position: 'top'
             // });
 
-            toast.error(saveuserinfo.data.message, {
+            toast.error(saveuserinfo.message, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -331,13 +335,20 @@ function MyDetails() {
         // // navigation.navigate('login');
 
     }
-
+    const LoginFnc = async () => {
+        setLoginModal(true)
+        setSignupModal(false)
+      }
+      const SignupFnc = async () => {
+        setSignupModal(true)
+        setLoginModal(false)
+      }
     return (
         <Styles>
             <section className="login-area">
                 {/* {console.log("final academic types:", academictypes)} */}
                 <Container>
-                    <Row>
+                    <Row >
                         <Col md="12">
                             <div className="login-box">
                                 <div className="login-title text-center">
@@ -345,95 +356,119 @@ function MyDetails() {
                                 </div>
                                 <form id="form_login" className="form">
 
-                                    <div className='custom-flex'>
-                                        <p className="form-control">
-                                            <label htmlFor="name">Full Name</label>
-                                            <input type="text" placeholder="Full Name" id="Full Name" name='name' value={name} onChange={(e) => setName(e.target.value)} />
-                                            <span className="login_input-msg"></span>
-                                        </p>
-                                        <p className="form-control">
-                                            <label htmlFor="email">Personal Email</label>
-                                            <input type="email" placeholder="Email" id="Personal Email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                                            <span className="login_input-msg"></span>
-                                        </p>
-                                        <p className="form-control">
-                                            <label htmlFor="mobilenumber">Mobile Number</label>
-                                            <input type="number" placeholder="Number" id="Mobile Number" name='mobilenumber' value={mobilenumber} onChange={(e) => setMobilenumber(e.target.value)} />
-                                            <span className="login_input-msg"></span>
-                                        </p>
-                                        <p className="form-control">
-                                            <label htmlFor="State">State</label>
-                                            <input type="text" placeholder="State" id="State" name='state' value={state} onChange={(e) => setState(e.target.value)} />
-                                            <span className="login_input-msg"></span>
-                                        </p>
-                                        <p className="form-control">
+                                    <div className='row p-0 m-0'>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="name">Full Name</label>
+                                                <input type="text" placeholder="Full Name" id="Full Name" name='name' value={name} onChange={(e) => setName(e.target.value)} />
+                                                <span className="login_input-msg"></span>
+                                            </p>
+                                        </div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="email">Personal Email</label>
+                                                <input type="email" placeholder="Email" id="Personal Email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                                <span className="login_input-msg"></span>
+                                            </p>
+                                        </div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="mobilenumber">Mobile Number</label>
+                                                <input type="number" placeholder="Number" id="Mobile Number" name='mobilenumber' value={mobilenumber} onChange={(e) => setMobilenumber(e.target.value)} />
+                                                <span className="login_input-msg"></span>
+                                            </p>
+                                        </div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="State">State</label>
+                                                <input type="text" placeholder="State" id="State" name='state' value={state} onChange={(e) => setState(e.target.value)} />
+                                                <span className="login_input-msg"></span>
+                                            </p>
+                                        </div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>                                        <p className="form-control ">
                                             <label htmlFor="District">District</label>
                                             <input type="text" placeholder="District" id="District" name='district' value={district} onChange={(e) => setDistrict(e.target.value)} />
                                             <span className="login_input-msg"></span>
-                                        </p>
-                                        <p className="form-control">
-                                            <label htmlFor="Address">Address</label>
-                                            <input type="text" placeholder="Address" id="Address" name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
-                                            <span className="login_input-msg"></span>
-                                        </p>
-                                        <p className="form-control">
-                                            <label htmlFor="Title">Resume Title</label>
-                                            <input type="text" placeholder="Title" id="Title" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                                            <span className="login_input-msg"></span>
-                                        </p>
+                                        </p></div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="Address">Address</label>
+                                                <input type="text" placeholder="Address" id="Address" name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
+                                                <span className="login_input-msg"></span>
+                                            </p>
+                                        </div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+
+                                            <p className="form-control ">
+                                                <label htmlFor="Title">Resume Title</label>
+                                                <input type="text" placeholder="Title" id="Title" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                                                <span className="login_input-msg"></span>
+                                            </p>
+                                        </div>
 
 
 
 
 
-                                        <p className="form-control">
-                                            <label htmlFor="Title">Select Year</label>
-                                            <select
-                                                value={selected} onChange={(e) => setSelected(e.target.value)}>
-                                                <option>{pl1}</option>
-                                                {academictypes.map((item) => (
-                                                    <option key={item.key} value={item.key}>
-                                                        {item.value}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </p>
-                                        <p className="form-control">
-                                            <label htmlFor="Title">Select Branch</label>
-                                            <select
-                                                value={selected1} onChange={(e) => setSelected1(e.target.value)}>
-                                                <option>{pl2}</option>
-                                                {branchdata.map((item) => (
-                                                    <option key={item.key} value={item.key}>
-                                                        {item.value}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </p>
-                                        <p className="form-control">
-                                            <label htmlFor="Title">Select Sem</label>
-                                            <select
-                                                value={selected2} onChange={(e) => setSelected2(e.target.value)}>
-                                                <option>{pl3}</option>
-                                                {semsisterdata.map((item) => (
-                                                    <option key={item.key} value={item.key}>
-                                                        {item.value}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </p>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="Title">Select Year</label>
+                                                <select
+                                                    value={selected} onChange={(e) => setSelected(e.target.value)}>
+                                                    <option>{pl1}</option>
+                                                    {academictypes.map((item) => (
+                                                        <option key={item.key} value={item.key}>
+                                                            {item.value}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </p>
 
-                                        <p className="form-control form2">
-                                            <label htmlFor="Title">Profile Pic<label style={{ fontSize: "12px" }}>(image should be lessthan 1mb)</label></label>
-                                            {/* <input type="text" placeholder="Title" id="Title" name='title' value={title} onChange={(e)=>setTitle(e.target.value)}/> */}
-                                            <FileBase64 multiple={true} onDone={handleChangeFile} />
-                                            <span className="login_input-msg"></span>
-                                        </p>
+                                        </div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="Title">Select Branch</label>
+                                                <select
+                                                    value={selected1} onChange={(e) => setSelected1(e.target.value)}>
+                                                    <option>{pl2}</option>
+                                                    {branchdata.map((item) => (
+                                                        <option key={item.key} value={item.key}>
+                                                            {item.value}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </p>
+                                        </div>
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control ">
+                                                <label htmlFor="Title">Select Sem</label>
+                                                <select
+                                                    value={selected2} onChange={(e) => setSelected2(e.target.value)}>
+                                                    <option>{pl3}</option>
+                                                    {semsisterdata.map((item) => (
+                                                        <option key={item.key} value={item.key}>
+                                                            {item.value}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </p>
+                                        </div>
 
-                                        {imageshow && <p className="form-control-UC form2" >
-                                            <label htmlFor="Title">Profile Pic</label>
-                                            <img src={`data:image/jpeg;base64,${base64Img}`} alt="Red dot" height="100%" width="100%" />
-                                        </p>}
+                                        <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control form2 ">
+                                                <label htmlFor="Title">Profile Pic<label style={{ fontSize: "12px" }}>(image should be lessthan 1mb)</label></label>
+                                                {/* <input type="text" placeholder="Title" id="Title" name='title' value={title} onChange={(e)=>setTitle(e.target.value)}/> */}
+                                                <FileBase64 multiple={true} onDone={handleChangeFile} />
+                                                <span className="login_input-msg"></span>
+                                            </p>
+                                        </div>
+
+                                        {imageshow && <div className='col-lg-6 col-md-6 col-sm-10'>
+                                            <p className="form-control-UC form2 " >
+                                                <label htmlFor="Title">Profile Pic</label>
+                                                <img src={`data:image/jpeg;base64,${base64Img}`} alt="Red dot" height="100%" width="100%" />
+                                            </p>
+                                        </div>}
                                     </div>
 
                                     <button onClick={continueform} style={{ marginTop: "20px" }}>Save</button>
@@ -450,17 +485,40 @@ function MyDetails() {
             </section>
 
             <Modal className="modal fade" size="md" show={openLoginModal} onHide={setOpenLoginModal} style={{ marginTop: "70px" }}>
+                <div className="" role="document">
+                    <div className="">
+                        <form >
+                            <div className="modal-header border-none" style={{ position: "relative" }} >
+                                <h4>Login Form</h4>
+                                <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={openModal} />
+
+                            </div>
+                            <div className="modal-body">
+                                <Suspense>
+                                    <Login login={setLoginModal} signup={setSignupModal} /> 
+                                </Suspense>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </Modal>
+            
+      <Modal className="modal fade" size="md" show={signupModal} onHide={setSignupModal} style={{ marginTop: "70px" }}>
         <div className="" role="document">
           <div className="">
             <form >
               <div className="modal-header border-none" style={{ position: "relative" }} >
-                <h4>Login Form</h4>
-                <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={openModal} />
-                
+                <h4>Signup Form</h4>
+                <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={() => setSignupModal(false)} />
+                {/* <button type="button" className="btn-close border-none" onClick={() => setSignupModal(false)} data-dismiss="modal">X</button> */}
               </div>
               <div className="modal-body">
                 <Suspense>
-                  <Login/>
+                  <Signup login={setLoginModal} signup={setSignupModal} />
+
                 </Suspense>
 
               </div>

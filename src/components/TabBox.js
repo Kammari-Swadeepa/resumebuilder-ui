@@ -19,6 +19,8 @@ import Format5 from './preview-templates/Format5.js';
 import Format6 from './preview-templates/Format6.js';
 import Format3 from './preview-templates/Format3.js';
 import Format2 from './preview-templates/Format2.js';
+import Format1 from './preview-templates/Format1.js';
+import Format4 from './preview-templates/Format4.js';
  
 function TabBox () {
     useEffect(()=>{
@@ -28,22 +30,36 @@ function TabBox () {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const renderTemplate=()=>{
+      return <Format4/>
+    }
+    const handlePagereload =()=>{
+        window.location.reload()
+    }
         return (
             <>
                <Styles>
 <Header  />
                 {/* Tab Box Area */}
                 <section className="tab-section">
-                    <Container>
+                <div className='d-flex justfy-content-center m-2'>
+                                    <button className='btn btn-primary' onClick={handlePagereload}> Refresh the resume</button>
+                                    </div>
                         <Tab.Container defaultActiveKey="MyDetails">
                             <Row>
-                                <Col lg="3" md="4">
-                                    <Nav className="flex-column">
-                                        <Nav.Item>
-                                            <Nav.Link  eventKey="MyDetails"><FaArrowRight /> <span style={{fontSize:"16px",marginLeft:"4px"}}>My Details</span></Nav.Link>
+                                <Col lg="6" md="12" className='resume-mobile-view' style={{marginLeft:'30px'}}>
+                                    
+                                   {renderTemplate()}
+                                </Col>
+                                
+                                <Col lg="5" md="12">
+
+                                <Nav className="row p-0 m-0" style={{boxShadow:"0px 0px 7px gray"}}>
+                                        <Nav.Item className='col-lg-6 col-md-12' >
+                                            <Nav.Link  eventKey="MyDetails" ><FaArrowRight /> <span style={{fontSize:"16px",marginLeft:"4px"}}>My Details</span></Nav.Link>
                                         </Nav.Item>
 
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="education"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Education</span></Nav.Link>
                                         </Nav.Item>
 
@@ -51,39 +67,39 @@ function TabBox () {
                                             <Nav.Link eventKey="Marks"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Marks</span></Nav.Link>
                                         </Nav.Item> */}
 
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="About-Me"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>About Me</span></Nav.Link>
                                         </Nav.Item>
 
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="MySkills"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Skills</span></Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="projects"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Projects</span></Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="certifications"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Certifications</span></Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="MyHobbies"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}> Hobbies</span></Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="references"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>References</span></Nav.Link>
                                         </Nav.Item>
                                         {/* <Nav.Item>
                                             <Nav.Link eventKey="mypurchases"><FaArrowRight />My Purchases</Nav.Link>
                                         </Nav.Item> */}
-                                        <Nav.Item>
+                                        <Nav.Item className='col-lg-6'>
                                             <Nav.Link eventKey="resume"><FaArrowRight /><span style={{fontSize:"16px",marginLeft:"4px"}}>Generate Resume</span></Nav.Link>
                                         </Nav.Item>
 
                                     </Nav>
-                                    <div className='d-flex justify-content-center p-3 bg-info text-light font-bold' style={{cursor:"pointer"}} onClick={handleShow}>
-                                        <div> Preview Resume</div>
-                                    </div>
-                                </Col>
-                                <Col lg="9" md="8">
-                                    <Tab.Content>
+                                
+
+
+
+
+                                    <Tab.Content className='mt-2'>
                                     
                                         <Tab.Pane eventKey="education">
                                             <MyEducation />
@@ -138,7 +154,6 @@ function TabBox () {
                                 </Col>
                             </Row>
                         </Tab.Container>
-                    </Container>
                 </section>
                 {/* <ToastContainer /> */}
            

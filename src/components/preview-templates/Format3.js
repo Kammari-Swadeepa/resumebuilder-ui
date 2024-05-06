@@ -227,12 +227,13 @@ function Format3() {
         setSelected(userdata?.user?.academicyear);
 
     }
+  
     return (
-        <div style={{ backgroundColor: " rgba(72,61,139,0.2)", padding: "5px" }}>
+        <div style={{ backgroundColor: " rgba(72,61,139,0.2)", padding: "5px",boxShadow:"0px 0px 7px gray" }}>
             <div className='row header-container bg-light' >
                 <div className='col-6'>
                     <h3 className='text-primary mt-2'>{name}</h3>
-                    <p className='text-dark ' style={{ marginTop: "-8px" }}>{title}</p>
+                    <p className='text-dark ' style={{ marginTop: "-8px" }}>{title ? title: "Your Designation"}</p>
                 </div>
                 <div className='col-6 text-right'>
                     <p className='text-dark mt-3'>{email}</p>
@@ -246,7 +247,7 @@ function Format3() {
                 <h5 style={{ marginBottom: "-8px" }}>Education</h5>
                 <div className='header-container1  bg-light' >
                     {
-                        education.map(ele => {
+                       education.length>0? education.map(ele => {
                             return (
                                 <>
                                     <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
@@ -256,7 +257,19 @@ function Format3() {
                                     <p style={{color:"black",marginBottom:"-13px"}} className='p-2'>{ele.college}</p>
                                 </>
                             )
-                        })
+                        }): <>
+                        <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}>xyz-university</p>
+                                        <p style={{color:"orange"}}>20xx - 20xx</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px"}} className='p-2'>xxx - collage</p>
+
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}>abc-university</p>
+                                        <p style={{color:"orange"}}>20xx - 20xx</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px"}} className='p-2'>xxx - collage</p>
+                        </>
                     }
 
                 </div>
@@ -266,11 +279,17 @@ function Format3() {
                 <div className='header-container1  bg-light' >
                     <ul>
                     {
-                        skills.map(ele => {
+                      skills.length>0 ?  skills.map(ele => {
                             return (
-                               <li style={{margin:"3px 15px"}}>{ele.name}</li>
+                               <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
                             )
-                        })
+                        }): 
+                       <>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 1</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 2</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 3</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 4</li>
+                       </>
                     }
                     </ul>
                    
@@ -281,7 +300,7 @@ function Format3() {
                 <h5 style={{ marginBottom: "-8px" }}>Projects</h5>
                 <div className='header-container1  bg-light' >
                     {
-                        userprojects.map(ele => {
+                     userprojects.length >0 ?   userprojects.map(ele => {
                             return (
                                 <>
                                     <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
@@ -291,7 +310,19 @@ function Format3() {
                                     <p style={{color:"black",marginBottom:"-13px",textIndent:"30px"}} className='p-2'>{ele.description}</p>
                                 </>
                             )
-                        })
+                        }) : <>
+                        <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}><b>Example Project - 1</b></p>
+                                        <p style={{color:"orange"}}>{`( 3 months )`}</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px",textIndent:"30px"}} className='p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}><b>Example Project - 2</b></p>
+                                        <p style={{color:"orange"}}>{`( 3 months )`}</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px",textIndent:"30px"}} className='p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </>
                     }
 
                 </div>
@@ -301,11 +332,16 @@ function Format3() {
                 <div className='header-container1  bg-light' >
                     <ul>
                     {
-                        userHobbies.map(ele => {
+                       userHobbies.length >0 ? userHobbies.map(ele => {
                             return (
-                               <li style={{margin:"3px 15px"}}>{ele.name}</li>
+                               <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
                             )
-                        })
+                        }):
+                        <>
+                         <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 1</li>
+                         <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 2</li>
+                         <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 3</li>
+                        </>
                     }
                     </ul>
                    
@@ -317,11 +353,12 @@ function Format3() {
                 <div className='header-container1  bg-light' >
                     <ul>
                     {
-                        references.map(ele => {
+                      references.length >0 ?  references.map(ele => {
                             return (
-                               <li style={{margin:"3px 15px"}}><b>{ele.name}</b> - {ele.mobilenumber} </li>
+                               <li style={{margin:"3px 15px"}}><b><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</b> - {ele.mobilenumber} </li>
                             )
-                        })
+                        }):
+                        ""
                     }
                     </ul>
                    

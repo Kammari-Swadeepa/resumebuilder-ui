@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Styles } from './education'
-import { Button, Container, Modal } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react';
+import { Button, Container, Modal } from 'react-bootstrap';
 import { PostApi } from '../../services/commonServices';
+import { Styles } from './education';
 
 import { toast } from 'react-toastify';
-import './resumeStyles.css'
+import './resumeStyles.css';
 //
 function GenerateResume() {
     const [modal, setModal] = useState(false)
@@ -55,8 +55,8 @@ function GenerateResume() {
                 userid: userdata.id
             }
 
-            const reqRespnse = await PostApi(ReqData, action);
-            // const reqRespnse = await PostApi(ReqData, "GENERATERESUME5");
+            // const reqRespnse = await PostApi(ReqData, action);
+            const reqRespnse = await PostApi(ReqData, "GENERATERESUME7");
             if (reqRespnse.status === 'success') {
                 setModal(true)
                 toast.success("Resume has been generated and mailed to your email id", {

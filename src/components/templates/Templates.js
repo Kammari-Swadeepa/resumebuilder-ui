@@ -34,7 +34,7 @@ function Templates() {
     const navigate = useNavigate()
 
     const SeeTemplate = (ele) => {
-
+            
         navigate('/templatepreview', { state: ele });
     };
 

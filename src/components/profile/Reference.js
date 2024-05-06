@@ -84,8 +84,8 @@ const Reference = () => {
             <Container className="main-div">
                 <h3 className="tab-title text-center">References</h3>
 
-                {!noData && <div className="d-flex justify-content-center">
-                    <table className="table w-75">
+                {!noData && <div className="d-flex ">
+                    <table className="table w-100">
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">Sl.no</th>

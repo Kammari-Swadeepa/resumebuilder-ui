@@ -155,8 +155,8 @@ const MyHobbies = () => {
                 <Container className="main-div">
                 <h3 className="tab-title text-center">Hobbies</h3>
 
-                   <div className="d-flex justify-content-center">
-                   <table className="table w-75">
+                   <div className="d-flex">
+                   <table className="table w-100">
                    {!noData && <thead className="thead-dark">
                         <tr>
                             <th scope="col">Sl.no</th>

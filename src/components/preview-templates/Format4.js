@@ -227,40 +227,46 @@ function Format4() {
 
     }
   return (
-    <div className='row'>
-        <div className='col-4 left-container-f4 bg-primary pb-3'>
-        <img className='mt-3' src={`data:image/jpeg;base64,${base64Img}`} style={{width:'200px',height:'200px',position:"relative", left:"7px"}} />
+    <div className='row' style={{boxShadow:"0px 0px 7px gray"}}>
+        <div className='col-4 left-container-f4 pb-3' style={{backgroundColor:"#00b7eb"}}>
+            {
+
+base64Img ?  <img className='mt-3' src={`data:image/jpeg;base64,${base64Img}`} style={{width:'200px',height:'200px',position:"relative", left:"7px"}} />: <img className='mt-3' src="https://tse1.mm.bing.net/th?id=OIP.lsaqXiF1qoA0lNGxssv4dQHaFy&pid=Api&P=0&h=180" style={{width:'200px',height:'200px',position:"relative", left:"7px"}} /> 
+            }
+       
         <p className='text-light mt-1 text-center p-0'>{name.toUpperCase()}</p>
-        <p className=' text-center' style={{marginTop:"-15px", fontSize:"14px",color:" rgba(220,220,220,0.9"}}>{title}</p>
+        <p className=' text-center' style={{marginTop:"-15px", fontSize:"14px",color:" rgba(220,220,220,0.9"}}>{title ? title: "Your Designation"}</p>
         <ul style={{borderBottom:"2px solid white",paddingBottom:"15px"}}>
         <li ><span></span> <div style={{fontWeight:"bold", display:"inline-block"}}>Address:</div>
-        {/* {console.log(userdata1?.user.address,"check user dta")} */}
-        <div style={{fontSize:"13px", marginLeft:"15px"}}>{userdata1?.user?.address}</div>
+        <div style={{fontSize:"13px", marginLeft:"15px"}}>{userdata1?.user?.address ? userdata1?.user?.address: "xxxx/yyyy/zzzz" }</div>
         </li>    
         <li style={{marginLeft:"15px"}}> <div style={{fontWeight:"bold", display:"inline-block"}}>Phone:</div>
-        {/* {console.log(userdata1?.user.address,"check user dta")} */}
         <div style={{fontSize:"13px", marginLeft:"15px"}}>+91 {mobilenumber}</div>
         </li> 
         <li style={{marginLeft:"15px"}}> <div style={{fontWeight:"bold", display:"inline-block"}}>Email:</div>
-        {/* {console.log(userdata1?.user.address,"check user dta")} */}
-        <div style={{fontSize:"14px", marginLeft:"15px"}}> {email}</div>
+        <div style={{fontSize:"11px", marginLeft:"15px"}}>{email}</div>
         </li> 
         </ul>
         <div className='mt-3'>
             <p style={{color:"black", fontWeight:"bold", fontSize:"17px",marginLeft:"15px"}}>Skills</p>
             <ul style={{borderBottom:"2px solid white",paddingBottom:"15px", marginTop:"-15px"}}>
             {
-                skills.map(ele=>{
+              skills.length>0 ?  skills.map(ele=>{
                     return(
                         <li style={{marginLeft:"15px"}}><span></span> <div style={{ display:"inline-block"}}>{ele.name}</div>
      
         </li> 
                     )
-                })
+                }): 
+                <>
+                <li style={{marginLeft:"15px"}}><span></span> <div style={{ display:"inline-block"}}>skill 1</div></li>
+                <li style={{marginLeft:"15px"}}><span></span> <div style={{ display:"inline-block"}}>skill 2</div></li>
+                <li style={{marginLeft:"15px"}}><span></span> <div style={{ display:"inline-block"}}>skill 3</div></li>
+                </>
             }
             </ul>
         </div>
-  <div className='mt-3'>
+ {references.length > 0? <div className='mt-3'>
   <p style={{color:"black", fontWeight:"bold", fontSize:"17px",marginLeft:"15px"}}>References</p>
   <ul style={{borderBottom:"2px solid white",paddingBottom:"15px",marginTop:"-15px",marginLeft:"15px"}}>
       {
@@ -275,18 +281,18 @@ function Format4() {
       }   
         
         </ul>
-  </div>
+  </div>: "" } 
         </div>
         <div className='col-8 right-container-f4' >
  <div>
- <p className='profile text-primary'>PROFILE</p>
+ <p className='profile ' style={{color:"#00b7eb"}}>PROFILE</p>
     <p style={{color:"black", marginLeft:"15px", marginTop:"-20px",fontSize:"14px"}}>  Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.</p>
  </div>
   <div>
- <p className='profile text-primary'>Projects</p>
+ <p className='profile ' style={{color:"#00b7eb"}}>Projects</p>
  <ul style={{marginLeft:"20px",marginTop:"-20px"}}>
       {
-        userprojects.map(ele=>{
+       userprojects.length >0 ? userprojects.map(ele=>{
             return(
                 <li ><span></span> <div style={{ display:"inline-block",color:"black", fontWeight:"bold"}}>{ele.name}</div>
                 {/* {console.log(userdata1?.user.address,"check user dta")} */}
@@ -294,17 +300,28 @@ function Format4() {
                 <div style={{fontSize:"13px", marginLeft:"15px"}}> {ele.description}</div>
                 </li> 
             )
-        })
+        }): <>
+        <li ><span></span> <div style={{ display:"inline-block",color:"black", fontWeight:"bold"}}>Example Project 1</div>
+                {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                <div style={{fontSize:"13px", marginLeft:"15px"}}><b>Duration:</b> 3months</div>
+                <div style={{fontSize:"13px", marginLeft:"15px"}}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                </li>
+                <li ><span></span> <div style={{ display:"inline-block",color:"black", fontWeight:"bold"}}>Example Project 1</div>
+                {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                <div style={{fontSize:"13px", marginLeft:"15px"}}><b>Duration:</b> 3months</div>
+                <div style={{fontSize:"13px", marginLeft:"15px"}}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                </li>  
+        </>
       }   
         
         </ul>
  </div>
 
  <div>
- <p className='profile text-primary'>Education</p>
+ <p className='profile ' style={{color:"#00b7eb"}}>Education</p>
  <ul style={{marginLeft:"20px",marginTop:"-20px"}}>
       {
-        education.map(ele=>{
+       education.length>0 ? education.map(ele=>{
             return(
                 <li ><span></span> <div style={{ display:"inline-block",color:"black", fontWeight:"bold"}}>{ele.education}</div>
                 {/* {console.log(userdata1?.user.address,"check user dta")} */}
@@ -312,22 +329,48 @@ function Format4() {
                 <div style={{fontSize:"13px", marginLeft:"15px"}}> {ele.college}</div>
                 </li> 
             )
-        })
+        }):
+        <>
+        <li ><span></span> <div style={{ display:"inline-block",color:"black", fontWeight:"bold"}}>xxx- university</div>
+                {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                <div style={{fontSize:"13px", marginLeft:"15px"}}> 20xx - 20xx</div>
+                <div style={{fontSize:"13px", marginLeft:"15px"}}> xyz - college</div>
+                </li>
+
+                <li ><span></span> <div style={{ display:"inline-block",color:"black", fontWeight:"bold"}}>xxx- university</div>
+                {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                <div style={{fontSize:"13px", marginLeft:"15px"}}> 20xx - 20xx</div>
+                <div style={{fontSize:"13px", marginLeft:"15px"}}> xyz - college</div>
+                </li>
+        </>
       }   
         
         </ul>
  </div>
  <div>
- <p className='profile text-primary'>Hobbies</p>
+ <p className='profile ' style={{color:"#00b7eb"}}>Hobbies</p>
  <ul style={{marginLeft:"20px",marginTop:"-20px"}}>
       {
-        userHobbies.map(ele=>{
+       userHobbies.length >0? userHobbies.map(ele=>{
             return(
                 <li ><span></span> <div style={{ display:"inline-block",color:"black"}}>{ele.name}</div>
                
                 </li> 
             )
-        })
+        }):
+      <>
+      
+      <li ><span></span> <div style={{ display:"inline-block",color:"black"}}>Hobbie 1</div>
+               
+               </li> 
+                  <li ><span></span> <div style={{ display:"inline-block",color:"black"}}>Hobbie 2</div>
+              
+                  </li> 
+
+                  <li ><span></span> <div style={{ display:"inline-block",color:"black"}}>Hobbie 3</div>
+              
+              </li> 
+      </>
       }   
         
         </ul>

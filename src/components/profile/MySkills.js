@@ -150,8 +150,8 @@ const MySkills = () => {
                     <h3 className="tab-title text-center">Skills</h3>
 
                     {/* {console.log("SkillsMasterData afetr filter",skillsMasterData)}  */}
-                    {!noData && <div className="d-flex justify-content-center">
-                        <table className="table w-75">
+                    {!noData && <div className="d-flex">
+                        <table className="table w-100">
                         <thead className="thead-dark">
                             <tr>
                                 <th scope="col">Sl.no</th>

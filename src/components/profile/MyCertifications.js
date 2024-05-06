@@ -102,7 +102,7 @@ const MyCertifications = () => {
 
                     <h3 className="tab-title text-center">Certification</h3>
 
-                    {!noData && <div className="d-flex justify-content-center">
+                    {!noData && <div className="d-flex ">
                         <table className="table w-100">
                         <thead className="thead-dark">
                             <tr>

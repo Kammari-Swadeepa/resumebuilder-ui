@@ -563,6 +563,12 @@ export const Styles = styled.div`
     box-shadow: 0 0px 20px rgba(0,0,0,0.08);
     padding: 25px 30px 35px;
     border-radius: 5px;
+
+    @media(max-width: 575px) {
+        width:100vw;
+        overflow: scroll; 
+        
+    }
    }
   h3{
     color : ${colors.black2};

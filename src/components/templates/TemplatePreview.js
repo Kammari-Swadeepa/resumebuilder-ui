@@ -1,17 +1,32 @@
-import React, { useEffect } from 'react'
-import Header from '../header/Header';
-import demo1 from "../../assests/img/demos/demo-1.png"
-import Footer from '../footer/Footer';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import Footer from '../footer/Footer';
+import Header from '../header/Header';
+import Format1 from '../preview-templates/Format1';
+import Format2 from '../preview-templates/Format2';
+import Format3 from '../preview-templates/Format3';
+import Format4 from '../preview-templates/Format4';
+import Format5 from '../preview-templates/Format5';
+import Format6 from '../preview-templates/Format6';
 function TemplatePreview() {
     const location = useLocation();
-
+        
     useEffect(()=>{
         window.scroll(0,0)
-        // console.log("location",location);
+        console.log("location",location);
     },[])
-
+const renderTemplate=()=>{
+    if(location.state.resumetype=="1"){
+        return <Format1 />
+    }else if(location.state.resumetype=="2"){
+        return <Format2 />
+    }else if(location.state.resumetype=="3"){
+        return <Format3 />
+    }else if(location.state.resumetype=="4"){
+        return <Format5 />
+    }
+}
   return (
     <>
     <Header/>
@@ -43,8 +58,9 @@ function TemplatePreview() {
             <div class="row">
                 <div class="col-12 col-md-8">
                     <div >
-                        <div class="blog_thumbnail">
-                            <img src={location?.state?.image} class="temp-img" alt=""/>
+                        <div  >
+                            {/* <img src={location?.state?.image} class="temp-img" alt=""/> */}
+                            {renderTemplate()}
                         </div>
                     </div>
 
@@ -56,7 +72,7 @@ function TemplatePreview() {
                             <p className='text-dark'>Lorem ipsum dolor sit amet, elit, sed do eiusmod
                             tempor incidi dunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-                            <a class="btn dream-btn width-100" href="template-edit.html">Try This Template</a>
+                            <Link class="btn dream-btn width-100" to="/tabbox">Try This Template</Link>
                         </div>   
                         
 
