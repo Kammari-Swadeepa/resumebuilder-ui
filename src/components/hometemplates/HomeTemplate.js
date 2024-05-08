@@ -79,16 +79,35 @@ function HomeTemplate() {
     const navigate = useNavigate()
 
     const SeeTemplate = (ele) => {
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
+        const userdata = JSON.parse(localStorage.getItem(`userdata${tntId}`))
+        if (userdata != null) {
         navigate('/templatepreview', { state: ele });
+        }else{
+            toast.error("Please Login to Proceed", {
+                position: "top-right",
+                autoClose: 5000
+
+            })
+        }
     };
 
     const EditTemplate = () => {
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
+        const userdata = JSON.parse(localStorage.getItem(`userdata${tntId}`))
+        if (userdata != null) {
         navigate('/tabbox')
+    }else{
+        toast.error("Please Login to Proceed", {
+            position: "top-right",
+            autoClose: 5000
+
+        })
 
     }
-
+}
 
 
     return (
@@ -100,7 +119,7 @@ function HomeTemplate() {
                             <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                         </div>
                         <h2 class="bold">Our Creative Templates</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        <p>Explore a diverse collection of professionally crafted resume templates tailored to various industries and career levels. Choose from a range of visually appealing designs to create a standout resume that perfectly reflects your unique skills and experiences.</p>
                     </div>
                     <div class="row">
                         {resumeFormatData?.map((ele, ind) => {

@@ -6,7 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { useLocation } from 'react-router-dom';
 import "./format5.css";
-
+import { toast } from 'react-toastify';
+import ClipLoader from "react-spinners/ClipLoader";
 function Format5() {
     const [data, setData] = useState({});
     const [name, setName] = useState('');
@@ -39,6 +40,7 @@ function Format5() {
     const [userHobbies, setUserHobbies] = useState([]);
     const [references, setReferences] = useState([])
     const [userdata1, setUserData1] = useState({})
+    const [reload,setReload] = useState(false)
     const history = useLocation()
 
     useEffect(() => {
@@ -226,8 +228,56 @@ function Format5() {
         setSelected(userdata?.user?.academicyear);
 
     }
+    const handleRefreshResume =()=>{
+        setReload(true)
+        setTimeout(()=>{
+            setReload(false)
+            loaddata()
+        },1000)
+        
+    }
+    const handleGenerateResume =async ()=>{
+        var tntId = JSON.parse(localStorage.getItem('tID'))
+
+        const sessiondetails = localStorage.getItem(`userdata${tntId}`);
+        const userdata = JSON.parse(sessiondetails);
+        if (sessiondetails != null) {
+            const ReqData = {
+                userid: userdata.id
+            }
+            const reqRespnse = await PostApi(ReqData, "GENERATERESUME5");
+            if (reqRespnse.status === 'success') {
+             
+                toast.success("Resume has been generated and mailed to your email id", {
+                    autoClose: 5000
+                })
+
+
+            }
+            else {
+                toast.error(reqRespnse.status, {
+                    position: "top-center",
+                    autoClose: 5000
+
+                })
+            }
+    }
+}
     return (
-        <div className='row' style={{ boxShadow: "0px 0px 7px gray" }}>
+        <>
+        <button className='btn btn-primary mb-2' onClick={handleRefreshResume}>Refresh to Load the resume</button>
+        <button className='btn btn-success mb-2' style={{marginLeft:"20px"}} onClick={handleGenerateResume}>Generate Resume</button>
+        {reload ? <div style={{position:"relative",marginLeft:"17px" }}>
+        <div style={{position:'absolute',top:"200px",left:"260px"}}>
+   <ClipLoader
+  
+  loading={reload}
+  size={150}
+  aria-label="Loading Spinner"
+  data-testid="loader"
+/>
+   </div>
+   <div className='row' style={{ boxShadow: "0px 0px 7px gray",opacity:"0.5" }}>
             <div className='col-4 left-container-f5'>
                 {base64Img ? <img className='mt-3' src={`data:image/jpeg;base64,${base64Img}`} style={{ width: '170px',height:"170px", position: "relative", left: "20px" }} /> :
                     <img className='mt-3' src="https://tse1.mm.bing.net/th?id=OIP.lsaqXiF1qoA0lNGxssv4dQHaFy&pid=Api&P=0&h=180" style={{ width: '80%', position: "relative", left: "20px" }} />}
@@ -382,6 +432,163 @@ function Format5() {
                 </div>
             </div>
         </div>
+        </div>:  <div className='row' style={{ boxShadow: "0px 0px 7px gray",marginLeft:"2px" }}>
+            <div className='col-4 left-container-f5'>
+                {base64Img ? <img className='mt-3' src={`data:image/jpeg;base64,${base64Img}`} style={{ width: '170px',height:"170px", position: "relative", left: "20px" }} /> :
+                    <img className='mt-3' src="https://tse1.mm.bing.net/th?id=OIP.lsaqXiF1qoA0lNGxssv4dQHaFy&pid=Api&P=0&h=180" style={{ width: '80%', position: "relative", left: "20px" }} />}
+                <ul className='mt-3' style={{ borderBottom: "2px solid black", paddingBottom: "15px" }}>
+                    <li ><span></span> <div style={{ fontWeight: "bold", display: "inline-block" }}>Address:</div>
+                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                        <div style={{ fontSize: "13px", marginLeft: "15px" }}>{userdata1?.user?.address ? userdata1?.user?.address : "xxxx/yyyy/zzzz"}</div>
+                    </li>
+                    <li style={{ marginLeft: "15px" }}> <div style={{ fontWeight: "bold", display: "inline-block" }}>Phone:</div>
+                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                        <div style={{ fontSize: "13px", marginLeft: "15px" }}>+91 {mobilenumber}</div>
+                    </li>
+                    <li style={{ marginLeft: "15px" }}> <div style={{ fontWeight: "bold", display: "inline-block" }}>Email:</div>
+                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                        <div style={{ fontSize: "11px", marginLeft: "15px" }}> {email}</div>
+                    </li>
+                </ul>
+                <div style={{ borderBottom: "2px solid black", paddingBottom: "15px" }}>
+                    <p className='profile text-dark'>Education</p>
+                    <ul style={{ marginLeft: "20px", marginTop: "-20px" }}>
+                        {
+                            education?.length > 0 ? education.map(ele => {
+                                return (
+                                    <li ><span></span> <div style={{ display: "inline-block", color: "black", fontWeight: "bold" }}>{ele.education}</div>
+                                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}> {ele.startyear} - {ele.endyear}</div>
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}> {ele.college}</div>
+                                    </li>
+                                )
+                            }) :
+                                <>
+                                    <li ><span></span> <div style={{ display: "inline-block", color: "black", fontWeight: "bold" }}>xyz - university</div>
+                                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}>20xx - 20xx</div>
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}> abc -college</div>
+                                    </li>
+                                    <li ><span></span> <div style={{ display: "inline-block", color: "black", fontWeight: "bold" }}>xyz - university</div>
+                                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}>20xx - 20xx</div>
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}> abc -college</div>
+                                    </li>
+                                </>
+                        }
+
+                    </ul>
+                </div>
+                <div style={{ borderBottom: "2px solid black", paddingBottom: "15px" }}>
+                    <p className='profile text-dark'>References</p>
+                    <ul style={{ marginLeft: "20px", marginTop: "-20px" }}>
+                        {
+                            references?.length > 0 ? references.map(ele => {
+                                return (
+                                    <li ><span></span> <div style={{ display: "inline-block", color: "black", fontWeight: "bold" }}>{ele.name}</div>
+                                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}>+91 {ele.mobilenumber} </div>
+                                        
+                                    </li>
+                                )
+                            }) :" "
+                        }
+
+                    </ul>
+                </div>
+
+            </div>
+            <div className='col-8' >
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                    <div className='w-75 mt-5 bg-dark d-flex justify-content-center' style={{ borderRadius: "20px" }}><div className='text-light p-1 ' >{name}</div></div>
+                    <div className='w-75 d-flex justify-content-between' ><div className='text-dark mt-2 ' >{title}</div>
+                        <div className='mt-2 d-flex '>
+                            <div className='bg-dark' style={{ width: "75px", height: "15px", borderRadius: "15px", margin: "0px  5px" }}></div>
+                            <div className='bg-dark' style={{ width: "75px", height: "15px", borderRadius: "15px", margin: "0px  5px" }}></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div className='mt-4' style={{ paddingLeft: "15px", borderLeft: "2px solid black" }}>
+                    <div>
+                        <p className='profile text-dark'>SKILLS</p>
+                        <div style={{ display: "flex", flexWrap: "wrap", marginTop: "-15px", marginLeft: "15px" }}>
+                            {skills.map(ele => {
+                                return (
+                                    <div style={{ marginRight: "25px" }}>
+                                        <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>{ele.name}
+
+                                    </div>
+                                )
+                            })}
+                        </div>
+
+                    </div>
+                    <div className='mt-1'>
+                        <p className='profile text-dark'>PROFILE</p>
+                        <p style={{ color: "black", marginLeft: "15px", marginTop: "-20px", fontSize: "14px" }}>  Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.</p>
+                    </div>
+                    <div>
+                        <p className='profile text-dark'>Projects</p>
+                        <ul style={{ marginLeft: "20px", marginTop: "-20px" }}>
+                            {
+                                userprojects?.length > 0 ? userprojects.map(ele => {
+                                    return (
+                                        <li ><span></span> <div style={{ display: "inline-block", color: "black", fontWeight: "bold", fontSize: "15px" }}>{ele.name}</div>
+                                            {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                                            <div style={{ fontSize: "13px", marginLeft: "15px" }}><b>Duration:</b> {ele.duration}</div>
+                                            <div style={{ fontSize: "13px", marginLeft: "15px" }}> {ele.description}</div>
+                                        </li>
+                                    )
+                                }) : <>
+                                    <li ><span></span> <div style={{ display: "inline-block", color: "black", fontWeight: "bold", fontSize: "15px" }}>Example Project 1</div>
+                                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}><b>Duration:</b> 3 months</div>
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                                    </li>
+                                    <li ><span></span> <div style={{ display: "inline-block", color: "black", fontWeight: "bold", fontSize: "15px" }}>Example Project 2</div>
+                                        {/* {console.log(userdata1?.user.address,"check user dta")} */}
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}><b>Duration:</b> 6 months</div>
+                                        <div style={{ fontSize: "13px", marginLeft: "15px" }}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                                    </li>
+
+                                </>
+                            }
+
+                        </ul>
+                    </div>
+                    <div>
+                        <p className='profile text-dark'>Hobbies</p>
+                        <ul style={{ marginLeft: "20px", marginTop: "-20px" }}>
+                            {
+                                userHobbies.length > 0 ? userHobbies.map(ele => {
+                                    return (
+                                        <li ><span></span> <div style={{ display: "inline-block", color: "black", fontSize: "15px" }}>{ele.name}</div>
+
+                                        </li>
+                                    )
+                                }) :
+                                    <>
+                                        <li ><span></span> <div style={{ display: "inline-block", color: "black", fontSize: "15px" }}>Hobbie 1</div>
+
+                                        </li>
+                                        <li ><span></span> <div style={{ display: "inline-block", color: "black", fontSize: "15px" }}>Hobbie 2</div>
+
+                                        </li>
+                                        <li ><span></span> <div style={{ display: "inline-block", color: "black", fontSize: "15px" }}>Hobbie 3</div>
+
+</li>
+                                    </>
+                            }
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>}
+        </>
+      
     )
 }
 

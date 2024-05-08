@@ -30,20 +30,19 @@ function TabBox () {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+  
     const renderTemplate=()=>{
-      return <Format4/>
+      return <Format6 />
     }
-    const handlePagereload =()=>{
-        window.location.reload()
-    }
+   
         return (
             <>
                <Styles>
 <Header  />
                 {/* Tab Box Area */}
                 <section className="tab-section">
-                <div className='d-flex justfy-content-center m-2'>
-                                    <button className='btn btn-primary' onClick={handlePagereload}> Refresh the resume</button>
+                <div className='d-flex justfy-content-center '>
+                                 
                                     </div>
                         <Tab.Container defaultActiveKey="MyDetails">
                             <Row>
@@ -52,7 +51,7 @@ function TabBox () {
                                    {renderTemplate()}
                                 </Col>
                                 
-                                <Col lg="5" md="12">
+                                <Col lg="5" md="12" className='mt-5'>
 
                                 <Nav className="row p-0 m-0" style={{boxShadow:"0px 0px 7px gray"}}>
                                         <Nav.Item className='col-lg-6 col-md-12' >

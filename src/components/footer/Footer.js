@@ -15,7 +15,8 @@ function Footer() {
                         <div class="footer-logo">
                             <a href="#"><img src={logo} alt="logo"/> CV Builder </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit ducimus voluptatibus neque illo id repellat quisquam? Autem expedita earum quae laborum ipsum ad.</p>
+                        <p>Empower your career journey with our intuitive resume builder. Craft tailored resumes that showcase your skills and experiences effectively, standing out in today's competitive job market. Take the next step towards your professional success and start building your resume with us today.
+</p>
                     </div>
                     <div class="footer-social-info fadeInUp" data-wow-delay="0.4s">
                         <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -39,7 +40,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-              
+{/*               
             <div class="col-12 col-lg-2 col-md-6 ">
                 <div class="contact_info_area d-sm-flex justify-content-between">
                     <div class="contact_info mt-s text-center fadeInUp" data-wow-delay="0.2s">
@@ -51,7 +52,7 @@ function Footer() {
                         <a href=""><p>Connect</p></a>
                     </div>
                 </div>
-            </div>
+            </div> */}
             
 
             <div class="col-12 col-lg-3 col-md-6 ">

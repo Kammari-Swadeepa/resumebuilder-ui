@@ -304,7 +304,7 @@ function MyDetails() {
             var tntId = JSON.parse(localStorage.getItem('tID'))
 
             localStorage.removeItem(`userdata${tntId}`)
-            navigate('/')
+            // navigate('/')
             // window.location.reload();
             // navigate('/')
             setOpenLoginModal(true)

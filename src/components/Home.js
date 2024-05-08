@@ -25,9 +25,9 @@ function Home() {
 
       <ThirdComponent />
 
-      <CustomTemplate/>
+      {/* <CustomTemplate/> */}
       
-      <PricingComponent/>
+      {/* <PricingComponent/> */}
 
       <HomeTemplate />
 

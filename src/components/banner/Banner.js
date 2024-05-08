@@ -21,7 +21,9 @@ function Banner() {
                                     </div>
                                 </div>
                                 <h1 class="wow fadeInUp" data-wow-delay="0.2s">Online CV Builder With Creative Templates.</h1>
-                                <p class="wow fadeInUp" data-wow-delay="0.3s">Our Perfect resume builder takes the hassle out of resume writing. Choose from several templates and follow easy prompts to create the perfect job-ready resume.</p>
+                                <p class="wow fadeInUp" data-wow-delay="0.3s">Crafting your resume has never been easier with our intuitive Resume 
+Builder. Choose from a range of templates and follow simple prompts to create a polished resume ready for the job market.
+</p>
                                 <div class="dream-btn-group wow fadeInUp" data-wow-delay="0.4s">
                                     <a href="#" class="btn dream-btn green-btn mr-3">Choose Template</a>
                                     <a href="#" class="btn dream-btn green-btn"> contact us</a>

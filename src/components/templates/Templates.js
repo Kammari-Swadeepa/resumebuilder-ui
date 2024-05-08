@@ -34,13 +34,34 @@ function Templates() {
     const navigate = useNavigate()
 
     const SeeTemplate = (ele) => {
+        var tntId = JSON.parse(localStorage.getItem('tID'))
+
+        const userdata = JSON.parse(localStorage.getItem(`userdata${tntId}`))
+        if (userdata != null) {
             
         navigate('/templatepreview', { state: ele });
+        } else {
+            toast.error("Please Login to Proceed", {
+                position: "top-right",
+                autoClose: 5000
+
+            })
+        }
     };
 
     const EditTemplate = () => {
+        var tntId = JSON.parse(localStorage.getItem('tID'))
 
+        const userdata = JSON.parse(localStorage.getItem(`userdata${tntId}`))
+        if (userdata != null) {
         navigate('/tabbox')
+        } else {
+            toast.error("Please Login to Proceed", {
+                position: "top-right",
+                autoClose: 5000
+
+            })
+        }
 
     }
 

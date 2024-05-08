@@ -36,56 +36,56 @@ export const GetApi = async (fields, action) => {
 
   let url = '';
   if (action === 'INTRO') {
-    url = '/api/v1/logo/get';
+    url = '/api/v4/logo/get';
   }
   if (action === 'TENANT') {
-    url = '/api/v1/tenant/get';
+    url = '/api/v4/tenant/get';
   }
 
   if (action === 'LOGIN') {
-    url = '/api/v1/auth/loginuser';
+    url = '/api/v4/auth/loginuser';
   }
   if (action === 'VERIFY') {
-    url = '/api/v1/auth/verifyotp';
+    url = '/api/v4/auth/verifyotp';
   }
   if (action === 'CONSTITUENCY') {
-    url = '/api/v1/areas/get';
+    url = '/api/v4/areas/get';
   }
   if (action === 'SIGNUP') {
-    url = '/api/v1/auth/signup';
+    url = '/api/v4/auth/signup';
   }
 
   if (action === 'STRIPEKEY') {
-    url = '/api/v1/users/stripekeys';
+    url = '/api/v4/users/stripekeys';
   }
   
   if(action =='SENDVERIFYMOBILE'){
-    url = '/api/v1/auth/sendverifymobilenumber';
+    url = '/api/v4/auth/sendverifymobilenumber';
   }
   if(action =='VERIFYMOBILE'){
-    url = '/api/v1/auth/verifymobilenumber';
+    url = '/api/v4/auth/verifymobilenumber';
   }
 
   if (action == 'PASSLOGIN') {
-    url = '/api/v1/auth/passwordlogin';
+    url = '/api/v4/auth/passwordlogin';
   }
 
   if (action == 'FORGOTPASSWORD') {
-    url = '/api/v1/auth/forgotpassword';
+    url = '/api/v4/auth/forgotpassword';
   }
   if (action == 'COMPETITIVEEXAM') {
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/exams/get';
+    url = '/api/v4/exams/get';
   }
  
 
   if (action == 'STATES') {
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/states/get';
+    url = '/api/v4/states/get';
   }
 
   if (action == 'DISTRICTS') {
-    url = '/api/v1/districts/get';
+    url = '/api/v4/districts/get';
   }
 
  
@@ -113,7 +113,7 @@ export const GetApi = async (fields, action) => {
 
 
   // if (action === 'BANNER') {
-  //   url = '/api/v1/banner/get';
+  //   url = '/api/v4/banner/get';
     
   // }
 
@@ -162,249 +162,249 @@ export const PostApi = async (fields, action, constId) => {
   let url = '';
 
   if (action === 'TENANT') {
-    url = '/api/v1/tenant/get';
+    url = '/api/v4/tenant/get';
   }
   if (action === 'RAZORPAYCHECKOUT') {
-    url = '/api/v1/razopay-checkout';
+    url = '/api/v4/razopay-checkout';
   }
   if (action === 'SOCIALLINK') {
-    url = '/api/v1/sociallink/get';
+    url = '/api/v4/sociallink/get';
   }
   if (action === 'SETTING') {
-    url = '/api/v1/settings/get'
+    url = '/api/v4/settings/get'
   }
   if(action  =='ENROLL'){
 
-    url ='/api/v1/users/enrollcourse'
+    url ='/api/v4/users/enrollcourse'
   }
   if(action  =='ANALYTICS'){
     fields.userid =constuserdetails.user.id;
-    url ='/api/v1/users/getuserdataanalytics'
+    url ='/api/v4/users/getuserdataanalytics'
   }
   if(action =='RAZORPAYORDERID'){
-    url ='/api/v1/users/createorder';
+    url ='/api/v4/users/createorder';
   }
 
   
 
   if(action =='VERIFYPAYMENTS'){
-    url ='/api/v1/users/verifypayments';
+    url ='/api/v4/users/verifypayments';
   }
   if(action =='VERIFYPAYMENTSK8S'){
-    url ='/api/v1/users/verifypaymentsk8s';
+    url ='/api/v4/users/verifypaymentsk8s';
   }
   if (action === 'ANNOUNCEMENTS') {
-    url = '/api/v1/common/get';
+    url = '/api/v4/common/get';
   }
 
   if (action === 'BANNER') {
-    url = '/api/v1/banner/get';
+    url = '/api/v4/banner/get';
   }
  
   if (action === 'VPTTYPES') {
-    url = '/api/v1/headertypes/get';
+    url = '/api/v4/headertypes/get';
   }
 
   if (action === 'YOUTUBEVIDEOS') {
-    url = '/api/v1/videos/get';
+    url = '/api/v4/videos/get';
   }
   if (action === 'TopLevelOverview') {
-    url = '/api/v1/thumbnail/get';
+    url = '/api/v4/thumbnail/get';
   }
 
   if (action === 'CONSTITUENCYDEV') {
-    url = '/api/v1/sliderimages/get';
+    url = '/api/v4/sliderimages/get';
   }
   if (action === 'EVENTS') {
-    url = '/api/v1/events/get';
+    url = '/api/v4/events/get';
   }
   if (action === 'NEWS') {
-    url = '/api/v1/news/get';
+    url = '/api/v4/news/get';
   }
 
   if (action === 'UNIVERSITY') {
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/university/get';
+    url = '/api/v4/university/get';
   }
   if (action == 'CHANGEPASSWORD') {
     // console.log(constuserdetails.user)
     // fields.userid =constuserdetails.user.id;
-    url = '/api/v1/auth/changepassword';
+    url = '/api/v4/auth/changepassword';
   }
   if (action === 'EDUCATIONTYPES') {
-    url = '/api/v1/edutypes/get';
+    url = '/api/v4/edutypes/get';
   }
   if (action === 'CATEGORY') {
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/category/get';
+    url = '/api/v4/category/get';
   }
   if (action === 'EDUCATION') {
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/education/get';
+    url = '/api/v4/education/get';
   }
 
   if (action === 'NONITSKILLS') {
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/itprograms/get';
+    url = '/api/v4/itprograms/get';
   }
 
   if (action === 'STATES') {
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/states/get';
+    url = '/api/v4/states/get';
   }
 
   if (action === 'ITPROGRAMS') {
     fields.userid ="";
     fields.tenantid =tenantid;
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/itprograms/get';
+    url = '/api/v4/itprograms/get';
   }
   if (action == 'TOPLEVELPROGRAMMING') {
-    url = '/api/v1/toplevelprogram/get';
+    url = '/api/v4/toplevelprogram/get';
   }
 
   if (action === 'EDUPORGRAMS') {
     // console.log("tenantid" + tenantid);
     fields.query.tenant = { $elemMatch: { "value": tenantid } };
-    url = '/api/v1/eduprograms/client';
+    url = '/api/v4/eduprograms/client';
   }
 
   if (action === 'PROGRAMCOURSES') {
     fields.userid =userdata.id;
-    url = '/api/v1/programcourses/get';
+    url = '/api/v4/programcourses/get';
   }
 
   if (action === 'STUDENTPROGRAM') {
 
-    url = '/api/v1/studentcourses/get';
+    url = '/api/v4/studentcourses/get';
   }
 
   if (action === 'ACADEMICCOURSES') {
 
-    url = '/api/v1/academics/get';
+    url = '/api/v4/academics/get';
   }
 
   if (action === 'INDIVIDUALEDUPROGRAM') {
 
-    url = '/api/v1/eduprograms/get';
+    url = '/api/v4/eduprograms/get';
   }
 
   if (action === 'ITPROGRAMING') {
-    url = '/api/v1/itprograms/details';
+    url = '/api/v4/itprograms/details';
   }
   if (action === 'STUDENTPROGRAMMING') {
-    url = '/api/v1/studentcourses/details';
+    url = '/api/v4/studentcourses/details';
   }
   if (action === 'ACADEMICDETAILS') {
-    url = '/api/v1/academics/details';
+    url = '/api/v4/academics/details';
   }
 
      
   if (action === 'EDUCATIONTYPES') {
-    url = '/api/v1/edutypes/get';
+    url = '/api/v4/edutypes/get';
   }
 
   if (action === 'SEMISTER') {
-    url = '/api/v1/semisters/get';
+    url = '/api/v4/semisters/get';
   }
 
   if (action === 'BRANCHES') {
-    url = '/api/v1/branches/get';
+    url = '/api/v4/branches/get';
   }
 
   if (action === 'ACADEMICTYPE') {
-    url = '/api/v1/academicstypes/get';
+    url = '/api/v4/academicstypes/get';
   }
   if(action ==='DASHOARDLABEL'){ 
-    url = '/api/v1/common/get';
+    url = '/api/v4/common/get';
   }
   if(action ==='GETDASHOARDLABEL'){
-    url = '/api/v1/common/get';
+    url = '/api/v4/common/get';
   }
  
   if(action ==='GETDASHOARDLABEL1'){
-    url = '/api/v1/common/get';
+    url = '/api/v4/common/get';
   }
   if(action ==='TRAININGENROLLMENT' || action ==='SAVESKILLS' || action ==='SAVECERTIFICATE'
    || action ==='SAVEUSERPROJECT' ||action ==='USEREDUCATION' || action ==='SAVEHOBBIES' || action ==='SAVEUSERREFERENCES' || action ==='SAVEUSERSUBSCRIPTION'
     ||action ==='SAVEUSERMAKRS' ){
-    url = '/api/v1/common/save';
+    url = '/api/v4/common/save';
   }
   if(action ==='TRAININGENROLLMENTGET' || action ==='USERSKILLS' || 
      action ==='USERCERTIFICATE' || action ==='USERPROJECTS' ||action ==='USERSUBSCRIPTION'
      || action ==='GETUSEEDUCATION' || action ==='USERHOBBIES' || action ==='USERREFERENCES'||
      action ==='USERMARKS'){
-    url = '/api/v1/common/get';
+    url = '/api/v4/common/get';
   }
   if(action ==='DELETESKILLS' || action ==='DELETECERTIFICATE' || action ==='DELETEUSERPROJECT' || action ==='DELETEHOBBIES'
    || action ==='DELETEUSERREFERENCES' || action ==='DELETEUSERMARKS' || action ==='DELETEUSEREDUCATION'){
-    url = '/api/v1/common/delete';
+    url = '/api/v4/common/delete';
   }
 
   if(action ==='UPDATEUSERPROJECT' || action ==='UPDATEUSEREDUCATION'|| action ==='SAVEUSERINFO'){
-    url = '/api/v1/common/update';
+    url = '/api/v4/common/update';
   }
  
   if(action ==='TRAININGCOURSES'){
-    url ='/api/v1/trainingcourses/get'
+    url ='/api/v4/trainingcourses/get'
   }
   if(action ==='PLATFORMPURCHASE'){
-    url ='/api/v1/users/subscribe';
+    url ='/api/v4/users/subscribe';
   }
 
   if(action ==='GENERATERESUME'){
-    url ='/api/v1/users/resume';
+    url ='/api/v4/users/resume';
   }
   if(action ==='GENERATERESUME2'){
-    url ='/api/v1/users/resume2';
+    url ='/api/v4/users/resume2';
   }
   if(action ==='GENERATERESUME3'){
-    url ='/api/v1/users/resume3';
+    url ='/api/v4/users/resume3';
   }
   if(action ==='GENERATERESUME4'){
-    url ='/api/v1/users/resume4';
+    url ='/api/v4/users/resume4';
   }
   if(action ==='GENERATERESUME5'){
-    url ='/api/v1/users/resume5';
+    url ='/api/v4/users/resume5';
   }
   if(action ==='GENERATERESUME6'){
-    url ='/api/v1/users/resume6';
+    url ='/api/v4/users/resume6';
   }
   if(action ==='GENERATERESUME7'){
-    url ='/api/v1/users/resume7';
+    url ='/api/v4/users/resume7';
   }
   if(action ==='GENERATERESUME8'){
-    url ='/api/v1/users/resume8';
+    url ='/api/v4/users/resume8';
   }
   if(action ==='RESUMEFORMAT'){
-    url ='/api/v1/resumeformat/get';
+    url ='/api/v4/resumeformat/get';
   }
   if(action ==='GETQUIZ'){
-    url ='/api/v1/questions/start';
+    url ='/api/v4/questions/start';
   }
 
   if (action === 'Testimonials') {
-    url = '/api/v1/instructor/get';
+    url = '/api/v4/instructor/get';
   }
   if(action ==='CHECKANSWER'){
-    url ='/api/v1/questions/checkanswer';
+    url ='/api/v4/questions/checkanswer';
   }
   if(action ==='FINISHQUIZ'){
-    url ='/api/v1/questions/finish';
+    url ='/api/v4/questions/finish';
   }
   if(action  =='CHECKSTARTQUIZ'){
     fields.userid =userdata.id;
-    url ='/api/v1/users/checkstartquiz'
+    url ='/api/v4/users/checkstartquiz'
   }
 
   if(action  =='FINISHITEM'){
     fields.userid =userdata.id
-    url ='/api/v1/users/finishsectionitems'
+    url ='/api/v4/users/finishsectionitems'
   }
 
   if(action  =='FINISHCOURSE'){
     fields.userid =userdata.id;
-    url ='/api/v1/users/finishprogramcourses'
+    url ='/api/v4/users/finishprogramcourses'
   }
 
   if(action =='LOGOUT'){
@@ -413,7 +413,7 @@ export const PostApi = async (fields, action, constId) => {
   }
 
   if(action =='EXAMTYPE'){
-    url ='/api/v1/examtype/get';
+    url ='/api/v4/examtype/get';
   }
 
   if (action === 'BANNER' || action === 'EVENTS' || action === 'YOUTUBEVIDEOS' ||
@@ -436,16 +436,16 @@ export const PostApi = async (fields, action, constId) => {
     fields.userid =userdata.id;
     fields.tenantid =tenantid;
     // console.log("notify",fields.userid,fields.tenantid);
-    url = '/api/v1/users/notifications';
+    url = '/api/v4/users/notifications';
   }
   if (action == 'DELETEACCOUNT') {
     fields.userid =userdata.id;
     fields.tenantid =tenantid;
-    url = '/api/v1/users/delete';
+    url = '/api/v4/users/delete';
   }
   // if (action == 'GETNOTIFICATIONS') {
   //   fields.userid =userdata.id;
-  //   url = '/api/v1/users/delete';
+  //   url = '/api/v4/users/delete';
   // }
 
 
@@ -475,7 +475,7 @@ export const PostApi = async (fields, action, constId) => {
   }
 
   if (action === 'HOMEBANNER') {
-    url = '/api/v1/banner/get';
+    url = '/api/v4/banner/get';
   }
 
   

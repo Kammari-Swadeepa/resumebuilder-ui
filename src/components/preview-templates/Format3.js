@@ -5,8 +5,9 @@ import { PostApi } from '../../services/commonServices';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useLocation } from 'react-router-dom';
+import ClipLoader from "react-spinners/ClipLoader";
 import "./format3.css";
-
+import { toast } from 'react-toastify';
 
 function Format3() {
     const [data, setData] = useState({});
@@ -40,6 +41,7 @@ function Format3() {
     const [userHobbies, setUserHobbies] = useState([]);
     const [references, setReferences] = useState([])
     const [userdata, setUserData] = useState({})
+    const [reload,setReload] = useState(false)
     const history = useLocation()
 
     useEffect(() => {
@@ -227,9 +229,58 @@ function Format3() {
         setSelected(userdata?.user?.academicyear);
 
     }
-  
+    const handleRefreshResume =()=>{
+        setReload(true)
+        setTimeout(()=>{
+            setReload(false)
+            loaddata()
+        },1000)
+        
+    }
+
+    const handleGenerateResume =async ()=>{
+        var tntId = JSON.parse(localStorage.getItem('tID'))
+
+        const sessiondetails = localStorage.getItem(`userdata${tntId}`);
+        const userdata = JSON.parse(sessiondetails);
+        if (sessiondetails != null) {
+            const ReqData = {
+                userid: userdata.id
+            }
+            const reqRespnse = await PostApi(ReqData, "GENERATERESUME2");
+            if (reqRespnse.status === 'success') {
+             
+                toast.success("Resume has been generated and mailed to your email id", {
+                    autoClose: 5000
+                })
+
+
+            }
+            else {
+                toast.error(reqRespnse.status, {
+                    position: "top-center",
+                    autoClose: 5000
+
+                })
+            }
+    }
+}
     return (
-        <div style={{ backgroundColor: " rgba(72,61,139,0.2)", padding: "5px",boxShadow:"0px 0px 7px gray" }}>
+        <>
+        <button className='btn btn-primary mb-2' onClick={handleRefreshResume}>Refresh to Load the resume</button>
+        <button className='btn btn-success mb-2' style={{marginLeft:"20px"}} onClick={handleGenerateResume}>Generate Resume</button>
+        {reload ?<div style={{position:"relative" }}>
+        <div style={{position:'absolute',top:"200px",left:"260px"}}>
+   <ClipLoader
+  
+  loading={reload}
+  size={150}
+  aria-label="Loading Spinner"
+  data-testid="loader"
+/>
+
+   </div>
+   <div style={{ backgroundColor: " rgba(72,61,139,0.2)", padding: "5px",boxShadow:"0px 0px 7px gray",opacity:"0.5" }}>
             <div className='row header-container bg-light' >
                 <div className='col-6'>
                     <h3 className='text-primary mt-2'>{name}</h3>
@@ -366,6 +417,145 @@ function Format3() {
                 </div>
             </div>
         </div>
+        </div>:  <div style={{ backgroundColor: " rgba(72,61,139,0.2)", padding: "5px",boxShadow:"0px 0px 7px gray" }}>
+            <div className='row header-container bg-light' >
+                <div className='col-6'>
+                    <h3 className='text-primary mt-2'>{name}</h3>
+                    <p className='text-dark ' style={{ marginTop: "-8px" }}>{title ? title: "Your Designation"}</p>
+                </div>
+                <div className='col-6 text-right'>
+                    <p className='text-dark mt-3'>{email}</p>
+                    <p className='text-dark ' style={{ marginTop: "-8px" }}>{mobilenumber}</p>
+                </div>
+            </div>
+            <div className='row header-container bg-light p-2' style={{ textIndent: "30px", fontSize: "15px" }}>
+                Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+            </div>
+            <div className='container-h5'>
+                <h5 style={{ marginBottom: "-8px" }}>Education</h5>
+                <div className='header-container1  bg-light' >
+                    {
+                       education.length>0? education.map(ele => {
+                            return (
+                                <>
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}>{ele.education}</p>
+                                        <p style={{color:"orange"}}>{ele.startyear} - {ele.endyear}</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px"}} className='p-2'>{ele.college}</p>
+                                </>
+                            )
+                        }): <>
+                        <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}>xyz-university</p>
+                                        <p style={{color:"orange"}}>20xx - 20xx</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px"}} className='p-2'>xxx - collage</p>
+
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}>abc-university</p>
+                                        <p style={{color:"orange"}}>20xx - 20xx</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px"}} className='p-2'>xxx - collage</p>
+                        </>
+                    }
+
+                </div>
+            </div>
+            <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>Skills</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                    {
+                      skills.length>0 ?  skills.map(ele => {
+                            return (
+                               <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
+                            )
+                        }): 
+                       <>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 1</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 2</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 3</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 4</li>
+                       </>
+                    }
+                    </ul>
+                   
+
+                </div>
+            </div>
+            <div className='container-h5'>
+                <h5 style={{ marginBottom: "-8px" }}>Projects</h5>
+                <div className='header-container1  bg-light' >
+                    {
+                     userprojects.length >0 ?   userprojects.map(ele => {
+                            return (
+                                <>
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}><b>{ele.name}</b></p>
+                                        <p style={{color:"orange"}}>{`( ${ele.duration} )`}</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px",textIndent:"30px"}} className='p-2'>{ele.description}</p>
+                                </>
+                            )
+                        }) : <>
+                        <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}><b>Example Project - 1</b></p>
+                                        <p style={{color:"orange"}}>{`( 3 months )`}</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px",textIndent:"30px"}} className='p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+                                    <div className='d-flex justify-content-between p-2' style={{marginBottom:"-37px"}}>
+                                        <p style={{color:"orange"}}><b>Example Project - 2</b></p>
+                                        <p style={{color:"orange"}}>{`( 3 months )`}</p>
+                                    </div>
+                                    <p style={{color:"black",marginBottom:"-13px",textIndent:"30px"}} className='p-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </>
+                    }
+
+                </div>
+            </div>
+            <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>Hobbies</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                    {
+                       userHobbies.length >0 ? userHobbies.map(ele => {
+                            return (
+                               <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</li>
+                            )
+                        }):
+                        <>
+                         <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 1</li>
+                         <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 2</li>
+                         <li style={{margin:"3px 15px"}}><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>Hobbie 3</li>
+                        </>
+                    }
+                    </ul>
+                   
+
+                </div>
+            </div>
+            <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>References</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                    {
+                      references.length >0 ?  references.map(ele => {
+                            return (
+                               <li style={{margin:"3px 15px"}}><b><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>{ele.name}</b> - {ele.mobilenumber} </li>
+                            )
+                        }):
+                        ""
+                    }
+                    </ul>
+                   
+
+                </div>
+            </div>
+        </div>}
+        </>
+      
     )
 }
 

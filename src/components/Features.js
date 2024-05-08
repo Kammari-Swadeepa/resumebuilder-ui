@@ -19,7 +19,7 @@ function Features() {
                     <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                 </div>
                 <h2 class="wow fadeInUp" data-wow-delay="0.3s">Our Main Features</h2>
-                <p class="wow fadeInUp" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis accumsan nisi Ut ut felis congue nisl hendrerit commodo.</p>
+                <p class="wow fadeInUp" data-wow-delay="0.4s">Craft tailored resumes with customizable templates and expert guidance, ensuring your unique skills shine. Enjoy seamless editing and sharing options for convenience and flexibility in your job search journey.</p>
             </div>
                 
 
@@ -30,7 +30,7 @@ function Features() {
                             <img src={f1} alt=""/>
                         </div>
                         <h6>Proven CV Templates to increase Hiring Chance</h6>
-                        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Nulla neque quam, maxim us ut accumsan ut, posuere sit Lorem ipsum adipiscing elit.</p>
+                        <p>"Unlock your potential with our proven CV templates, meticulously crafted to enhance your hiring prospects and impress recruiters at a glance."</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -39,7 +39,7 @@ function Features() {
                             <img src={f2} alt=""/>
                         </div>
                         <h6>Creative, Modern and Clean Templates Design</h6>
-                        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Nulla neque quam, maxim us ut accumsan ut, posuere sit Lorem ipsum adipiscing elit.</p>
+                        <p>Elevate your resume with our creative, modern, and clean templates, designed to make a lasting impression in today's competitive job market.</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -48,7 +48,7 @@ function Features() {
                             <img src={f3} alt=""/>
                         </div>
                         <h6>Easy and Intuitive Online CV and Resume Builder </h6>
-                        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Nulla neque quam, maxim us ut accumsan ut, posuere sit Lorem ipsum adipiscing elit.</p>
+                        <p>Craft your perfect resume effortlessly with our intuitive online CV builder, designed for simplicity and efficiency in every step of the process.</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -57,7 +57,7 @@ function Features() {
                             <img src={f4} alt=""/>
                         </div>
                         <h6>Free to use. Developed by hiring professionals.</h6>
-                        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Nulla neque quam, maxim us ut accumsan ut, posuere sit Lorem ipsum adipiscing elit.</p>
+                        <p>Your go-to destination for professional resume building, crafted by industry experts. Create standout resumes effortlessly with our platform, designed by hiring professionals to showcase your skills and experience effectively.</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -66,7 +66,7 @@ function Features() {
                             <img src={f5} alt=""/>
                         </div>
                         <h6>Recruiter Approved Phrases with Module Notification</h6>
-                        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Nulla neque quam, maxim us ut accumsan ut, posuere sit Lorem ipsum adipiscing elit.</p>
+                        <p>Access recruiter-approved phrases and receive timely module notifications, ensuring your resume resonates with employers and stays up-to-date with industry standards.</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -75,7 +75,7 @@ function Features() {
                             <img src={f6} alt=""/>
                         </div>
                         <h6>Fast Easy CV and Resume Formatting</h6>
-                        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Nulla neque quam, maxim us ut accumsan ut, posuere sit Lorem ipsum adipiscing elit.</p>
+                        <p>Effortlessly format your CV and resume quickly with our intuitive tools, ensuring a professional and polished presentation in no time.</p>
                     </div>
                 </div>
             </div>

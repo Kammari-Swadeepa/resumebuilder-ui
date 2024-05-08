@@ -182,7 +182,7 @@ const saveToken=async(userdata)=>{
                                         </div>
             </div>
         </form>
-
+{/* 
         <div class="other-accounts text-center">
             <p class="w-text">Login with other account</p>
             <div class="footer-social-info">
@@ -192,7 +192,7 @@ const saveToken=async(userdata)=>{
                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
-        </div>
+        </div> */}
     </div>
     </>
   )
