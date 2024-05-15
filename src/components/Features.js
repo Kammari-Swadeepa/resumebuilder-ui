@@ -30,7 +30,7 @@ function Features() {
                             <img src={f1} alt=""/>
                         </div>
                         <h6>Proven CV Templates to increase Hiring Chance</h6>
-                        <p>"Unlock your potential with our proven CV templates, meticulously crafted to enhance your hiring prospects and impress recruiters at a glance."</p>
+                        <p>Unlock your potential with our proven CV templates, meticulously crafted to enhance your hiring prospects and impress recruiters at a glance.</p>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">

@@ -2,6 +2,12 @@ import React from 'react'
 import testimg1 from "../../assests/img/test-img/1.jpg"
 import testimg2 from "../../assests/img/test-img/2.jpg"
 import testimg3 from "../../assests/img/test-img/3.jpg"
+import male1 from "../../components/banner/images/male-1.png"
+import male2 from "../../components/banner/images/male-2.png"
+import male3 from "../../components/banner/images/male-3.png"
+import female1 from "../../components/banner/images/female-1.png"
+import female2 from "../../components/banner/images/female-2.png"
+import female3 from "../../components/banner/images/female-3.png"
 import "../../assests/css/style.css";
 import "../../assests/css/responsive.css"
 import "slick-carousel/slick/slick.css";
@@ -72,15 +78,15 @@ function Testimonials() {
                                 <i class="fa fa-quote-right" ></i>
                             </div>
                             <div class="testimonial_image">
-                                <img src={testimg1} alt=""/>
+                                <img src={male1} alt=""/>
                             </div>
                             <div class="testimonial-description">
                                 <div class="testimonial_text">
-                                    <p>I needed a resume that showcased my skills effectively. This platform's flexibility and guidance helped me craft a compelling resume that impressed potential employers. I highly recommend it.</p>
+                                    <p style={{height:"150px"}}>I needed a resume that showcased my skills effectively. This platform's flexibility and guidance helped me craft a compelling resume that impressed potential employers. I highly recommend it.</p>
                                 </div>
 
                                 <div class="admin_text">
-                                    <h5>Suresh Varma</h5>
+                                    <h5>Rakesh Varma</h5>
                                 </div>
                             </div>
                         </div>
@@ -90,11 +96,11 @@ function Testimonials() {
                                 <i class="fa fa-quote-right"></i>
                             </div>
                             <div class="testimonial_image">
-                                <img src={testimg2} alt=""/>
+                                <img src={male2} alt=""/>
                             </div>
                             <div class="testimonial-description">
                                 <div class="testimonial_text">
-                                    <p>I can't thank this resume builder enough for simplifying the job application process. The templates are not only visually appealing but also strategically designed to highlight my strengths.</p>
+                                    <p style={{height:"150px"}}>I can't thank this resume builder enough for simplifying the job application process. The templates are not only visually appealing but also strategically designed to highlight my strengths.</p>
                                 </div>
 
                                 <div class="admin_text">
@@ -108,11 +114,11 @@ function Testimonials() {
                                 <i class="fa fa-quote-right"></i>
                             </div>
                             <div class="testimonial_image">
-                                <img src={testimg3} alt=""/>
+                                <img src={male3} alt=""/>
                             </div>
                             <div class="testimonial-description">
                                 <div class="testimonial_text">
-                                    <p>This resume builder transformed my job search. With its sleek templates and user-friendly interface, I crafted a standout resume that landed me interviews within days. It's a must-have tool for anyone serious about their career advancement.</p>
+                                    <p style={{height:"150px"}}>This resume builder transformed my job search. With its sleek templates and user-friendly interface, I crafted a standout resume that landed me interviews within days. It's a must-have tool for anyone serious about their career advancement.</p>
                                 </div>
                                 <div class="admin_text">
                                     <h5>Bhanu kiran</h5>
@@ -124,11 +130,11 @@ function Testimonials() {
                                 <i class="fa fa-quote-right"></i>
                             </div>
                             <div class="testimonial_image">
-                                <img src={testimg3} alt=""/>
+                                <img src={female1} alt=""/>
                             </div>
                             <div class="testimonial-description">
                                 <div class="testimonial_text">
-                                    <p>I was amazed by the ease of use and variety of templates offered by this resume builder. It helped me create a polished and professional resume in no time, which undoubtedly played a key role in landing me my dream job!</p>
+                                    <p style={{height:"150px"}}>I was amazed by the ease of use and variety of templates offered by this resume builder. It helped me create a polished and professional resume in no time, which undoubtedly played a key role in landing me my dream job!</p>
                                 </div>
                                 <div class="admin_text">
                                     <h5>Madhuri</h5>
@@ -140,11 +146,11 @@ function Testimonials() {
                                 <i class="fa fa-quote-right"></i>
                             </div>
                             <div class="testimonial_image">
-                                <img src={testimg3} alt=""/>
+                                <img src={female2} alt=""/>
                             </div>
                             <div class="testimonial-description">
                                 <div class="testimonial_text">
-                                    <p>At first, I was hesitant about using a resume builder, but trying this one changed everything. The endless customization options allowed me to tailor my resume to highlight my unique skills and experiences.</p>
+                                    <p style={{height:"150px"}}>At first, I was hesitant about using a resume builder, but trying this one changed everything. The endless customization options allowed me to tailor my resume to highlight my unique skills and experiences.</p>
                                 </div>
                                 <div class="admin_text">
                                     <h5>Swapna</h5>
@@ -156,11 +162,11 @@ function Testimonials() {
                                 <i class="fa fa-quote-right"></i>
                             </div>
                             <div class="testimonial_image">
-                                <img src={testimg3} alt=""/>
+                                <img src={female3} alt=""/>
                             </div>
                             <div class="testimonial-description">
                                 <div class="testimonial_text">
-                                    <p>As a recent graduate entering the job market,This resume builder made the process stress-free with its easy-to-follow format and comprehensive templates. Thanks to this platform, I landed my first job out of college within weeks.</p>
+                                    <p style={{height:"150px"}}>As a recent graduate entering the job market,This resume builder made the process stress-free with its easy-to-follow format and comprehensive templates. Thanks to this platform, I landed my first job out of college within weeks.</p>
                                 </div>
                                 <div class="admin_text">
                                     <h5>Priyanka</h5>

@@ -23,7 +23,7 @@ function Format5() {
     const [imageshow, setImageShow] = useState(null);
     const [filefields, setFileFields] = useState(null);
     const [base64Img, setBase64Img] = useState("");
-
+    const [declarationData,setDeclarationData] =useState("")
 
 
     const [selected, setSelected] = useState(undefined);
@@ -111,13 +111,14 @@ function Format5() {
             setEducation(response.data)
             const reqparam = {
                 pageno: '-1',
-                ptype: 'GETUSER',
+                ptype: 'GETABOUT',
                 query: { id: userdata.user.id }
             }
             const resDat = await PostApi(reqparam, 'USERPROJECTS');
             //  console.log("resDat===",resDat);
             if (resDat.data != null) {
                 setSummaryData(resDat.data.about);
+                setDeclarationData(resDat.data.declaration)
             }
             setData(userdata.user);
             if (userdata?.user?.name) {
@@ -358,20 +359,35 @@ function Format5() {
                     <div>
                         <p className='profile text-dark'>SKILLS</p>
                         <div style={{ display: "flex", flexWrap: "wrap", marginTop: "-15px", marginLeft: "15px" }}>
-                            {skills.map(ele => {
+                            {skills.length >0 ? <> {skills.map(ele => {
                                 return (
                                     <div style={{ marginRight: "25px" }}>
                                         <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>{ele.name}
 
                                     </div>
                                 )
-                            })}
+                            })}</>: <>
+                            <div style={{ marginRight: "25px" }}>
+                                        <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>Skill 1
+
+                                    </div>
+                                    <div style={{ marginRight: "25px" }}>
+                                        <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>Skill 2
+
+                                    </div>
+                                    <div style={{ marginRight: "25px" }}>
+                                        <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>Skill 3
+
+                                    </div>
+                            
+                            </>  }
+                           
                         </div>
 
                     </div>
                     <div className='mt-1'>
                         <p className='profile text-dark'>PROFILE</p>
-                        <p style={{ color: "black", marginLeft: "15px", marginTop: "-20px", fontSize: "14px" }}>  Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.</p>
+                        <p style={{ color: "black", marginLeft: "15px", marginTop: "-20px", fontSize: "14px" }}> {summaryData !=""?summaryData:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}</p>
                     </div>
                     <div>
                         <p className='profile text-dark'>Projects</p>
@@ -513,20 +529,35 @@ function Format5() {
                     <div>
                         <p className='profile text-dark'>SKILLS</p>
                         <div style={{ display: "flex", flexWrap: "wrap", marginTop: "-15px", marginLeft: "15px" }}>
-                            {skills.map(ele => {
+                            {skills.length >0 ? <> {skills.map(ele => {
                                 return (
                                     <div style={{ marginRight: "25px" }}>
                                         <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>{ele.name}
 
                                     </div>
                                 )
-                            })}
+                            })}</>: <>
+                            <div style={{ marginRight: "25px" }}>
+                                        <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>Skill 1
+
+                                    </div>
+                                    <div style={{ marginRight: "25px" }}>
+                                        <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>Skill 2
+
+                                    </div>
+                                    <div style={{ marginRight: "25px" }}>
+                                        <span style={{ display: "inline-block", width: "9px", height: "9px", borderRadius: "50%", backgroundColor: "black", marginRight: "3px" }}></span>Skill 3
+
+                                    </div>
+                            
+                            </>  }
+                           
                         </div>
 
                     </div>
                     <div className='mt-1'>
                         <p className='profile text-dark'>PROFILE</p>
-                        <p style={{ color: "black", marginLeft: "15px", marginTop: "-20px", fontSize: "14px" }}>  Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.</p>
+                        <p style={{ color: "black", marginLeft: "15px", marginTop: "-20px", fontSize: "14px" }}>  {summaryData !=""?summaryData:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}</p>
                     </div>
                     <div>
                         <p className='profile text-dark'>Projects</p>

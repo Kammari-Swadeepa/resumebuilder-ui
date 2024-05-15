@@ -1,6 +1,6 @@
 import React from 'react'
 import checkmark from "../assests/img/icons/check.png";
-import cv from "../assests/img/core-img/cv.png"
+import cv from "./images/IMAGE-1.jpg"
 
 
 function ThirdComponent() {

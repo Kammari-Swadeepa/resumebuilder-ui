@@ -93,12 +93,12 @@ function HomeTemplate() {
         }
     };
 
-    const EditTemplate = () => {
+    const EditTemplate = (ele) => {
         var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const userdata = JSON.parse(localStorage.getItem(`userdata${tntId}`))
         if (userdata != null) {
-        navigate('/tabbox')
+        navigate('/tabbox',{state:ele.resumetype})
     }else{
         toast.error("Please Login to Proceed", {
             position: "top-right",
@@ -132,7 +132,7 @@ function HomeTemplate() {
                                                 See template<i class="fa fa-long-arrow-right"></i>
 
                                             </button>
-                                            <button class="preview-demo v2" onClick={EditTemplate}>Use template  <i class="fa fa-long-arrow-right"></i></button>
+                                            <button class="preview-demo v2" onClick={()=>EditTemplate(ele)}>Use template  <i class="fa fa-long-arrow-right"></i></button>
 
                                             {/* <Link class="preview-demo" to={{pathname:"/templatepreview",state:ele}} 
                                             >See template </Link> */}

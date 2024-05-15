@@ -23,7 +23,7 @@ function Format6() {
     const [imageshow, setImageShow] = useState(null);
     const [filefields, setFileFields] = useState(null);
     const [base64Img, setBase64Img] = useState("");
-
+    const [declarationData,setDeclarationData] =useState("")
 
 
     const [selected, setSelected] = useState(undefined);
@@ -114,13 +114,14 @@ function Format6() {
             setEducation(response.data)
             const reqparam = {
                 pageno: '-1',
-                ptype: 'GETUSER',
+                ptype: 'GETABOUT',
                 query: { id: userdata.user.id }
             }
             const resDat = await PostApi(reqparam, 'USERPROJECTS');
             //  console.log("resDat===",resDat);
             if (resDat.data != null) {
                 setSummaryData(resDat.data.about);
+                setDeclarationData(resDat.data.declaration)
             }
             setData(userdata.user);
             if (userdata?.user?.name) {
@@ -294,7 +295,7 @@ function Format6() {
     <div>
         <h5 className='mt-3'><span className='text-light'  style={{ textDecoration: "underline" }}>PROFILE</span></h5>
         <div className='text-light' style={{ fontSize: "14px" }}>
-            Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+           {summaryData !="" ? summaryData : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
         </div>
     </div>
     <div>
@@ -408,6 +409,15 @@ function Format6() {
     
 
      </div>
+     {declarationData !="" ?  <div className='mb-5'>
+     
+     <h5 className='mt-3'><span style={{ textDecoration: "underline" }} className='text-light'>Declaration</span></h5>
+     <div style={{marginLeft:"20px",color:"white"}}>
+   {declarationData}
+    
+
+     </div>
+ </div>:""}
  </div>
 </div>
    </div>:  <div className='p-2' style={{ backgroundColor: "black",boxShadow:"0px 0px 7px gray" }}>
@@ -424,7 +434,7 @@ function Format6() {
     <div>
         <h5 className='mt-3'><span className='text-light'  style={{ textDecoration: "underline" }}>PROFILE</span></h5>
         <div className='text-light' style={{ fontSize: "14px" }}>
-            Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+        {summaryData !="" ? summaryData : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
         </div>
     </div>
     <div>
@@ -539,6 +549,15 @@ function Format6() {
 
      </div>
  </div>
+{declarationData !="" ?  <div className='mb-5'>
+     
+     <h5 className='mt-3'><span style={{ textDecoration: "underline" }} className='text-light'>Declaration</span></h5>
+     <div style={{marginLeft:"20px",color:"white"}}>
+   {declarationData}
+    
+
+     </div>
+ </div>:""}
 </div>}
    </>
   )

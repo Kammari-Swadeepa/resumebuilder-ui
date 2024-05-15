@@ -6,8 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { useLocation } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
-import "./format1.css";
 import { toast } from 'react-toastify';
+import "./format1.css";
 function Format1() {
     const [data, setData] = useState({});
     const [name, setName] = useState('');
@@ -40,6 +40,7 @@ function Format1() {
     const [userHobbies,setUserHobbies] = useState([]);
     const [references, setReferences] =useState([])
     const [reload,setReload] = useState(false)
+    const [declarationData,setDeclarationData] =useState("")
     const history = useLocation()
 
 
@@ -57,6 +58,7 @@ function Format1() {
 
         if (userdata != null) {
             // console.log(userdata);
+            setData(userdata)
             const reqparam5 = {
                 pageno: '-1',
                 query: { userid: userdata.id },
@@ -111,13 +113,15 @@ function Format1() {
             setEducation(response.data)
             const reqparam = {
                 pageno: '-1',
-                ptype: 'GETUSER',
+                ptype: 'GETABOUT',
                 query: { id: userdata.user.id }
             }
             const resDat = await PostApi(reqparam, 'USERPROJECTS');
-            //  console.log("resDat===",resDat);
+           
+             
             if (resDat.data != null) {
                 setSummaryData(resDat.data.about);
+                setDeclarationData(resDat.data.declaration)
             }
             setData(userdata.user);
             if (userdata?.user?.name) {
@@ -279,7 +283,7 @@ function Format1() {
 />
 </div>
 <div className='d-flex justify-content-center row' style={{boxShadow:"0px 0px 7px gray",opacity:"0.5"}}>
-            <div className='col-11'>
+<div className='col-11'>
                 <div className='header-container-f1 p-3 '>
                     <h2 className='text-dark'> {name}</h2>
                     {base64Img ? <img src={`data:image/jpeg;base64,${base64Img}`} width="100" height="100" />: <img src="https://tse1.mm.bing.net/th?id=OIP.lsaqXiF1qoA0lNGxssv4dQHaFy&pid=Api&P=0&h=180" width="100" height="100" />}
@@ -291,8 +295,8 @@ function Format1() {
                 </div>
                 <div className='description-container'>
                     <div style={{color:"gray"}}>
-                        {/* {console.log(summaryData,"summaryData")} */}
-                        Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+                   {summaryData !="" ? summaryData:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
+                       
                     </div>
                 </div>
                 <div className='education row mt-3'>
@@ -410,7 +414,10 @@ function Format1() {
                     </div>
                 </div>: " "}
                 
-
+                <div className='m-5'>
+                   {declarationData !="" ? declarationData:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
+                       
+                </div>
 
             </div>
         </div>
@@ -429,8 +436,8 @@ function Format1() {
                 </div>
                 <div className='description-container'>
                     <div style={{color:"gray"}}>
-                        {/* {console.log(summaryData,"summaryData")} */}
-                        Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+                   {summaryData !="" ? summaryData:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
+                       
                     </div>
                 </div>
                 <div className='education row mt-3'>
@@ -548,7 +555,10 @@ function Format1() {
                     </div>
                 </div>: " "}
                 
-
+                <div className='m-5'>
+                   {declarationData !="" ? declarationData:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
+                       
+                </div>
 
             </div>
         </div>}

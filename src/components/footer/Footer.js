@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../../assests/img/core-img/logo.png"
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -28,13 +29,13 @@ function Footer() {
                 </div>
             </div>
 
-            <div class="col-12 col-lg-3 col-md-6">
-                <div class="contact_info_area d-sm-flex justify-content-between">
+            <div class="col-12 col-lg-4 col-md-6">
+                <div class="contact_info_area d-sm-flex justify-content-center">
                     <div class="contact_info mt-x text-center fadeInUp" data-wow-delay="0.3s">
                         <h5>PRIVACY & TOS</h5>
                         <a href=""><p>Advertiser Agreement</p></a>
                         <a href=""><p>Acceptable Use Policy</p></a>
-                        <a href=""><p>Privacy Policy</p></a>
+                        <Link to="/privacy"><p>Privacy Policy</p></Link>
                         <a href=""><p>Technology Privacy</p></a>
                         <a href=""><p>Developer Agreement</p></a>
                     </div>
@@ -55,8 +56,8 @@ function Footer() {
             </div> */}
             
 
-            <div class="col-12 col-lg-3 col-md-6 ">
-                <div class="contact_info_area d-sm-flex justify-content-between">
+            <div class="col-12 col-lg-4 col-md-6 ">
+                <div class="contact_info_area d-sm-flex justify-content-center">
                     <div class="contact_info mt-s text-center fadeInUp" data-wow-delay="0.4s">
                         <h5>CONTACT US</h5>
                         <p>Mailing Address:xx00 E. Union Ave</p>

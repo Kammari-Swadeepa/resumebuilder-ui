@@ -318,7 +318,7 @@ function MyDetails() {
             //     position: 'top'
             // });
 
-            toast.error(saveuserinfo.message, {
+            toast.error("Failed to update", {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,

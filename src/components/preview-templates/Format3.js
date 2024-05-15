@@ -24,7 +24,7 @@ function Format3() {
     const [imageshow, setImageShow] = useState(null);
     const [filefields, setFileFields] = useState(null);
     const [base64Img, setBase64Img] = useState("");
-
+    const [declarationData,setDeclarationData] =useState("")
 
 
     const [selected, setSelected] = useState(undefined);
@@ -57,6 +57,7 @@ function Format3() {
 
         if (userdata != null) {
             setUserData(userdata)
+            setData(userdata)
             // console.log(userdata);
             const reqparam5 = {
                 pageno: '-1',
@@ -112,13 +113,14 @@ function Format3() {
             setEducation(response.data)
             const reqparam = {
                 pageno: '-1',
-                ptype: 'GETUSER',
+                ptype: 'GETABOUT',
                 query: { id: userdata.user.id }
             }
             const resDat = await PostApi(reqparam, 'USERPROJECTS');
             //  console.log("resDat===",resDat);
             if (resDat.data != null) {
                 setSummaryData(resDat.data.about);
+                setDeclarationData(resDat.data.declaration)
             }
             setData(userdata.user);
             if (userdata?.user?.name) {
@@ -292,7 +294,7 @@ function Format3() {
                 </div>
             </div>
             <div className='row header-container bg-light p-2' style={{ textIndent: "30px", fontSize: "15px" }}>
-                Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+              {summaryData !="" ? summaryData : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
             </div>
             <div className='container-h5'>
                 <h5 style={{ marginBottom: "-8px" }}>Education</h5>
@@ -416,6 +418,18 @@ function Format3() {
 
                 </div>
             </div>
+            {declarationData !=""  ?  <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>Declaration</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                 
+                               <li style={{margin:"3px 15px"}}><b><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span></b>  {declarationData} </li>
+                           
+                    </ul>
+                   
+
+                </div>
+            </div>:""}
         </div>
         </div>:  <div style={{ backgroundColor: " rgba(72,61,139,0.2)", padding: "5px",boxShadow:"0px 0px 7px gray" }}>
             <div className='row header-container bg-light' >
@@ -429,7 +443,7 @@ function Format3() {
                 </div>
             </div>
             <div className='row header-container bg-light p-2' style={{ textIndent: "30px", fontSize: "15px" }}>
-                Logical and organised individual with a strong foundation in software engineering. Proficient in C++, C#, PHP and Java. Seeking to raise coding KPIs by providing error-free codes. Ability to translate business requirements into innovative software solutions. Excellent teamwork, interpersonal and communication skills. Looking to start a career as an entry-level professional with a reputed IT company.
+              {summaryData !="" ? summaryData : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
             </div>
             <div className='container-h5'>
                 <h5 style={{ marginBottom: "-8px" }}>Education</h5>
@@ -473,10 +487,10 @@ function Format3() {
                             )
                         }): 
                        <>
-                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 1</li>
-                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 2</li>
-                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 3</li>
-                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span>skill 4</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",margin:"3px 15px"}}></span>skill 1</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",margin:"3px 15px"}}></span>skill 2</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",margin:"3px 15px"}}></span>skill 3</li>
+                        <li><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",margin:"3px 15px"}}></span>skill 4</li>
                        </>
                     }
                     </ul>
@@ -536,7 +550,7 @@ function Format3() {
 
                 </div>
             </div>
-            <div className='container-h5 mt-4'>
+           {references.length >0 ?  <div className='container-h5 mt-4'>
                 <h5 style={{ marginBottom: "-8px" }}>References</h5>
                 <div className='header-container1  bg-light' >
                     <ul>
@@ -552,7 +566,20 @@ function Format3() {
                    
 
                 </div>
-            </div>
+            </div>:""}
+
+            {declarationData !=""  ?  <div className='container-h5 mt-4'>
+                <h5 style={{ marginBottom: "-8px" }}>Declaration</h5>
+                <div className='header-container1  bg-light' >
+                    <ul>
+                 
+                               <li style={{margin:"3px 15px"}}><b><span style={{display:"inline-block", width:"8px", height:"8px", borderRadius:'50%',backgroundColor:"black",marginRight:"3px"}}></span></b>  {declarationData} </li>
+                           
+                    </ul>
+                   
+
+                </div>
+            </div>:""}
         </div>}
         </>
       

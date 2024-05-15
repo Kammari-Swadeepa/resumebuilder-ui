@@ -1,28 +1,41 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
-
+import banner from "../banner/images/banner-new-4.jpg"
 function Contactus() {
+    const [pageLoad,setPageLoad]=useState(false)
     useEffect(()=>{
         window.scroll(0,0)
+        handlePageLoad()
     },[])
+    const handlePageLoad =()=>{
+        setPageLoad(true)
+        setTimeout(() => {
+            setPageLoad(false)
+        }, 400);
+    }
   return (
     <>
+       
     <Header/>
-
+    {pageLoad ?  <div id="preloader">
+        <div class="preload-content">
+            <div id="dream-load"></div>
+        </div>
+    </div>:""}
     <div class="breadcumb-area clearfix">
         
         <div class="breadcumb-content">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <nav aria-label="breadcrumb" class="breadcumb--con text-center">
+            <div class=" h-100">
+                <div class="row h-100 ">
+                    <div class="col-12" style={{background: `url(${banner}) no-repeat center`}}>
+                        {/* <nav aria-label="breadcrumb" class="breadcumb--con text-center">
                             <h2 class="w-text title wow fadeInUp" data-wow-delay="0.2s">Contact Us</h2>
                             <ol class="breadcrumb justify-content-center wow fadeInUp" data-wow-delay="0.4s">
                             <li class="breadcrumb-item">Home</li>
                                 <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
                             </ol>
-                        </nav>
+                        </nav> */}
                     </div>
                 </div>
             </div>

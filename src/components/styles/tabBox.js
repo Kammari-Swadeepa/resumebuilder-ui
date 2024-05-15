@@ -11,7 +11,14 @@ export const Styles = styled.div`
             @media(max-width: 767px) {
                 display:none;
             }
+        
 
+        }
+        .generateButtoninTab{
+            display:none;
+            @media(max-width: 767px) {
+                display:block;
+            }
         }
         .nav {
             background-color: #ffffff;

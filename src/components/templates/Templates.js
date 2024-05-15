@@ -9,11 +9,12 @@ import Footer from '../footer/Footer'
 import { Link, useNavigate } from 'react-router-dom'
 import { PostApi } from '../../services/commonServices'
 import { toast } from 'react-toastify'
-
+import banner from "../banner/images/banner-new-3.jpg"
 function Templates() {
-
+    const [pageLoad,setPageLoad]=useState(false)
     useEffect(() => {
         window.scroll(0, 0)
+        handlePageLoad()
     }, [])
 
     const [resumeFormatData, setResumeFormatData] = useState([])
@@ -49,12 +50,12 @@ function Templates() {
         }
     };
 
-    const EditTemplate = () => {
+    const EditTemplate = (ele) => {
         var tntId = JSON.parse(localStorage.getItem('tID'))
 
         const userdata = JSON.parse(localStorage.getItem(`userdata${tntId}`))
         if (userdata != null) {
-        navigate('/tabbox')
+        navigate('/tabbox',{ state: ele.resumetype })
         } else {
             toast.error("Please Login to Proceed", {
                 position: "top-right",
@@ -64,7 +65,12 @@ function Templates() {
         }
 
     }
-
+    const handlePageLoad =()=>{
+        setPageLoad(true)
+        setTimeout(() => {
+            setPageLoad(false)
+        }, 400);
+    }
 
     const createResume = async (resumeType) => {
         let action = '';
@@ -121,21 +127,25 @@ function Templates() {
 
     return (
         <>
-
+   {pageLoad ?  <div id="preloader">
+        <div class="preload-content">
+            <div id="dream-load"></div>
+        </div>
+    </div>:""}
             <Header />
 
             <div class="breadcumb-area clearfix">
                 <div class="breadcumb-content">
-                    <div class="container h-100">
-                        <div class="row h-100 align-items-center">
-                            <div class="col-12">
-                                <nav aria-label="breadcrumb" class="breadcumb--con text-center">
+                    <div class=" h-100">
+                        <div class="row h-100 ">
+                            <div class="col-12" style={{background: `url(${banner}) no-repeat center`}} >
+                                {/* <nav aria-label="breadcrumb" class="breadcumb--con text-center">
                                     <h2 class="w-text title wow fadeInUp" data-wow-delay="0.2s">Our Templates</h2>
                                     <ol class="breadcrumb justify-content-center wow fadeInUp" data-wow-delay="0.4s">
                                         <li class="breadcrumb-item">Home</li>
                                         <li class="breadcrumb-item active" aria-current="page">Our Templates</li>
                                     </ol>
-                                </nav>
+                                </nav> */}
                             </div>
                         </div>
                     </div>
@@ -164,7 +174,7 @@ function Templates() {
                                             <button class="preview-demo" onClick={() => SeeTemplate(ele)}>
                                                 See template<i class="fa fa-long-arrow-right"></i>
                                             </button>
-                                            <button class="preview-demo v2" onClick={EditTemplate}>Use template  <i class="fa fa-long-arrow-right"></i></button>
+                                            <button class="preview-demo v2" onClick={()=>EditTemplate(ele)}>Use template  <i class="fa fa-long-arrow-right"></i></button>
 
                                         </div>
                                     </div>

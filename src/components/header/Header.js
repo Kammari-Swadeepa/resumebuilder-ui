@@ -36,6 +36,7 @@ function Header() {
 
     }
   }, [])
+ 
   const LoginFnc = async () => {
     setLoginModal(true)
     setSignupModal(false)
@@ -73,6 +74,7 @@ function Header() {
   }
   return (
     <>
+    
       {/* {console.log(user, "check user info")} */}
   
       <div className={istToggle?"navbar-mobile-view":"navbar-mobile-hide"}>

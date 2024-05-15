@@ -5,13 +5,13 @@ import { Container, Modal } from 'react-bootstrap';
 import { FaAnglesRight } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
 import { PostApi } from '../../services/commonServices';
-import Summary from './Summary';
+import Declarations from './Declarations';
 
 
 
 
 
-function AddAboutMe() {
+function AddDeclaration() {
   const [description, setDescription] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [summaryData, setSummaryData] = useState([]);
@@ -40,7 +40,7 @@ function AddAboutMe() {
       const resDat = await PostApi(reqparam, 'USERPROJECTS');
       // console.log("resDat===", resDat);
       if (resDat.data != null) {
-        setSummaryData(resDat.data.about);
+        setSummaryData(resDat.data.declaration);
       }
     }
   }
@@ -62,9 +62,9 @@ function AddAboutMe() {
       }
 
       const getuserinfo = await PostApi(req, 'GETUSEEDUCATION');
-      console.log("getuserinfo", getuserinfo.data.about);
-      setSummaryData(getuserinfo?.data?.about)
-      setAboutData(getuserinfo?.data?.about)
+      console.log("getuserinfo", getuserinfo.data.declaration);
+      setSummaryData(getuserinfo?.data?.declaration)
+      setAboutData(getuserinfo?.data?.declaration)
 
 
     }
@@ -91,9 +91,9 @@ function AddAboutMe() {
       } else {
 
         const req = {
-          about: summaryData,
+          declaration: summaryData,
           id: userdata.user.id,
-          ptype: 'UPDATEABOUT',
+          ptype: 'UPDATEDECLARATION',
 
         }
         const saveuserinfo = await PostApi(req, 'SAVEUSERINFO');
@@ -124,7 +124,7 @@ function AddAboutMe() {
     var data = e.target.value
     if (e.target.checked) {
 
-        setSummaryData(data)
+      setSummaryData(data)
 
       // if (summaryData.length < 0) {
       //   setSummaryData(data)
@@ -137,7 +137,7 @@ function AddAboutMe() {
 
     }
     else {
-      // setSummaryData(summaryData.filter((item) => item != e.target.value))
+      setSummaryData(summaryData.filter((item) => item != e.target.value))
     }
   }
   // e.target.checked?setSummaryData(e.target.value):setSummaryData('')
@@ -155,7 +155,7 @@ function AddAboutMe() {
         }}>
           <span style={{ color: '#D2D2D2', fontSize: '17px' }} >
             <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => { setToggle(true) }}>
-              Summary<FaAnglesRight size={15} color="white" />
+              Declaration<FaAnglesRight size={15} color="white" />
             </button>
           </span>
         </div>
@@ -247,7 +247,7 @@ function AddAboutMe() {
 
 
 
-        {toggle && <Summary fetchData={fetchData} ></Summary>}
+        {toggle && <Declarations fetchData={fetchData} ></Declarations>}
       </Container>
 
       <Modal size="lg" show={toggle} >
@@ -255,7 +255,7 @@ function AddAboutMe() {
           <div className="">
             <form >
               <div className="modal-header  border-none" style={{ position: "relative" }}>
-                <h5 style={{ marginLeft: "15px" }}>Summary</h5>
+                <h5 style={{ marginLeft: "15px" }}>Declaration</h5>
                 <RxCross1 style={{ fontSize: "26px", position: "absolute", right: "10px" }} onClick={() => setToggle(false)} />
 
               </div>
@@ -292,4 +292,4 @@ function AddAboutMe() {
   )
 }
 
-export default AddAboutMe
+export default AddDeclaration
