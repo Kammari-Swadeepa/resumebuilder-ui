@@ -250,6 +250,7 @@ function Format6() {
                 userid: userdata.id
             }
             const reqRespnse = await PostApi(ReqData, "GENERATERESUME7");
+            // const reqRespnse = await PostApi(ReqData, "GENERATERESUME8");
             if (reqRespnse.status === 'success') {
              
                 toast.success("Resume has been generated and mailed to your email id", {

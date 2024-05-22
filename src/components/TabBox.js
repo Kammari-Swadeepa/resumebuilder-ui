@@ -23,6 +23,7 @@ import Format3 from './preview-templates/Format3.js';
 import Format2 from './preview-templates/Format2.js';
 import Format1 from './preview-templates/Format1.js';
 import Format4 from './preview-templates/Format4.js';
+import Fromat7 from './preview-templates/Fromat7.jsx';
 import AddDeclaration from './profile/AddDeclaration.js';
 import { useLocation } from 'react-router-dom';
 
@@ -215,8 +216,9 @@ const handleOpenPopUp = ()=>{
                             <Row>
                                 <Col lg="6" md="12" className='resume-mobile-view' style={{marginLeft:'30px'}}>
                                     
-                                   {renderTemplate()}
-                                   {/* <Format6/> */}
+                                   {/* {renderTemplate()} */}
+                                   {/* <Fromat7 /> */}
+                                   {<Format4 />}
                                 </Col>
                                 
 
